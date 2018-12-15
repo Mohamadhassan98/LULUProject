@@ -26,7 +26,7 @@ PROTECTED : 'protected';
 PUBLIC : 'public';
 READ : 'read';
 RETURN : 'return';
-STRING : 'string';
+STRING : 'StringType';
 SUPER : 'super';
 SWITCH : 'switch';
 THIS : 'this';

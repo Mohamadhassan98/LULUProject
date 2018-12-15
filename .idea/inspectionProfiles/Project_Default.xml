@@ -38,7 +38,6 @@
     <inspection_tool class="AndroidLintUnsupportedChromeOsHardware" enabled="true" level="ERROR" enabled_by_default="true" />
     <inspection_tool class="AndroidLintUnusedIds" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AndroidLintWrongThreadInterprocedural" enabled="true" level="ERROR" enabled_by_default="true" />
-    <inspection_tool class="Annotation" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AnnotationClass" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AnonymousClassComplexity" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="m_limit" value="3" />
@@ -233,7 +232,6 @@
     <inspection_tool class="ConstantMathCall" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ConstantOnLHSOfComparison" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ConstantOnLHSOfComparisonJS" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="ConstantOnRHSOfComparison" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ConstantOnRHSOfComparisonJS" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ConstantTestNGAssertArgument" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ConstantValueVariableUse" enabled="true" level="WARNING" enabled_by_default="true" />
@@ -1052,7 +1050,6 @@
     <inspection_tool class="SuspiciousIndentAfterControlStatement" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="SuspiciousLiteralUnderscore" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="SuspiciousLocalesLanguages" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="SwitchStatement" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="SwitchStatementDensity" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="m_limit" value="20" />
     </inspection_tool>

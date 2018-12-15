@@ -2,7 +2,7 @@ public class Sample
 {
     public static void main(String[] args)
     {
-
+        new Sample();
     }
 
     public boolean isBool()
@@ -27,8 +27,5 @@ public class Sample
     }
 
     int rrr;
-    void rrr()
-    {
-
-    }
+    UserDefinedType myType = new UserDefinedType("s", 21);
 }

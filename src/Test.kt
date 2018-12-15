@@ -1,18 +1,11 @@
+import org.antlr.v4.runtime.tree.ParseTreeProperty
+
 fun main(args: Array<String>)
 {
-    var a =4 ;
-    var b =5 ;
-    var c =false  ;
-    if (a==b==c)
-    {
-        print(3*+2+4);
-    }
+    var scope = 12
 }
 
-fun f2(d: Int)
+class DefFolan() : Lulu2BaseListener()
 {
-    var a=3*-2+3 ;
-    var args = arrayOf("jdckH")
-    //main(args)
-    TODO()
+//    val scope = ParseTreeProperty<Scope>
 }

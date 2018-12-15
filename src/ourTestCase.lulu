@@ -10,7 +10,7 @@ declare
     aaaa a;
     float x1736980___= 19.000000;
     jshu2344 ;
-    (float, int) = aaa(int a, bool f, string s);
+    (float, int) = aaa(int a, bool f, StringType s);
 }
 %~hgdfuiyuodp[kpOJHGFAUIGUOHIPJOS
 SDJFPIUGIOQPIO[KL
@@ -67,4 +67,4 @@ function f2 ()
     c= -a*-4+6%(-3*-2);
     return ;
 }
-%%amirreza djo[ujvo int a ; string ="hf9uy9i" ; \n \a\    t jdg8 \t
+%%amirreza djo[ujvo int a ; StringType ="hf9uy9i" ; \n \a\    t jdg8 \t
