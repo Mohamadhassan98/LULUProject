@@ -27,7 +27,7 @@ PROTECTED : 'protected';
 PUBLIC : 'public';
 READ : 'read';
 RETURN : 'return';
-STRING : 'StringType';
+STRING : 'string';
 SUPER : 'super';
 SWITCH : 'switch';
 THIS : 'this';
@@ -102,47 +102,52 @@ accessModifier : PRIVATE | PUBLIC | PROTECTED;
 funcDef : (OpenPar argsVar ClosePar ASSIGN)? FUNCTION ID OpenPar argsVar? ClosePar block;
 block : OpenCurlyBrace (varDef | stmt)* CloseCurlyBrace;
 stmt
-        : assign SEMICOLON
-       | funcCall SEMICOLON
-       | condStmt
-       | loopStmt
-       | RETURN SEMICOLON
-       | BREAK SEMICOLON
-       | CONTINUE SEMICOLON
-       | DESTRUCT (OpenBrace CloseBrace)* ID SEMICOLON
+        : assign SEMICOLON                                                          #ASSIGNAlt
+       | funcCall SEMICOLON                                                       #FUNCCALLSTMTAlt
+       | condStmt                                                                         #CONDSTMTAlt
+       | loopStmt                                                                          #LOOPSTMTAlt
+       | RETURN SEMICOLON                                                       #RETURNAlt
+       | BREAK SEMICOLON                                                          #BREAKAlt
+       | CONTINUE SEMICOLON                                                   #CONTINUEAlt
+       | DESTRUCT (OpenBrace CloseBrace)* ID SEMICOLON    #DESTRUCTAlt
        ;
 assign : (var | OpenPar var (COMMA var)* ClosePar) ASSIGN expr;
 var : ((THIS | SUPER)DOT)?ref (DOT ref)*;
 ref : ID (OpenBrace expr CloseBrace)*;
 expr
-       : OpenPar expr ClosePar
-       | unaryOp expr
-       | expr firstLevelBinaryArithmeticOp expr
-       | expr secondLevelBinaryArithmeticOp expr
-       | expr firstLevelBinaryRelationalOp expr
-       | expr secondLevelBinaryRelationalOp expr
-       | expr BitwiseAnd expr
-       | expr BitwiseLogicalXor expr
-       | expr BitwiseOr expr
-       | expr LogicalAnd expr
-       | expr LogicalOr expr
-       | constVal
-       | ALLOCATE handleCall
-       | funcCall
-       | var
-       | list
-       | NIL
+       : OpenPar expr ClosePar                                      #PAREXPRAlt
+       | unaryOp expr                                                     #UNARYOPAlt
+       | expr firstLevelBinaryArithmeticOp expr           #MULDIVAlt
+       | expr secondLevelBinaryArithmeticOp expr      #ADDSUBAlt
+       | expr firstLevelBinaryRelationalOp expr            #COMPAREAlt
+       | expr secondLevelBinaryRelationalOp expr       #EQUALITYAlt
+       | expr BitwiseAnd expr                                         #BITWISEANDAlt
+       | expr BitwiseLogicalXor expr                               #BITWISELOGICALXORAlt
+       | expr BitwiseOr expr                                            #BITWISEORAlt
+       | expr LogicalAnd expr                                          #LOGICALANDAlt
+       | expr LogicalOr expr                                             #LOGICALORAlt
+       | constVal                                                               #CONSTVALAlt
+       | ALLOCATE handleCall                                          #ALLOCATIONAlt
+       | funcCall                                                                #FUNCCALLAlt
+       | var                                                                        #VARAlt
+       | list                                                                        #LISTAlt
+       | NIL                                                                        #NILAlt
        ;
-funcCall : (var DOT)? handleCall | READ OpenPar var ClosePar | WRITE OpenPar var ClosePar;
+funcCall
+       : (var DOT)? handleCall                  #METHODCALLAlt
+       | READ OpenPar var ClosePar        #READAlt
+       | WRITE OpenPar var ClosePar      #WRITEAlt
+       ;
 list : OpenBrace (expr | list) (COMMA ( expr | list))* CloseBrace;
 handleCall : ID OpenPar params? ClosePar;
 params : expr | expr COMMA params;
 condStmt
-       : IF expr block (ELSE block)?
-       | SWITCH var OpenCurlyBrace (CASE IntLiteral COLON block)* DEFAULT COLON block CloseCurlyBrace;
+       : IF expr block (ELSE block)?                                                                                                                                #IFAlt
+       | SWITCH var OpenCurlyBrace (CASE IntLiteral COLON block)* DEFAULT COLON block CloseCurlyBrace     #SWITCHAlt
+       ;
 loopStmt
-       : FOR (type? assign)? SEMICOLON expr SEMICOLON assign? block
-       | WHILE expr block
+       : FOR (type? assign)? SEMICOLON expr SEMICOLON assign? block     #FORAlt
+       | WHILE expr block                                                                                #WHILEAlt
        ;
 type : INT | BOOL | FLOAT | STRING | ID;
 constVal : IntLiteral | FloatLiteral | BoolLiteral | StringLiteral;

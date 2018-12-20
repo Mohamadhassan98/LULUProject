@@ -1,12 +1,11 @@
-// Generated from C:/Users/ASC/IdeaProjects/LULUProject/src\Lulu2.g4 by ANTLR 4.7
-import org.antlr.v4.runtime.Lexer;
-import org.antlr.v4.runtime.CharStream;
-import org.antlr.v4.runtime.Token;
-import org.antlr.v4.runtime.TokenStream;
+package LULU;// Generated from C:/Users/Mohamadhassan/IdeaProjects/LULUProject/src\Lulu2.g4 by ANTLR 4.7
+
 import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.atn.*;
+import org.antlr.v4.runtime.atn.ATN;
+import org.antlr.v4.runtime.atn.ATNDeserializer;
+import org.antlr.v4.runtime.atn.LexerATNSimulator;
+import org.antlr.v4.runtime.atn.PredictionContextCache;
 import org.antlr.v4.runtime.dfa.DFA;
-import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class Lulu2Lexer extends Lexer {
@@ -52,14 +51,67 @@ public class Lulu2Lexer extends Lexer {
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, null, null, "'allocate'", "'bool'", "'break'", "'case'", "'const'", 
-		"'continue'", "'declare'", "'default'", "'destruct'", "'else'", "'function'", 
-		"'float'", "'for'", "'if'", "'int'", "'nil'", "'of'", "'private'", "'protected'", 
-		"'public'", "'read'", "'return'", "'StringType'", "'super'", "'switch'", "'this'",
-		"'type'", "'while'", "'write'", "'=='", "'!='", "'<='", "'<'", "'>'", 
-		"'>='", "'~'", "'|'", "'&'", "'^'", "'||'", "'&&'", "'!'", "'-'", "'+'", 
-		"'*'", "'/'", "'%'", "'='", "'{'", "'}'", "'('", "')'", "'['", "']'", 
-		"'.'", "','", "':'", "';'"
+			null,
+			null,
+			null,
+			"'allocate'",
+			"'bool'",
+			"'break'",
+			"'case'",
+			"'const'",
+			"'continue'",
+			"'declare'",
+			"'default'",
+			"'destruct'",
+			"'else'",
+			"'function'",
+			"'float'",
+			"'for'",
+			"'if'",
+			"'int'",
+			"'nil'",
+			"'of'",
+			"'private'",
+			"'protected'",
+			"'public'",
+			"'read'",
+			"'return'",
+			"'string'",
+			"'super'",
+			"'switch'",
+			"'this'",
+			"'type'",
+			"'while'",
+			"'write'",
+			"'=='",
+			"'!='",
+			"'<='",
+			"'<'",
+			"'>'",
+			"'>='",
+			"'~'",
+			"'|'",
+			"'&'",
+			"'^'",
+			"'||'",
+			"'&&'",
+			"'!'",
+			"'-'",
+			"'+'",
+			"'*'",
+			"'/'",
+			"'%'",
+			"'='",
+			"'{'",
+			"'}'",
+			"'('",
+			"')'",
+			"'['",
+			"']'",
+			"'.'",
+			"','",
+			"':'",
+			"';'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
 		null, "SingleLineComment", "MultiLineComment", "ALLOCATE", "BOOL", "BREAK", 
@@ -114,7 +166,10 @@ public class Lulu2Lexer extends Lexer {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "Lulu2.g4"; }
+	public String getGrammarFileName()
+	{
+		return "LULU/Lulu2.g4";
+	}
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }

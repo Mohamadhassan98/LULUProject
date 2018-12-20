@@ -1,12 +1,16 @@
-// Generated from C:/Users/ASC/IdeaProjects/LULUProject/src\Lulu2.g4 by ANTLR 4.7
-import org.antlr.v4.runtime.atn.*;
-import org.antlr.v4.runtime.dfa.DFA;
+package LULU;// Generated from C:/Users/Mohamadhassan/IdeaProjects/LULUProject/src\Lulu2.g4 by ANTLR 4.7
+
 import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.misc.*;
-import org.antlr.v4.runtime.tree.*;
+import org.antlr.v4.runtime.atn.ATN;
+import org.antlr.v4.runtime.atn.ATNDeserializer;
+import org.antlr.v4.runtime.atn.ParserATNSimulator;
+import org.antlr.v4.runtime.atn.PredictionContextCache;
+import org.antlr.v4.runtime.dfa.DFA;
+import org.antlr.v4.runtime.tree.ParseTreeListener;
+import org.antlr.v4.runtime.tree.ParseTreeVisitor;
+import org.antlr.v4.runtime.tree.TerminalNode;
+
 import java.util.List;
-import java.util.Iterator;
-import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class Lulu2Parser extends Parser {
@@ -38,22 +42,102 @@ public class Lulu2Parser extends Parser {
 		RULE_unaryOp = 27, RULE_firstLevelBinaryArithmeticOp = 28, RULE_secondLevelBinaryArithmeticOp = 29, 
 		RULE_firstLevelBinaryRelationalOp = 30, RULE_secondLevelBinaryRelationalOp = 31;
 	public static final String[] ruleNames = {
-		"main", "ftDcl", "funcDcl", "args", "argsVar", "typeDcl", "varDef", "varVal", 
-		"ftDef", "typeDef", "component", "accessModifier", "funcDef", "block", 
-		"stmt", "assign", "var", "ref", "expr", "funcCall", "list", "handleCall", 
-		"params", "condStmt", "loopStmt", "type", "constVal", "unaryOp", "firstLevelBinaryArithmeticOp", 
-		"secondLevelBinaryArithmeticOp", "firstLevelBinaryRelationalOp", "secondLevelBinaryRelationalOp"
+            "LULU.main",
+            "ftDcl",
+            "funcDcl",
+            "args",
+            "argsVar",
+            "typeDcl",
+            "varDef",
+            "varVal",
+            "ftDef",
+            "typeDef",
+            "component",
+            "accessModifier",
+            "funcDef",
+            "block",
+            "stmt",
+            "assign",
+            "var",
+            "ref",
+            "expr",
+            "funcCall",
+            "list",
+            "handleCall",
+            "params",
+            "condStmt",
+            "loopStmt",
+            "type",
+            "constVal",
+            "unaryOp",
+            "firstLevelBinaryArithmeticOp",
+            "secondLevelBinaryArithmeticOp",
+            "firstLevelBinaryRelationalOp",
+            "secondLevelBinaryRelationalOp"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, null, null, "'allocate'", "'bool'", "'break'", "'case'", "'const'", 
-		"'continue'", "'declare'", "'default'", "'destruct'", "'else'", "'function'", 
-		"'float'", "'for'", "'if'", "'int'", "'nil'", "'of'", "'private'", "'protected'", 
-		"'public'", "'read'", "'return'", "'StringType'", "'super'", "'switch'", "'this'",
-		"'type'", "'while'", "'write'", "'=='", "'!='", "'<='", "'<'", "'>'", 
-		"'>='", "'~'", "'|'", "'&'", "'^'", "'||'", "'&&'", "'!'", "'-'", "'+'", 
-		"'*'", "'/'", "'%'", "'='", "'{'", "'}'", "'('", "')'", "'['", "']'", 
-		"'.'", "','", "':'", "';'"
+            null,
+            null,
+            null,
+            "'allocate'",
+            "'bool'",
+            "'break'",
+            "'case'",
+            "'const'",
+            "'continue'",
+            "'declare'",
+            "'default'",
+            "'destruct'",
+            "'else'",
+            "'function'",
+            "'float'",
+            "'for'",
+            "'if'",
+            "'int'",
+            "'nil'",
+            "'of'",
+            "'private'",
+            "'protected'",
+            "'public'",
+            "'read'",
+            "'return'",
+            "'string'",
+            "'super'",
+            "'switch'",
+            "'this'",
+            "'type'",
+            "'while'",
+            "'write'",
+            "'=='",
+            "'!='",
+            "'<='",
+            "'<'",
+            "'>'",
+            "'>='",
+            "'~'",
+            "'|'",
+            "'&'",
+            "'^'",
+            "'||'",
+            "'&&'",
+            "'!'",
+            "'-'",
+            "'+'",
+            "'*'",
+            "'/'",
+            "'%'",
+            "'='",
+            "'{'",
+            "'}'",
+            "'('",
+            "')'",
+            "'['",
+            "']'",
+            "'.'",
+            "','",
+            "':'",
+            "';'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
 		null, "SingleLineComment", "MultiLineComment", "ALLOCATE", "BOOL", "BREAK", 
@@ -102,7 +186,10 @@ public class Lulu2Parser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "Lulu2.g4"; }
+    public String getGrammarFileName()
+    {
+        return "LULU/Lulu2.g4";
+    }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -1311,52 +1398,6 @@ public class Lulu2Parser extends Parser {
 		return _localctx;
 	}
 
-	public static class StmtContext extends ParserRuleContext {
-		public AssignContext assign() {
-			return getRuleContext(AssignContext.class,0);
-		}
-		public TerminalNode SEMICOLON() { return getToken(Lulu2Parser.SEMICOLON, 0); }
-		public FuncCallContext funcCall() {
-			return getRuleContext(FuncCallContext.class,0);
-		}
-		public CondStmtContext condStmt() {
-			return getRuleContext(CondStmtContext.class,0);
-		}
-		public LoopStmtContext loopStmt() {
-			return getRuleContext(LoopStmtContext.class,0);
-		}
-		public TerminalNode RETURN() { return getToken(Lulu2Parser.RETURN, 0); }
-		public TerminalNode BREAK() { return getToken(Lulu2Parser.BREAK, 0); }
-		public TerminalNode CONTINUE() { return getToken(Lulu2Parser.CONTINUE, 0); }
-		public TerminalNode DESTRUCT() { return getToken(Lulu2Parser.DESTRUCT, 0); }
-		public TerminalNode ID() { return getToken(Lulu2Parser.ID, 0); }
-		public List<TerminalNode> OpenBrace() { return getTokens(Lulu2Parser.OpenBrace); }
-		public TerminalNode OpenBrace(int i) {
-			return getToken(Lulu2Parser.OpenBrace, i);
-		}
-		public List<TerminalNode> CloseBrace() { return getTokens(Lulu2Parser.CloseBrace); }
-		public TerminalNode CloseBrace(int i) {
-			return getToken(Lulu2Parser.CloseBrace, i);
-		}
-		public StmtContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_stmt; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Lulu2Listener ) ((Lulu2Listener)listener).enterStmt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Lulu2Listener ) ((Lulu2Listener)listener).exitStmt(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Lulu2Visitor ) return ((Lulu2Visitor<? extends T>)visitor).visitStmt(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
 	public final StmtContext stmt() throws RecognitionException {
 		StmtContext _localctx = new StmtContext(_ctx, getState());
 		enterRule(_localctx, 28, RULE_stmt);
@@ -1366,6 +1407,7 @@ public class Lulu2Parser extends Parser {
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,25,_ctx) ) {
 			case 1:
+                _localctx = new ASSIGNAltContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(228);
@@ -1375,6 +1417,7 @@ public class Lulu2Parser extends Parser {
 				}
 				break;
 			case 2:
+                _localctx = new FUNCCALLSTMTAltContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(231);
@@ -1384,6 +1427,7 @@ public class Lulu2Parser extends Parser {
 				}
 				break;
 			case 3:
+                _localctx = new CONDSTMTAltContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(234);
@@ -1391,6 +1435,7 @@ public class Lulu2Parser extends Parser {
 				}
 				break;
 			case 4:
+                _localctx = new LOOPSTMTAltContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
 				setState(235);
@@ -1398,6 +1443,7 @@ public class Lulu2Parser extends Parser {
 				}
 				break;
 			case 5:
+                _localctx = new RETURNAltContext(_localctx);
 				enterOuterAlt(_localctx, 5);
 				{
 				setState(236);
@@ -1407,6 +1453,7 @@ public class Lulu2Parser extends Parser {
 				}
 				break;
 			case 6:
+                _localctx = new BREAKAltContext(_localctx);
 				enterOuterAlt(_localctx, 6);
 				{
 				setState(238);
@@ -1416,6 +1463,7 @@ public class Lulu2Parser extends Parser {
 				}
 				break;
 			case 7:
+                _localctx = new CONTINUEAltContext(_localctx);
 				enterOuterAlt(_localctx, 7);
 				{
 				setState(240);
@@ -1425,6 +1473,7 @@ public class Lulu2Parser extends Parser {
 				}
 				break;
 			case 8:
+                _localctx = new DESTRUCTAltContext(_localctx);
 				enterOuterAlt(_localctx, 8);
 				{
 				setState(242);
@@ -1463,6 +1512,750 @@ public class Lulu2Parser extends Parser {
 		}
 		return _localctx;
 	}
+
+    private ExprContext expr(int _p) throws RecognitionException
+    {
+        ParserRuleContext _parentctx = _ctx;
+        int _parentState = getState();
+        ExprContext _localctx = new ExprContext(_ctx, _parentState);
+        ExprContext _prevctx = _localctx;
+        int _startState = 36;
+        enterRecursionRule(_localctx, 36, RULE_expr, _p);
+        try
+        {
+            int _alt;
+            enterOuterAlt(_localctx, 1);
+            {
+                setState(308);
+                _errHandler.sync(this);
+                switch (getInterpreter().adaptivePredict(_input, 31, _ctx))
+                {
+                    case 1:
+                    {
+                        _localctx = new PAREXPRAltContext(_localctx);
+                        _ctx = _localctx;
+                        _prevctx = _localctx;
+
+                        setState(294);
+                        match(OpenPar);
+                        setState(295);
+                        expr(0);
+                        setState(296);
+                        match(ClosePar);
+                    }
+                    break;
+                    case 2:
+                    {
+                        _localctx = new UNARYOPAltContext(_localctx);
+                        _ctx = _localctx;
+                        _prevctx = _localctx;
+                        setState(298);
+                        unaryOp();
+                        setState(299);
+                        expr(16);
+                    }
+                    break;
+                    case 3:
+                    {
+                        _localctx = new CONSTVALAltContext(_localctx);
+                        _ctx = _localctx;
+                        _prevctx = _localctx;
+                        setState(301);
+                        constVal();
+                    }
+                    break;
+                    case 4:
+                    {
+                        _localctx = new ALLOCATIONAltContext(_localctx);
+                        _ctx = _localctx;
+                        _prevctx = _localctx;
+                        setState(302);
+                        match(ALLOCATE);
+                        setState(303);
+                        handleCall();
+                    }
+                    break;
+                    case 5:
+                    {
+                        _localctx = new FUNCCALLAltContext(_localctx);
+                        _ctx = _localctx;
+                        _prevctx = _localctx;
+                        setState(304);
+                        funcCall();
+                    }
+                    break;
+                    case 6:
+                    {
+                        _localctx = new VARAltContext(_localctx);
+                        _ctx = _localctx;
+                        _prevctx = _localctx;
+                        setState(305);
+                        var();
+                    }
+                    break;
+                    case 7:
+                    {
+                        _localctx = new LISTAltContext(_localctx);
+                        _ctx = _localctx;
+                        _prevctx = _localctx;
+                        setState(306);
+                        list();
+                    }
+                    break;
+                    case 8:
+                    {
+                        _localctx = new NILAltContext(_localctx);
+                        _ctx = _localctx;
+                        _prevctx = _localctx;
+                        setState(307);
+                        match(NIL);
+                    }
+                    break;
+                }
+                _ctx.stop = _input.LT(-1);
+                setState(343);
+                _errHandler.sync(this);
+                _alt = getInterpreter().adaptivePredict(_input, 33, _ctx);
+                while (_alt != 2 && _alt != org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER)
+                {
+                    if (_alt == 1)
+                    {
+                        if (_parseListeners != null)
+                        {
+                            triggerExitRuleEvent();
+                        }
+                        _prevctx = _localctx;
+                        {
+                            setState(341);
+                            _errHandler.sync(this);
+                            switch (getInterpreter().adaptivePredict(_input, 32, _ctx))
+                            {
+                                case 1:
+                                {
+                                    _localctx = new MULDIVAltContext(new ExprContext(_parentctx, _parentState));
+                                    pushNewRecursionContext(_localctx, _startState, RULE_expr);
+                                    setState(310);
+                                    if (!(precpred(_ctx, 15)))
+                                    {
+                                        throw new FailedPredicateException(this, "precpred(_ctx, 15)");
+                                    }
+                                    setState(311);
+                                    firstLevelBinaryArithmeticOp();
+                                    setState(312);
+                                    expr(16);
+                                }
+                                break;
+                                case 2:
+                                {
+                                    _localctx = new ADDSUBAltContext(new ExprContext(_parentctx, _parentState));
+                                    pushNewRecursionContext(_localctx, _startState, RULE_expr);
+                                    setState(314);
+                                    if (!(precpred(_ctx, 14)))
+                                    {
+                                        throw new FailedPredicateException(this, "precpred(_ctx, 14)");
+                                    }
+                                    setState(315);
+                                    secondLevelBinaryArithmeticOp();
+                                    setState(316);
+                                    expr(15);
+                                }
+                                break;
+                                case 3:
+                                {
+                                    _localctx = new COMPAREAltContext(new ExprContext(_parentctx, _parentState));
+                                    pushNewRecursionContext(_localctx, _startState, RULE_expr);
+                                    setState(318);
+                                    if (!(precpred(_ctx, 13)))
+                                    {
+                                        throw new FailedPredicateException(this, "precpred(_ctx, 13)");
+                                    }
+                                    setState(319);
+                                    firstLevelBinaryRelationalOp();
+                                    setState(320);
+                                    expr(14);
+                                }
+                                break;
+                                case 4:
+                                {
+                                    _localctx = new EQUALITYAltContext(new ExprContext(_parentctx, _parentState));
+                                    pushNewRecursionContext(_localctx, _startState, RULE_expr);
+                                    setState(322);
+                                    if (!(precpred(_ctx, 12)))
+                                    {
+                                        throw new FailedPredicateException(this, "precpred(_ctx, 12)");
+                                    }
+                                    setState(323);
+                                    secondLevelBinaryRelationalOp();
+                                    setState(324);
+                                    expr(13);
+                                }
+                                break;
+                                case 5:
+                                {
+                                    _localctx = new BITWISEANDAltContext(new ExprContext(_parentctx, _parentState));
+                                    pushNewRecursionContext(_localctx, _startState, RULE_expr);
+                                    setState(326);
+                                    if (!(precpred(_ctx, 11)))
+                                    {
+                                        throw new FailedPredicateException(this, "precpred(_ctx, 11)");
+                                    }
+                                    setState(327);
+                                    match(BitwiseAnd);
+                                    setState(328);
+                                    expr(12);
+                                }
+                                break;
+                                case 6:
+                                {
+                                    _localctx = new BITWISELOGICALXORAltContext(new ExprContext(_parentctx, _parentState));
+                                    pushNewRecursionContext(_localctx, _startState, RULE_expr);
+                                    setState(329);
+                                    if (!(precpred(_ctx, 10)))
+                                    {
+                                        throw new FailedPredicateException(this, "precpred(_ctx, 10)");
+                                    }
+                                    setState(330);
+                                    match(BitwiseLogicalXor);
+                                    setState(331);
+                                    expr(11);
+                                }
+                                break;
+                                case 7:
+                                {
+                                    _localctx = new BITWISEORAltContext(new ExprContext(_parentctx, _parentState));
+                                    pushNewRecursionContext(_localctx, _startState, RULE_expr);
+                                    setState(332);
+                                    if (!(precpred(_ctx, 9)))
+                                    {
+                                        throw new FailedPredicateException(this, "precpred(_ctx, 9)");
+                                    }
+                                    setState(333);
+                                    match(BitwiseOr);
+                                    setState(334);
+                                    expr(10);
+                                }
+                                break;
+                                case 8:
+                                {
+                                    _localctx = new LOGICALANDAltContext(new ExprContext(_parentctx, _parentState));
+                                    pushNewRecursionContext(_localctx, _startState, RULE_expr);
+                                    setState(335);
+                                    if (!(precpred(_ctx, 8)))
+                                    {
+                                        throw new FailedPredicateException(this, "precpred(_ctx, 8)");
+                                    }
+                                    setState(336);
+                                    match(LogicalAnd);
+                                    setState(337);
+                                    expr(9);
+                                }
+                                break;
+                                case 9:
+                                {
+                                    _localctx = new LOGICALORAltContext(new ExprContext(_parentctx, _parentState));
+                                    pushNewRecursionContext(_localctx, _startState, RULE_expr);
+                                    setState(338);
+                                    if (!(precpred(_ctx, 7)))
+                                    {
+                                        throw new FailedPredicateException(this, "precpred(_ctx, 7)");
+                                    }
+                                    setState(339);
+                                    match(LogicalOr);
+                                    setState(340);
+                                    expr(8);
+                                }
+                                break;
+                            }
+                        }
+                    }
+                    setState(345);
+                    _errHandler.sync(this);
+                    _alt = getInterpreter().adaptivePredict(_input, 33, _ctx);
+                }
+            }
+        }
+        catch (RecognitionException re)
+        {
+            _localctx.exception = re;
+            _errHandler.reportError(this, re);
+            _errHandler.recover(this, re);
+        }
+        finally
+        {
+            unrollRecursionContexts(_parentctx);
+        }
+        return _localctx;
+    }
+
+    public final FuncCallContext funcCall() throws RecognitionException
+    {
+        FuncCallContext _localctx = new FuncCallContext(_ctx, getState());
+        enterRule(_localctx, 38, RULE_funcCall);
+        try
+        {
+            setState(362);
+            _errHandler.sync(this);
+            switch (_input.LA(1))
+            {
+                case SUPER:
+                case THIS:
+                case ID:
+                    _localctx = new METHODCALLAltContext(_localctx);
+                    enterOuterAlt(_localctx, 1);
+                {
+                    setState(349);
+                    _errHandler.sync(this);
+                    switch (getInterpreter().adaptivePredict(_input, 34, _ctx))
+                    {
+                        case 1:
+                        {
+                            setState(346);
+                            var();
+                            setState(347);
+                            match(DOT);
+                        }
+                        break;
+                    }
+                    setState(351);
+                    handleCall();
+                }
+                break;
+                case READ:
+                    _localctx = new READAltContext(_localctx);
+                    enterOuterAlt(_localctx, 2);
+                {
+                    setState(352);
+                    match(READ);
+                    setState(353);
+                    match(OpenPar);
+                    setState(354);
+                    var();
+                    setState(355);
+                    match(ClosePar);
+                }
+                break;
+                case WRITE:
+                    _localctx = new WRITEAltContext(_localctx);
+                    enterOuterAlt(_localctx, 3);
+                {
+                    setState(357);
+                    match(WRITE);
+                    setState(358);
+                    match(OpenPar);
+                    setState(359);
+                    var();
+                    setState(360);
+                    match(ClosePar);
+                }
+                break;
+                default:
+                    throw new NoViableAltException(this);
+            }
+        }
+        catch (RecognitionException re)
+        {
+            _localctx.exception = re;
+            _errHandler.reportError(this, re);
+            _errHandler.recover(this, re);
+        }
+        finally
+        {
+            exitRule();
+        }
+        return _localctx;
+    }
+
+    public final CondStmtContext condStmt() throws RecognitionException
+    {
+        CondStmtContext _localctx = new CondStmtContext(_ctx, getState());
+        enterRule(_localctx, 46, RULE_condStmt);
+        int _la;
+        try
+        {
+            setState(419);
+            _errHandler.sync(this);
+            switch (_input.LA(1))
+            {
+                case IF:
+                    _localctx = new IFAltContext(_localctx);
+                    enterOuterAlt(_localctx, 1);
+                {
+                    setState(395);
+                    match(IF);
+                    setState(396);
+                    expr(0);
+                    setState(397);
+                    block();
+                    setState(400);
+                    _errHandler.sync(this);
+                    _la = _input.LA(1);
+                    if (_la == ELSE)
+                    {
+                        {
+                            setState(398);
+                            match(ELSE);
+                            setState(399);
+                            block();
+                        }
+                    }
+
+                }
+                break;
+                case SWITCH:
+                    _localctx = new SWITCHAltContext(_localctx);
+                    enterOuterAlt(_localctx, 2);
+                {
+                    setState(402);
+                    match(SWITCH);
+                    setState(403);
+                    var();
+                    setState(404);
+                    match(OpenCurlyBrace);
+                    setState(411);
+                    _errHandler.sync(this);
+                    _la = _input.LA(1);
+                    while (_la == CASE)
+                    {
+                        {
+                            {
+                                setState(405);
+                                match(CASE);
+                                setState(406);
+                                match(IntLiteral);
+                                setState(407);
+                                match(COLON);
+                                setState(408);
+                                block();
+                            }
+                        }
+                        setState(413);
+                        _errHandler.sync(this);
+                        _la = _input.LA(1);
+                    }
+                    setState(414);
+                    match(DEFAULT);
+                    setState(415);
+                    match(COLON);
+                    setState(416);
+                    block();
+                    setState(417);
+                    match(CloseCurlyBrace);
+                }
+                break;
+                default:
+                    throw new NoViableAltException(this);
+            }
+        }
+        catch (RecognitionException re)
+        {
+            _localctx.exception = re;
+            _errHandler.reportError(this, re);
+            _errHandler.recover(this, re);
+        }
+        finally
+        {
+            exitRule();
+        }
+        return _localctx;
+    }
+
+    public final LoopStmtContext loopStmt() throws RecognitionException
+    {
+        LoopStmtContext _localctx = new LoopStmtContext(_ctx, getState());
+        enterRule(_localctx, 48, RULE_loopStmt);
+        int _la;
+        try
+        {
+            setState(440);
+            _errHandler.sync(this);
+            switch (_input.LA(1))
+            {
+                case FOR:
+                    _localctx = new FORAltContext(_localctx);
+                    enterOuterAlt(_localctx, 1);
+                {
+                    setState(421);
+                    match(FOR);
+                    setState(426);
+                    _errHandler.sync(this);
+                    _la = _input.LA(1);
+                    if (((((_la - 4)) & ~0x3f) == 0 && ((1L << (_la - 4)) & ((1L << (BOOL - 4)) | (1L << (FLOAT - 4)) | (1L << (INT - 4)) | (1L << (STRING - 4)) | (1L << (SUPER - 4)) | (1L << (THIS - 4)) | (1L << (OpenPar - 4)) | (1L << (ID - 4)))) != 0))
+                    {
+                        {
+                            setState(423);
+                            _errHandler.sync(this);
+                            switch (getInterpreter().adaptivePredict(_input, 44, _ctx))
+                            {
+                                case 1:
+                                {
+                                    setState(422);
+                                    type();
+                                }
+                                break;
+                            }
+                            setState(425);
+                            assign();
+                        }
+                    }
+
+                    setState(428);
+                    match(SEMICOLON);
+                    setState(429);
+                    expr(0);
+                    setState(430);
+                    match(SEMICOLON);
+                    setState(432);
+                    _errHandler.sync(this);
+                    _la = _input.LA(1);
+                    if (((((_la - 26)) & ~0x3f) == 0 && ((1L << (_la - 26)) & ((1L << (SUPER - 26)) | (1L << (THIS - 26)) | (1L << (OpenPar - 26)) | (1L << (ID - 26)))) != 0))
+                    {
+                        {
+                            setState(431);
+                            assign();
+                        }
+                    }
+
+                    setState(434);
+                    block();
+                }
+                break;
+                case WHILE:
+                    _localctx = new WHILEAltContext(_localctx);
+                    enterOuterAlt(_localctx, 2);
+                {
+                    setState(436);
+                    match(WHILE);
+                    setState(437);
+                    expr(0);
+                    setState(438);
+                    block();
+                }
+                break;
+                default:
+                    throw new NoViableAltException(this);
+            }
+        }
+        catch (RecognitionException re)
+        {
+            _localctx.exception = re;
+            _errHandler.reportError(this, re);
+            _errHandler.recover(this, re);
+        }
+        finally
+        {
+            exitRule();
+        }
+        return _localctx;
+    }
+
+    public static class StmtContext extends ParserRuleContext
+    {
+        public StmtContext(ParserRuleContext parent, int invokingState)
+        {
+            super(parent, invokingState);
+        }
+
+        public StmtContext()
+        {
+        }
+
+        @Override
+        public int getRuleIndex()
+        {
+            return RULE_stmt;
+        }
+
+        public void copyFrom(StmtContext ctx)
+        {
+            super.copyFrom(ctx);
+        }
+    }
+
+    public static class CONDSTMTAltContext extends StmtContext
+    {
+        public CONDSTMTAltContext(StmtContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public CondStmtContext condStmt()
+        {
+            return getRuleContext(CondStmtContext.class, 0);
+        }
+
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterCONDSTMTAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitCONDSTMTAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitCONDSTMTAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
+        }
+    }
+
+    public static class CONTINUEAltContext extends StmtContext
+    {
+        public CONTINUEAltContext(StmtContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public TerminalNode CONTINUE()
+        {
+            return getToken(Lulu2Parser.CONTINUE, 0);
+        }
+
+        public TerminalNode SEMICOLON()
+        {
+            return getToken(Lulu2Parser.SEMICOLON, 0);
+        }
+
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterCONTINUEAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitCONTINUEAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitCONTINUEAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
+        }
+    }
+
+    public static class RETURNAltContext extends StmtContext
+    {
+        public RETURNAltContext(StmtContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public TerminalNode RETURN()
+        {
+            return getToken(Lulu2Parser.RETURN, 0);
+        }
+
+        public TerminalNode SEMICOLON()
+        {
+            return getToken(Lulu2Parser.SEMICOLON, 0);
+        }
+
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterRETURNAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitRETURNAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitRETURNAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
+        }
+    }
+
+    public static class LOOPSTMTAltContext extends StmtContext
+    {
+        public LOOPSTMTAltContext(StmtContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public LoopStmtContext loopStmt()
+        {
+            return getRuleContext(LoopStmtContext.class, 0);
+        }
+
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterLOOPSTMTAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitLOOPSTMTAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitLOOPSTMTAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
+        }
+    }
 
 	public static class AssignContext extends ParserRuleContext {
 		public TerminalNode ASSIGN() { return getToken(Lulu2Parser.ASSIGN, 0); }
@@ -1734,68 +2527,895 @@ public class Lulu2Parser extends Parser {
 		return _localctx;
 	}
 
+    public static class FUNCCALLSTMTAltContext extends StmtContext
+    {
+        public FUNCCALLSTMTAltContext(StmtContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public FuncCallContext funcCall()
+        {
+            return getRuleContext(FuncCallContext.class, 0);
+        }
+
+        public TerminalNode SEMICOLON()
+        {
+            return getToken(Lulu2Parser.SEMICOLON, 0);
+        }
+
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterFUNCCALLSTMTAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitFUNCCALLSTMTAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitFUNCCALLSTMTAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
+        }
+    }
+
+    public static class BREAKAltContext extends StmtContext
+    {
+        public BREAKAltContext(StmtContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public TerminalNode BREAK()
+        {
+            return getToken(Lulu2Parser.BREAK, 0);
+        }
+
+        public TerminalNode SEMICOLON()
+        {
+            return getToken(Lulu2Parser.SEMICOLON, 0);
+        }
+
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterBREAKAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitBREAKAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitBREAKAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
+        }
+    }
+
+    public static class DESTRUCTAltContext extends StmtContext
+    {
+        public DESTRUCTAltContext(StmtContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public TerminalNode DESTRUCT()
+        {
+            return getToken(Lulu2Parser.DESTRUCT, 0);
+        }
+
+        public TerminalNode ID()
+        {
+            return getToken(Lulu2Parser.ID, 0);
+        }
+
+        public List<TerminalNode> OpenBrace()
+        {
+            return getTokens(Lulu2Parser.OpenBrace);
+        }
+
+        public TerminalNode OpenBrace(int i)
+        {
+            return getToken(Lulu2Parser.OpenBrace, i);
+        }
+
+        public List<TerminalNode> CloseBrace()
+        {
+            return getTokens(Lulu2Parser.CloseBrace);
+        }
+
+        public TerminalNode CloseBrace(int i)
+        {
+            return getToken(Lulu2Parser.CloseBrace, i);
+        }
+
+        public TerminalNode SEMICOLON()
+        {
+            return getToken(Lulu2Parser.SEMICOLON, 0);
+        }
+
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterDESTRUCTAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitDESTRUCTAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitDESTRUCTAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
+        }
+    }
+
+    public static class ASSIGNAltContext extends StmtContext
+    {
+        public ASSIGNAltContext(StmtContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public AssignContext assign()
+        {
+            return getRuleContext(AssignContext.class, 0);
+        }
+
+        public TerminalNode SEMICOLON()
+        {
+            return getToken(Lulu2Parser.SEMICOLON, 0);
+        }
+
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterASSIGNAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitASSIGNAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitASSIGNAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
+        }
+    }
+
 	public static class ExprContext extends ParserRuleContext {
-		public TerminalNode OpenPar() { return getToken(Lulu2Parser.OpenPar, 0); }
-		public List<ExprContext> expr() {
-			return getRuleContexts(ExprContext.class);
-		}
-		public ExprContext expr(int i) {
-			return getRuleContext(ExprContext.class,i);
-		}
-		public TerminalNode ClosePar() { return getToken(Lulu2Parser.ClosePar, 0); }
-		public UnaryOpContext unaryOp() {
-			return getRuleContext(UnaryOpContext.class,0);
-		}
-		public ConstValContext constVal() {
-			return getRuleContext(ConstValContext.class,0);
-		}
-		public TerminalNode ALLOCATE() { return getToken(Lulu2Parser.ALLOCATE, 0); }
-		public HandleCallContext handleCall() {
-			return getRuleContext(HandleCallContext.class,0);
-		}
-		public FuncCallContext funcCall() {
-			return getRuleContext(FuncCallContext.class,0);
-		}
-		public VarContext var() {
-			return getRuleContext(VarContext.class,0);
-		}
-		public ListContext list() {
-			return getRuleContext(ListContext.class,0);
-		}
-		public TerminalNode NIL() { return getToken(Lulu2Parser.NIL, 0); }
-		public FirstLevelBinaryArithmeticOpContext firstLevelBinaryArithmeticOp() {
-			return getRuleContext(FirstLevelBinaryArithmeticOpContext.class,0);
-		}
-		public SecondLevelBinaryArithmeticOpContext secondLevelBinaryArithmeticOp() {
-			return getRuleContext(SecondLevelBinaryArithmeticOpContext.class,0);
-		}
-		public FirstLevelBinaryRelationalOpContext firstLevelBinaryRelationalOp() {
-			return getRuleContext(FirstLevelBinaryRelationalOpContext.class,0);
-		}
-		public SecondLevelBinaryRelationalOpContext secondLevelBinaryRelationalOp() {
-			return getRuleContext(SecondLevelBinaryRelationalOpContext.class,0);
-		}
-		public TerminalNode BitwiseAnd() { return getToken(Lulu2Parser.BitwiseAnd, 0); }
-		public TerminalNode BitwiseLogicalXor() { return getToken(Lulu2Parser.BitwiseLogicalXor, 0); }
-		public TerminalNode BitwiseOr() { return getToken(Lulu2Parser.BitwiseOr, 0); }
-		public TerminalNode LogicalAnd() { return getToken(Lulu2Parser.LogicalAnd, 0); }
+        public ExprContext(ParserRuleContext parent, int invokingState)
+        {
+            super(parent, invokingState);
+        }
+
+        public ExprContext()
+        {
+        }
+
+        @Override
+        public int getRuleIndex()
+        {
+            return RULE_expr;
+        }
+
+        public void copyFrom(ExprContext ctx)
+        {
+            super.copyFrom(ctx);
+        }
+    }
+
+    public static class LOGICALANDAltContext extends ExprContext
+    {
+        public LOGICALANDAltContext(ExprContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public List<ExprContext> expr()
+        {
+            return getRuleContexts(ExprContext.class);
+        }
+
+        public ExprContext expr(int i)
+        {
+            return getRuleContext(ExprContext.class, i);
+        }
+
+        public TerminalNode LogicalAnd()
+        {
+            return getToken(Lulu2Parser.LogicalAnd, 0);
+        }
+
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterLOGICALANDAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitLOGICALANDAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitLOGICALANDAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
+        }
+    }
+
+    public static class BITWISEORAltContext extends ExprContext
+    {
+        public BITWISEORAltContext(ExprContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public List<ExprContext> expr()
+        {
+            return getRuleContexts(ExprContext.class);
+        }
+
+        public ExprContext expr(int i)
+        {
+            return getRuleContext(ExprContext.class, i);
+        }
+
+        public TerminalNode BitwiseOr()
+        {
+            return getToken(Lulu2Parser.BitwiseOr, 0);
+        }
+
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterBITWISEORAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitBITWISEORAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitBITWISEORAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
+        }
+    }
+
+    public static class CONSTVALAltContext extends ExprContext
+    {
+        public CONSTVALAltContext(ExprContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public ConstValContext constVal()
+        {
+            return getRuleContext(ConstValContext.class, 0);
+        }
+
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterCONSTVALAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitCONSTVALAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitCONSTVALAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
+        }
+    }
+
+    public static class ALLOCATIONAltContext extends ExprContext
+    {
+        public ALLOCATIONAltContext(ExprContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public TerminalNode ALLOCATE()
+        {
+            return getToken(Lulu2Parser.ALLOCATE, 0);
+        }
+
+        public HandleCallContext handleCall()
+        {
+            return getRuleContext(HandleCallContext.class, 0);
+        }
+
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterALLOCATIONAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitALLOCATIONAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitALLOCATIONAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
+        }
+    }
+
+    public static class PAREXPRAltContext extends ExprContext
+    {
+        public PAREXPRAltContext(ExprContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public TerminalNode OpenPar()
+        {
+            return getToken(Lulu2Parser.OpenPar, 0);
+        }
+
+        public ExprContext expr()
+        {
+            return getRuleContext(ExprContext.class, 0);
+        }
+
+        public TerminalNode ClosePar()
+        {
+            return getToken(Lulu2Parser.ClosePar, 0);
+        }
+
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterPAREXPRAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitPAREXPRAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitPAREXPRAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
+        }
+    }
+
+    public static class ADDSUBAltContext extends ExprContext
+    {
+        public ADDSUBAltContext(ExprContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public List<ExprContext> expr()
+        {
+            return getRuleContexts(ExprContext.class);
+        }
+
+        public ExprContext expr(int i)
+        {
+            return getRuleContext(ExprContext.class, i);
+        }
+
+        public SecondLevelBinaryArithmeticOpContext secondLevelBinaryArithmeticOp()
+        {
+            return getRuleContext(SecondLevelBinaryArithmeticOpContext.class, 0);
+        }
+
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterADDSUBAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitADDSUBAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitADDSUBAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
+        }
+    }
+
+    public static class LISTAltContext extends ExprContext
+    {
+        public LISTAltContext(ExprContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public ListContext list()
+        {
+            return getRuleContext(ListContext.class, 0);
+        }
+
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterLISTAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitLISTAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitLISTAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
+        }
+    }
+
+    public static class FUNCCALLAltContext extends ExprContext
+    {
+        public FUNCCALLAltContext(ExprContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public FuncCallContext funcCall()
+        {
+            return getRuleContext(FuncCallContext.class, 0);
+        }
+
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterFUNCCALLAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitFUNCCALLAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitFUNCCALLAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
+        }
+    }
+
+    public static class MULDIVAltContext extends ExprContext
+    {
+        public MULDIVAltContext(ExprContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public List<ExprContext> expr()
+        {
+            return getRuleContexts(ExprContext.class);
+        }
+
+        public FirstLevelBinaryArithmeticOpContext firstLevelBinaryArithmeticOp()
+        {
+            return getRuleContext(FirstLevelBinaryArithmeticOpContext.class, 0);
+        }
+
+        public ExprContext expr(int i)
+        {
+            return getRuleContext(ExprContext.class, i);
+        }
+
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterMULDIVAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitMULDIVAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitMULDIVAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
+        }
+    }
+
+    public static class EQUALITYAltContext extends ExprContext
+    {
+        public EQUALITYAltContext(ExprContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public List<ExprContext> expr()
+        {
+            return getRuleContexts(ExprContext.class);
+        }
+
+        public SecondLevelBinaryRelationalOpContext secondLevelBinaryRelationalOp()
+        {
+            return getRuleContext(SecondLevelBinaryRelationalOpContext.class, 0);
+        }
+
+        public ExprContext expr(int i)
+        {
+            return getRuleContext(ExprContext.class, i);
+        }
+
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterEQUALITYAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitEQUALITYAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitEQUALITYAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
+        }
+    }
+
+    public static class COMPAREAltContext extends ExprContext
+    {
+        public COMPAREAltContext(ExprContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public List<ExprContext> expr()
+        {
+            return getRuleContexts(ExprContext.class);
+        }
+
+        public ExprContext expr(int i)
+        {
+            return getRuleContext(ExprContext.class, i);
+        }
+
+        public FirstLevelBinaryRelationalOpContext firstLevelBinaryRelationalOp()
+        {
+            return getRuleContext(FirstLevelBinaryRelationalOpContext.class, 0);
+        }
+
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterCOMPAREAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitCOMPAREAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitCOMPAREAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
+        }
+    }
+
+    public static class LOGICALORAltContext extends ExprContext
+    {
+        public LOGICALORAltContext(ExprContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public List<ExprContext> expr()
+        {
+            return getRuleContexts(ExprContext.class);
+        }
+
+        public ExprContext expr(int i)
+        {
+            return getRuleContext(ExprContext.class, i);
+        }
+
 		public TerminalNode LogicalOr() { return getToken(Lulu2Parser.LogicalOr, 0); }
-		public ExprContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_expr; }
+
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterLOGICALORAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitLOGICALORAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitLOGICALORAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
+        }
+    }
+
+    public static class VARAltContext extends ExprContext
+    {
+        public VARAltContext(ExprContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public VarContext var()
+        {
+            return getRuleContext(VarContext.class, 0);
+        }
+
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Lulu2Listener ) ((Lulu2Listener)listener).enterExpr(this);
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterVARAlt(this);
+            }
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Lulu2Listener ) ((Lulu2Listener)listener).exitExpr(this);
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitVARAlt(this);
+            }
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Lulu2Visitor ) return ((Lulu2Visitor<? extends T>)visitor).visitExpr(this);
-			else return visitor.visitChildren(this);
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitVARAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
 		}
 	}
 
@@ -1803,316 +3423,283 @@ public class Lulu2Parser extends Parser {
 		return expr(0);
 	}
 
-	private ExprContext expr(int _p) throws RecognitionException {
-		ParserRuleContext _parentctx = _ctx;
-		int _parentState = getState();
-		ExprContext _localctx = new ExprContext(_ctx, _parentState);
-		ExprContext _prevctx = _localctx;
-		int _startState = 36;
-		enterRecursionRule(_localctx, 36, RULE_expr, _p);
-		try {
-			int _alt;
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(308);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,31,_ctx) ) {
-			case 1:
-				{
-				setState(294);
-				match(OpenPar);
-				setState(295);
-				expr(0);
-				setState(296);
-				match(ClosePar);
-				}
-				break;
-			case 2:
-				{
-				setState(298);
-				unaryOp();
-				setState(299);
-				expr(16);
-				}
-				break;
-			case 3:
-				{
-				setState(301);
-				constVal();
-				}
-				break;
-			case 4:
-				{
-				setState(302);
-				match(ALLOCATE);
-				setState(303);
-				handleCall();
-				}
-				break;
-			case 5:
-				{
-				setState(304);
-				funcCall();
-				}
-				break;
-			case 6:
-				{
-				setState(305);
-				var();
-				}
-				break;
-			case 7:
-				{
-				setState(306);
-				list();
-				}
-				break;
-			case 8:
-				{
-				setState(307);
-				match(NIL);
-				}
-				break;
-			}
-			_ctx.stop = _input.LT(-1);
-			setState(343);
-			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,33,_ctx);
-			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					if ( _parseListeners!=null ) triggerExitRuleEvent();
-					_prevctx = _localctx;
-					{
-					setState(341);
-					_errHandler.sync(this);
-					switch ( getInterpreter().adaptivePredict(_input,32,_ctx) ) {
-					case 1:
-						{
-						_localctx = new ExprContext(_parentctx, _parentState);
-						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(310);
-						if (!(precpred(_ctx, 15))) throw new FailedPredicateException(this, "precpred(_ctx, 15)");
-						setState(311);
-						firstLevelBinaryArithmeticOp();
-						setState(312);
-						expr(16);
-						}
-						break;
-					case 2:
-						{
-						_localctx = new ExprContext(_parentctx, _parentState);
-						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(314);
-						if (!(precpred(_ctx, 14))) throw new FailedPredicateException(this, "precpred(_ctx, 14)");
-						setState(315);
-						secondLevelBinaryArithmeticOp();
-						setState(316);
-						expr(15);
-						}
-						break;
-					case 3:
-						{
-						_localctx = new ExprContext(_parentctx, _parentState);
-						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(318);
-						if (!(precpred(_ctx, 13))) throw new FailedPredicateException(this, "precpred(_ctx, 13)");
-						setState(319);
-						firstLevelBinaryRelationalOp();
-						setState(320);
-						expr(14);
-						}
-						break;
-					case 4:
-						{
-						_localctx = new ExprContext(_parentctx, _parentState);
-						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(322);
-						if (!(precpred(_ctx, 12))) throw new FailedPredicateException(this, "precpred(_ctx, 12)");
-						setState(323);
-						secondLevelBinaryRelationalOp();
-						setState(324);
-						expr(13);
-						}
-						break;
-					case 5:
-						{
-						_localctx = new ExprContext(_parentctx, _parentState);
-						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(326);
-						if (!(precpred(_ctx, 11))) throw new FailedPredicateException(this, "precpred(_ctx, 11)");
-						setState(327);
-						match(BitwiseAnd);
-						setState(328);
-						expr(12);
-						}
-						break;
-					case 6:
-						{
-						_localctx = new ExprContext(_parentctx, _parentState);
-						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(329);
-						if (!(precpred(_ctx, 10))) throw new FailedPredicateException(this, "precpred(_ctx, 10)");
-						setState(330);
-						match(BitwiseLogicalXor);
-						setState(331);
-						expr(11);
-						}
-						break;
-					case 7:
-						{
-						_localctx = new ExprContext(_parentctx, _parentState);
-						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(332);
-						if (!(precpred(_ctx, 9))) throw new FailedPredicateException(this, "precpred(_ctx, 9)");
-						setState(333);
-						match(BitwiseOr);
-						setState(334);
-						expr(10);
-						}
-						break;
-					case 8:
-						{
-						_localctx = new ExprContext(_parentctx, _parentState);
-						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(335);
-						if (!(precpred(_ctx, 8))) throw new FailedPredicateException(this, "precpred(_ctx, 8)");
-						setState(336);
-						match(LogicalAnd);
-						setState(337);
-						expr(9);
-						}
-						break;
-					case 9:
-						{
-						_localctx = new ExprContext(_parentctx, _parentState);
-						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(338);
-						if (!(precpred(_ctx, 7))) throw new FailedPredicateException(this, "precpred(_ctx, 7)");
-						setState(339);
-						match(LogicalOr);
-						setState(340);
-						expr(8);
-						}
-						break;
-					}
-					} 
-				}
-				setState(345);
-				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,33,_ctx);
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			unrollRecursionContexts(_parentctx);
-		}
-		return _localctx;
-	}
+    public static class NILAltContext extends ExprContext
+    {
+        public NILAltContext(ExprContext ctx)
+        {
+            copyFrom(ctx);
+        }
 
-	public static class FuncCallContext extends ParserRuleContext {
-		public HandleCallContext handleCall() {
-			return getRuleContext(HandleCallContext.class,0);
-		}
-		public VarContext var() {
-			return getRuleContext(VarContext.class,0);
-		}
-		public TerminalNode DOT() { return getToken(Lulu2Parser.DOT, 0); }
-		public TerminalNode READ() { return getToken(Lulu2Parser.READ, 0); }
-		public TerminalNode OpenPar() { return getToken(Lulu2Parser.OpenPar, 0); }
-		public TerminalNode ClosePar() { return getToken(Lulu2Parser.ClosePar, 0); }
-		public TerminalNode WRITE() { return getToken(Lulu2Parser.WRITE, 0); }
-		public FuncCallContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_funcCall; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Lulu2Listener ) ((Lulu2Listener)listener).enterFuncCall(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Lulu2Listener ) ((Lulu2Listener)listener).exitFuncCall(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Lulu2Visitor ) return ((Lulu2Visitor<? extends T>)visitor).visitFuncCall(this);
-			else return visitor.visitChildren(this);
-		}
-	}
+        public TerminalNode NIL()
+        {
+            return getToken(Lulu2Parser.NIL, 0);
+        }
 
-	public final FuncCallContext funcCall() throws RecognitionException {
-		FuncCallContext _localctx = new FuncCallContext(_ctx, getState());
-		enterRule(_localctx, 38, RULE_funcCall);
-		try {
-			setState(362);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case SUPER:
-			case THIS:
-			case ID:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(349);
-				_errHandler.sync(this);
-				switch ( getInterpreter().adaptivePredict(_input,34,_ctx) ) {
-				case 1:
-					{
-					setState(346);
-					var();
-					setState(347);
-					match(DOT);
-					}
-					break;
-				}
-				setState(351);
-				handleCall();
-				}
-				break;
-			case READ:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(352);
-				match(READ);
-				setState(353);
-				match(OpenPar);
-				setState(354);
-				var();
-				setState(355);
-				match(ClosePar);
-				}
-				break;
-			case WRITE:
-				enterOuterAlt(_localctx, 3);
-				{
-				setState(357);
-				match(WRITE);
-				setState(358);
-				match(OpenPar);
-				setState(359);
-				var();
-				setState(360);
-				match(ClosePar);
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterNILAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitNILAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitNILAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
+        }
+    }
+
+    public static class BITWISEANDAltContext extends ExprContext
+    {
+        public BITWISEANDAltContext(ExprContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public List<ExprContext> expr()
+        {
+            return getRuleContexts(ExprContext.class);
+        }
+
+        public TerminalNode BitwiseAnd()
+        {
+            return getToken(Lulu2Parser.BitwiseAnd, 0);
+        }
+
+        public ExprContext expr(int i)
+        {
+            return getRuleContext(ExprContext.class, i);
+        }
+
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterBITWISEANDAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitBITWISEANDAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitBITWISEANDAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
+        }
+    }
+
+    public static class UNARYOPAltContext extends ExprContext
+    {
+        public UNARYOPAltContext(ExprContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public UnaryOpContext unaryOp()
+        {
+            return getRuleContext(UnaryOpContext.class, 0);
+        }
+
+        public ExprContext expr()
+        {
+            return getRuleContext(ExprContext.class, 0);
+        }
+
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterUNARYOPAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitUNARYOPAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitUNARYOPAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
+        }
+    }
+
+    public static class BITWISELOGICALXORAltContext extends ExprContext
+    {
+        public BITWISELOGICALXORAltContext(ExprContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public List<ExprContext> expr()
+        {
+            return getRuleContexts(ExprContext.class);
+        }
+
+        public TerminalNode BitwiseLogicalXor()
+        {
+            return getToken(Lulu2Parser.BitwiseLogicalXor, 0);
+        }
+
+        public ExprContext expr(int i)
+        {
+            return getRuleContext(ExprContext.class, i);
+        }
+
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterBITWISELOGICALXORAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitBITWISELOGICALXORAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitBITWISELOGICALXORAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
+        }
+    }
+
+    public static class FuncCallContext extends ParserRuleContext
+    {
+        public FuncCallContext(ParserRuleContext parent, int invokingState)
+        {
+            super(parent, invokingState);
+        }
+
+        public FuncCallContext()
+        {
+        }
+
+        @Override
+        public int getRuleIndex()
+        {
+            return RULE_funcCall;
+        }
+
+        public void copyFrom(FuncCallContext ctx)
+        {
+            super.copyFrom(ctx);
+        }
+    }
+
+    public static class METHODCALLAltContext extends FuncCallContext
+    {
+        public METHODCALLAltContext(FuncCallContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public HandleCallContext handleCall()
+        {
+            return getRuleContext(HandleCallContext.class, 0);
+        }
+
+        public VarContext var()
+        {
+            return getRuleContext(VarContext.class, 0);
+        }
+
+        public TerminalNode DOT()
+        {
+            return getToken(Lulu2Parser.DOT, 0);
+        }
+
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterMETHODCALLAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitMETHODCALLAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitMETHODCALLAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
+        }
+    }
 
 	public static class ListContext extends ParserRuleContext {
 		public TerminalNode OpenBrace() { return getToken(Lulu2Parser.OpenBrace, 0); }
@@ -2349,18 +3936,148 @@ public class Lulu2Parser extends Parser {
 		return _localctx;
 	}
 
+    public static class READAltContext extends FuncCallContext
+    {
+        public READAltContext(FuncCallContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public TerminalNode READ()
+        {
+            return getToken(Lulu2Parser.READ, 0);
+        }
+
+        public TerminalNode OpenPar()
+        {
+            return getToken(Lulu2Parser.OpenPar, 0);
+        }
+
+        public TerminalNode ClosePar()
+        {
+            return getToken(Lulu2Parser.ClosePar, 0);
+        }
+
+        public VarContext var()
+        {
+            return getRuleContext(VarContext.class, 0);
+        }
+
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterREADAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitREADAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitREADAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
+        }
+    }
+
+    public static class WRITEAltContext extends FuncCallContext
+    {
+        public WRITEAltContext(FuncCallContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public TerminalNode WRITE()
+        {
+            return getToken(Lulu2Parser.WRITE, 0);
+        }
+
+        public TerminalNode OpenPar()
+        {
+            return getToken(Lulu2Parser.OpenPar, 0);
+        }
+
+        public VarContext var()
+        {
+            return getRuleContext(VarContext.class, 0);
+        }
+
+        public TerminalNode ClosePar()
+        {
+            return getToken(Lulu2Parser.ClosePar, 0);
+        }
+
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterWRITEAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitWRITEAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitWRITEAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
+        }
+    }
+
 	public static class CondStmtContext extends ParserRuleContext {
-		public TerminalNode IF() { return getToken(Lulu2Parser.IF, 0); }
-		public ExprContext expr() {
-			return getRuleContext(ExprContext.class,0);
-		}
-		public List<BlockContext> block() {
-			return getRuleContexts(BlockContext.class);
-		}
-		public BlockContext block(int i) {
-			return getRuleContext(BlockContext.class,i);
-		}
-		public TerminalNode ELSE() { return getToken(Lulu2Parser.ELSE, 0); }
+        public CondStmtContext(ParserRuleContext parent, int invokingState)
+        {
+            super(parent, invokingState);
+        }
+
+        public CondStmtContext()
+        {
+        }
+
+        @Override
+        public int getRuleIndex()
+        {
+            return RULE_condStmt;
+        }
+
+        public void copyFrom(CondStmtContext ctx)
+        {
+            super.copyFrom(ctx);
+        }
+    }
+
+    public static class SWITCHAltContext extends CondStmtContext
+    {
 		public TerminalNode SWITCH() { return getToken(Lulu2Parser.SWITCH, 0); }
 		public VarContext var() {
 			return getRuleContext(VarContext.class,0);
@@ -2371,6 +4088,16 @@ public class Lulu2Parser extends Parser {
 		public TerminalNode COLON(int i) {
 			return getToken(Lulu2Parser.COLON, i);
 		}
+
+        public SWITCHAltContext(CondStmtContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public List<BlockContext> block()
+        {
+            return getRuleContexts(BlockContext.class);
+        }
 		public TerminalNode CloseCurlyBrace() { return getToken(Lulu2Parser.CloseCurlyBrace, 0); }
 		public List<TerminalNode> CASE() { return getTokens(Lulu2Parser.CASE); }
 		public TerminalNode CASE(int i) {
@@ -2380,229 +4107,258 @@ public class Lulu2Parser extends Parser {
 		public TerminalNode IntLiteral(int i) {
 			return getToken(Lulu2Parser.IntLiteral, i);
 		}
-		public CondStmtContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_condStmt; }
+
+        public BlockContext block(int i)
+        {
+            return getRuleContext(BlockContext.class, i);
+        }
+
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Lulu2Listener ) ((Lulu2Listener)listener).enterCondStmt(this);
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterSWITCHAlt(this);
+            }
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Lulu2Listener ) ((Lulu2Listener)listener).exitCondStmt(this);
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitSWITCHAlt(this);
+            }
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Lulu2Visitor ) return ((Lulu2Visitor<? extends T>)visitor).visitCondStmt(this);
-			else return visitor.visitChildren(this);
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitSWITCHAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
 		}
 	}
 
-	public final CondStmtContext condStmt() throws RecognitionException {
-		CondStmtContext _localctx = new CondStmtContext(_ctx, getState());
-		enterRule(_localctx, 46, RULE_condStmt);
-		int _la;
-		try {
-			setState(419);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case IF:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(395);
-				match(IF);
-				setState(396);
-				expr(0);
-				setState(397);
-				block();
-				setState(400);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if (_la==ELSE) {
-					{
-					setState(398);
-					match(ELSE);
-					setState(399);
-					block();
-					}
-				}
+    public static class IFAltContext extends CondStmtContext
+    {
+        public IFAltContext(CondStmtContext ctx)
+        {
+            copyFrom(ctx);
+        }
 
-				}
-				break;
-			case SWITCH:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(402);
-				match(SWITCH);
-				setState(403);
-				var();
-				setState(404);
-				match(OpenCurlyBrace);
-				setState(411);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				while (_la==CASE) {
-					{
-					{
-					setState(405);
-					match(CASE);
-					setState(406);
-					match(IntLiteral);
-					setState(407);
-					match(COLON);
-					setState(408);
-					block();
-					}
-					}
-					setState(413);
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-				}
-				setState(414);
-				match(DEFAULT);
-				setState(415);
-				match(COLON);
-				setState(416);
-				block();
-				setState(417);
-				match(CloseCurlyBrace);
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
+        public TerminalNode IF()
+        {
+            return getToken(Lulu2Parser.IF, 0);
+        }
 
-	public static class LoopStmtContext extends ParserRuleContext {
-		public TerminalNode FOR() { return getToken(Lulu2Parser.FOR, 0); }
-		public List<TerminalNode> SEMICOLON() { return getTokens(Lulu2Parser.SEMICOLON); }
-		public TerminalNode SEMICOLON(int i) {
-			return getToken(Lulu2Parser.SEMICOLON, i);
-		}
-		public ExprContext expr() {
-			return getRuleContext(ExprContext.class,0);
-		}
-		public BlockContext block() {
-			return getRuleContext(BlockContext.class,0);
-		}
-		public List<AssignContext> assign() {
-			return getRuleContexts(AssignContext.class);
-		}
-		public AssignContext assign(int i) {
-			return getRuleContext(AssignContext.class,i);
-		}
-		public TypeContext type() {
-			return getRuleContext(TypeContext.class,0);
-		}
-		public TerminalNode WHILE() { return getToken(Lulu2Parser.WHILE, 0); }
-		public LoopStmtContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_loopStmt; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Lulu2Listener ) ((Lulu2Listener)listener).enterLoopStmt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Lulu2Listener ) ((Lulu2Listener)listener).exitLoopStmt(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Lulu2Visitor ) return ((Lulu2Visitor<? extends T>)visitor).visitLoopStmt(this);
-			else return visitor.visitChildren(this);
+        public ExprContext expr()
+        {
+            return getRuleContext(ExprContext.class, 0);
+        }
+
+        public List<BlockContext> block()
+        {
+            return getRuleContexts(BlockContext.class);
+        }
+
+        public BlockContext block(int i)
+        {
+            return getRuleContext(BlockContext.class, i);
+        }
+
+        public TerminalNode ELSE()
+        {
+            return getToken(Lulu2Parser.ELSE, 0);
+        }
+
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterIFAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitIFAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitIFAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
 		}
 	}
 
-	public final LoopStmtContext loopStmt() throws RecognitionException {
-		LoopStmtContext _localctx = new LoopStmtContext(_ctx, getState());
-		enterRule(_localctx, 48, RULE_loopStmt);
-		int _la;
-		try {
-			setState(440);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case FOR:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(421);
-				match(FOR);
-				setState(426);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if (((((_la - 4)) & ~0x3f) == 0 && ((1L << (_la - 4)) & ((1L << (BOOL - 4)) | (1L << (FLOAT - 4)) | (1L << (INT - 4)) | (1L << (STRING - 4)) | (1L << (SUPER - 4)) | (1L << (THIS - 4)) | (1L << (OpenPar - 4)) | (1L << (ID - 4)))) != 0)) {
-					{
-					setState(423);
-					_errHandler.sync(this);
-					switch ( getInterpreter().adaptivePredict(_input,44,_ctx) ) {
-					case 1:
-						{
-						setState(422);
-						type();
-						}
-						break;
-					}
-					setState(425);
-					assign();
-					}
-				}
+    public static class LoopStmtContext extends ParserRuleContext
+    {
+        public LoopStmtContext(ParserRuleContext parent, int invokingState)
+        {
+            super(parent, invokingState);
+        }
 
-				setState(428);
-				match(SEMICOLON);
-				setState(429);
-				expr(0);
-				setState(430);
-				match(SEMICOLON);
-				setState(432);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if (((((_la - 26)) & ~0x3f) == 0 && ((1L << (_la - 26)) & ((1L << (SUPER - 26)) | (1L << (THIS - 26)) | (1L << (OpenPar - 26)) | (1L << (ID - 26)))) != 0)) {
-					{
-					setState(431);
-					assign();
-					}
-				}
+        public LoopStmtContext()
+        {
+        }
 
-				setState(434);
-				block();
-				}
-				break;
-			case WHILE:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(436);
-				match(WHILE);
-				setState(437);
-				expr(0);
-				setState(438);
-				block();
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
+        @Override
+        public int getRuleIndex()
+        {
+            return RULE_loopStmt;
+        }
+
+        public void copyFrom(LoopStmtContext ctx)
+        {
+            super.copyFrom(ctx);
+        }
+    }
+
+    public static class WHILEAltContext extends LoopStmtContext
+    {
+        public WHILEAltContext(LoopStmtContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public TerminalNode WHILE()
+        {
+            return getToken(Lulu2Parser.WHILE, 0);
+        }
+
+        public ExprContext expr()
+        {
+            return getRuleContext(ExprContext.class, 0);
+        }
+
+        public BlockContext block()
+        {
+            return getRuleContext(BlockContext.class, 0);
+        }
+
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterWHILEAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitWHILEAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitWHILEAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
+        }
+    }
+
+    public static class FORAltContext extends LoopStmtContext
+    {
+        public FORAltContext(LoopStmtContext ctx)
+        {
+            copyFrom(ctx);
+        }
+
+        public TerminalNode FOR()
+        {
+            return getToken(Lulu2Parser.FOR, 0);
+        }
+
+        public List<TerminalNode> SEMICOLON()
+        {
+            return getTokens(Lulu2Parser.SEMICOLON);
+        }
+
+        public TerminalNode SEMICOLON(int i)
+        {
+            return getToken(Lulu2Parser.SEMICOLON, i);
+        }
+
+        public ExprContext expr()
+        {
+            return getRuleContext(ExprContext.class, 0);
+        }
+
+        public BlockContext block()
+        {
+            return getRuleContext(BlockContext.class, 0);
+        }
+
+        public List<AssignContext> assign()
+        {
+            return getRuleContexts(AssignContext.class);
+        }
+
+        public AssignContext assign(int i)
+        {
+            return getRuleContext(AssignContext.class, i);
+        }
+
+        public TypeContext type()
+        {
+            return getRuleContext(TypeContext.class, 0);
+        }
+
+        @Override
+        public void enterRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).enterFORAlt(this);
+            }
+        }
+
+        @Override
+        public void exitRule(ParseTreeListener listener)
+        {
+            if (listener instanceof Lulu2Listener)
+            {
+                ((Lulu2Listener) listener).exitFORAlt(this);
+            }
+        }
+
+        @Override
+        public <T> T accept(ParseTreeVisitor<? extends T> visitor)
+        {
+            if (visitor instanceof Lulu2Visitor)
+            {
+                return ((Lulu2Visitor<? extends T>) visitor).visitFORAlt(this);
+            }
+            else
+            {
+                return visitor.visitChildren(this);
+            }
+        }
+    }
 
 	public static class TypeContext extends ParserRuleContext {
 		public TerminalNode INT() { return getToken(Lulu2Parser.INT, 0); }

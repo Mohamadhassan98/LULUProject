@@ -3,6 +3,7 @@ declare
 {
     int a;
     myType;
+    myType m;
     (int, float) = f1(float b);
 }
 type myType

@@ -1,3 +1,5 @@
+package LULU
+
 //abstract class Type(val name: String, width: Int)
 //{
 //    var width: Int
