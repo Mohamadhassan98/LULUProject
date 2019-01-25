@@ -1,3 +1,0 @@
-package LULU
-
-class SampleTableForTest

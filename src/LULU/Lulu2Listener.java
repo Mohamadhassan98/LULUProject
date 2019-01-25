@@ -1,4 +1,5 @@
-package LULU;// Generated from C:/Users/Mohamadhassan/IdeaProjects/LULUProject/src\Lulu2.g4 by ANTLR 4.7
+// Generated from C:/Users/Mohamadhassan/IdeaProjects/LULUProject/src/LULU\Lulu2.g4 by ANTLR 4.7
+package LULU;
 
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -49,6 +50,20 @@ public interface Lulu2Listener extends ParseTreeListener
      * @param ctx the parse tree
      */
     void exitFuncDcl(Lulu2Parser.FuncDclContext ctx);
+
+    /**
+     * Enter a parse tree produced by {@link Lulu2Parser#typeBrace}.
+     *
+     * @param ctx the parse tree
+     */
+    void enterTypeBrace(Lulu2Parser.TypeBraceContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link Lulu2Parser#typeBrace}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitTypeBrace(Lulu2Parser.TypeBraceContext ctx);
 
     /**
      * Enter a parse tree produced by {@link Lulu2Parser#args}.

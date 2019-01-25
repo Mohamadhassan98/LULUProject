@@ -1,40 +1,89 @@
 package LULU;
 
 import LULU.Lulu2Parser.FtDclContext;
+import LULU.Lulu2Parser.FuncDclContext;
 import LULU.Lulu2Parser.VarDefContext;
+import LULU.Tree.DeclareScope;
+import LULU.Tree.Node;
+
+import java.util.ResourceBundle;
 
 public class LuluListener extends Lulu2BaseListener
 {
+    private static final ResourceBundle resourceBundle = ResourceBundle.getBundle("LULUStrings");
     private final Tree tree = new Tree();
+    private Node currentNode = tree.getRoot();
 
     @Override
     public void enterFtDcl(FtDclContext ctx)
     {
+        tree.addChild(currentNode, ScopeType.DeclareScope, resourceBundle.getString("declare"));
+        currentNode = currentNode.getChild(0);
+    }
 
-        for (int i = 2; i < (ctx.children.size() - 1); i++)
+    @Override
+    public void enterFuncDcl(FuncDclContext ctx)
+    {
+        var children = ctx.children;
+        FunctionSignature functionSignature = new FunctionSignature(ctx.ID().getText());
+        if (ctx.OpenPar().size() != 1)
         {
-            System.out.println(ctx.children.get(i).getChild(0).getText());
+            //Have return type
+            for (var i = 0; i < ctx.args(0).typeBrace().size(); i++)
+            {
+                var child = ctx.args(0).typeBrace(i).OpenBrace();
+                int index = i;
+                if (child.isEmpty())
+                {//Have no dimension
+//                    Type typee = ctx.args(0).typeBrace(i).type().t;
+//                    if (typee == null)
+//                    {
+                    var typee = ((DeclareScope) currentNode.getScope()).getTypes()
+                                                                       .stream()
+                                                                       .filter(type -> type.getName()
+                                                                                           .equals(ctx.args(0)
+                                                                                                      .typeBrace(index).type
+                                                                                                   .ID()
+                                                                                                   .getText()))
+                                                                       .findFirst();
+//                    }
+                    if (typee.isEmpty())
+                    {
+                        throw new CompileError("Type is not defined");
+                    }
+                    functionSignature.addReturnParam(i, typee.get());
+                }
+                //At least have one dimension
+                else
+                {
+                    //                            new ArraySignature(ctx.args(0).typeBrace(i).type.ID().getText(), child.size());
+                    var typee = ((DeclareScope) currentNode.getScope()).getTypes()
+                                                                       .stream()
+                                                                       .filter(type -> type.getName()
+                                                                                           .equals(ctx.args(0)
+                                                                                                      .typeBrace(index).type
+                                                                                                   .ID()
+                                                                                                   .getText()))
+                                                                       .findFirst();
+
+                }
+            }
         }
+//        System.out.println("*******");
+//        System.out.println(ctx.OpenPar());
+//        System.out.println("*******");
+//        System.out.println(ctx.OpenPar(0));
+//        System.out.println("*******");
+//        System.out.println(ctx.OpenPar(0).getSymbol());
+//        System.out.println("*******");
+//        System.out.println(ctx.OpenPar(0).getSymbol().getText());
+//        System.out.println("*******");
+//        if(children.get(0).equals(ctx.OpenPar(0)))
     }
 
     @Override
     public void enterVarDef(VarDefContext ctx)
     {
-        var first = ctx.children.get(0).getText();
-        if (first.equals(ctx.CONST().getText()))
-        {
-            Type t = Type.isPrimitive(ctx.getChild(1));
-            var counter = 2;
-            if (t != null)
-            {
-                var child = ctx.getChild(counter).getText();
-                while (!child.equals(ctx.SEMICOLON().getText()))
-                {
-//                    if(((DeclareScope)generalScope.innerNodes.getFirst()).innerNodes.)
-                    counter++;
-                }
-
-            }
-        }
+        System.out.println(ctx.varVal().size());
     }
 }

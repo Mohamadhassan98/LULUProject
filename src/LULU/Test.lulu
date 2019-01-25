@@ -4,6 +4,7 @@ declare
     int a;
     myType;
     myType m;
+    int id[s*f], d;
     (int, float) = f1(float b);
 }
 type myType
@@ -37,4 +38,21 @@ type myType
     (y) = a.myFun(b);
     x = 0;
     return;
+}
+
+
+
+
+
+type Mytype
+{
+    int a;
+    function b()
+    {
+        int c = a;
+        int v = d;
+    }
+
+    int d;
+
 }

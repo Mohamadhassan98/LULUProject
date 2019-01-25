@@ -138,7 +138,6 @@
       <option name="ignoreIntegerCharCasts" value="false" />
       <option name="ignoreOverflowingByteCasts" value="false" />
     </inspection_tool>
-    <inspection_tool class="CastToConcreteClass" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="CastToIncompatibleInterface" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ChainedEquality" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ChainedEqualityJS" enabled="true" level="WARNING" enabled_by_default="true" />
@@ -556,7 +555,6 @@
     <inspection_tool class="InstanceVariableInitialization" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="m_ignorePrimitives" value="false" />
     </inspection_tool>
-    <inspection_tool class="InstanceVariableOfConcreteClass" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="InstanceVariableUninitializedUse" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="m_ignorePrimitives" value="false" />
       <option name="annotationNamesString" value="" />
@@ -638,7 +636,6 @@
       <option name="m_minLength" value="1" />
       <option name="m_maxLength" value="32" />
     </inspection_tool>
-    <inspection_tool class="LocalVariableOfConcreteClass" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="LogStatementGuardedByLogCondition" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="LoggerInitializedWithForeignClass" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="loggerFactoryMethodName" value="getLogger,getLogger,getLog,getLogger" />
@@ -678,7 +675,6 @@
     <inspection_tool class="MethodOverridesInaccessibleMethodOfSuper" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="MethodOverridesStaticMethod" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="MethodReturnAlwaysConstant" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="MethodReturnOfConcreteClass" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="MethodWithMultipleLoops" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="MigrateAssertToMatcherAssert" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="MisorderedAssertEqualsArgumentsTestNG" enabled="true" level="WARNING" enabled_by_default="true" />
@@ -695,9 +691,6 @@
     </inspection_tool>
     <inspection_tool class="ModuleWithTooManyClasses" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="limit" value="100" />
-    </inspection_tool>
-    <inspection_tool class="MultipleDeclaration" enabled="true" level="WARNING" enabled_by_default="true">
-      <option name="ignoreForLoopDeclarations" value="true" />
     </inspection_tool>
     <inspection_tool class="MultipleExceptionsDeclaredOnTestMethod" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="MultipleReturnPointsPerMethod" enabled="true" level="WARNING" enabled_by_default="true">
@@ -1013,7 +1006,6 @@
     <inspection_tool class="StaticVariableInitialization" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="m_ignorePrimitives" value="false" />
     </inspection_tool>
-    <inspection_tool class="StaticVariableOfConcreteClass" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="StaticVariableUninitializedUse" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="m_ignorePrimitives" value="false" />
     </inspection_tool>
@@ -1163,12 +1155,6 @@
     <inspection_tool class="UnpredictableBigDecimalConstructorCall" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoreReferences" value="true" />
       <option name="ignoreComplexLiterals" value="false" />
-    </inspection_tool>
-    <inspection_tool class="UnqualifiedMethodAccess" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="UnqualifiedStaticUsage" enabled="true" level="WARNING" enabled_by_default="true">
-      <option name="m_ignoreStaticFieldAccesses" value="false" />
-      <option name="m_ignoreStaticMethodCalls" value="false" />
-      <option name="m_ignoreStaticAccessFromStaticContext" value="false" />
     </inspection_tool>
     <inspection_tool class="UnsecureRandomNumberGeneration" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="UnusedCatchParameterJS" enabled="true" level="WARNING" enabled_by_default="true">

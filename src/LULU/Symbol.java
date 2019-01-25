@@ -1,20 +1,25 @@
 package LULU;
 
+import LULU.Type.PrimitiveType;
+
+import java.util.LinkedList;
+import java.util.List;
+
 public abstract class Symbol
 {
     private final String Name;
     private final int Size;
     private final Type type;
-    private final boolean isConst;
-    private int pointer;
+    private final boolean Const;
+    private int Offset;
 
-    Symbol(String name, int size, Type type, int pointer, boolean isConst)
+    Symbol(String name, int size, Type t, int offset, boolean isConst)
     {
         Name = name;
         Size = size;
-        this.type = type;
-        this.pointer = pointer;
-        this.isConst = isConst;
+        type = t;
+        Offset = offset;
+        Const = isConst;
     }
 
     public String getName()
@@ -32,69 +37,101 @@ public abstract class Symbol
         return type;
     }
 
-    public int getPointer()
+    public static Symbol addNew(String name, Type t, int offset, boolean isConst)
     {
-        return pointer;
+        return (t instanceof PrimitiveType) ? new PrimitiveSymbol(name, t, offset, isConst) : new UserDefinedSymbol(name, t, offset, isConst);
     }
 
-    public void setPointer(int pointer)
+    public int getOffset()
     {
-        this.pointer = pointer;
+        return Offset;
+    }
+
+    public void setOffset(int offset)
+    {
+        Offset = offset;
     }
 
     public boolean isConst()
     {
-        return isConst;
+        return Const;
     }
 }
 
 class PrimitiveSymbol extends Symbol
 {
-    PrimitiveSymbol(String name, int size, Type type, int pointer, boolean isConst)
+    PrimitiveSymbol(String name, Type type, int offset, boolean isConst)
     {
-        super(name, size, type, pointer, isConst);
+        super(name, type.getSize(), type, offset, isConst);
     }
 }
 
 class UserDefinedSymbol extends Symbol
 {
-    private int objectSize;
-
-    UserDefinedSymbol(String name, int size, Type type, int pointer, boolean isConst)
+    UserDefinedSymbol(String name, Type type, int offset, boolean isConst)
     {
-        super(name, size, type, pointer, isConst);
-    }
-
-    public int getObjectSize()
-    {
-        return objectSize;
-    }
-
-    public void addObjectSize(int objectSize)
-    {
-        this.objectSize += objectSize;
+        super(name, 4, type, offset, isConst);
     }
 }
 
-class FunctionSignature extends Symbol
+class FunctionSignature
 {
-    private final Symbol[] inputParameters, returnParameters;
+    private final List<Symbol> inputParameters = new LinkedList<>(), returnParameters = new LinkedList<>();
 
-    FunctionSignature(String name, int size, Type type, int pointer, Symbol[] returnTypes, Symbol[] inputTypes)
+    private final String name;
+
+    FunctionSignature(String name)
     {
-        super(name, size, type, pointer, false);
-        inputParameters = inputTypes;
-        returnParameters = returnTypes;
+        this.name = name;
     }
 
-    public Symbol[] getInputParameters()
+    public List<Symbol> getInputParameters()
     {
         return inputParameters;
     }
 
-    public Symbol[] getReturnParameters()
+    public List<Symbol> getReturnParameters()
     {
         return returnParameters;
+    }
+
+    public void addInputParam(String name, Type type)
+    {
+//        if (type.isPrimitive())
+//        {
+//            inputParameters.add(new PrimitiveSymbol(name, type, 0, false));
+//        }
+//        else
+//        {
+//            inputParameters.add(new UserDefinedSymbol(name, type, 0, false));
+//        }
+        inputParameters.add(Symbol.addNew(name, type, 0, false));
+    }
+
+    public void addInputParam(int index, Type type)
+    {
+//        if (type.isPrimitive())
+//        {
+//            inputParameters.add(new PrimitiveSymbol("*" + index, type, 0, false));
+//        }
+//        else
+//        {
+//            inputParameters.add(new UserDefinedSymbol("*" + index, type, 0, false));
+//        }
+        inputParameters.add(Symbol.addNew("*" + index, type, 0, false));
+    }
+
+    public void addReturnParam(int index, Type type)
+    {
+//        if (type.isPrimitive())
+//        {
+//            returnParameters.add(new PrimitiveSymbol("*" + index, type, 0, false));
+//        }
+//        else
+//        {
+//            returnParameters.add(new UserDefinedSymbol("*" + index, type, 0, false));
+//        }
+        returnParameters.add(Symbol.addNew("*" + index, type, 0, false));
     }
 }
 

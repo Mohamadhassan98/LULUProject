@@ -1,6 +1,5 @@
 package LULU;
 
-import org.antlr.v4.runtime.tree.ParseTree;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ResourceBundle;
@@ -11,34 +10,42 @@ abstract class Type
     private static final PrimitiveType Int = new PrimitiveType(resourceBundle.getString("int"), 32);
     private static final PrimitiveType Float = new PrimitiveType(resourceBundle.getString("float"), 64);
     private static final PrimitiveType Bool = new PrimitiveType(resourceBundle.getString("bool"), 1);
-    private static final PrimitiveType string = new PrimitiveType(resourceBundle.getString("string"), 32);
+    private static final PrimitiveType String = new PrimitiveType(resourceBundle.getString("string"), 32);
     private final String Name;
     private int Size;
 
-    Type(String name, int Size)
+    Type(String name, int size)
     {
         Name = name;
-        this.Size = Size;
+        Size = size;
     }
 
-    static PrimitiveType isPrimitive(ParseTree p)
+    public static PrimitiveType Int()
     {
-        switch (p.getText())
-        {
-            case "int":
-                return Type.Int;
-            case "float":
-                return Type.Float;
-            case "bool":
-                return Type.Bool;
-            case "string":
-                return Type.string;
-            default:
-                return null;
-        }
+        return Int;
     }
 
-    public String getName()
+    public static PrimitiveType Bool()
+    {
+        return Bool;
+    }
+
+    public static PrimitiveType Float()
+    {
+        return Float;
+    }
+
+    public static PrimitiveType String()
+    {
+        return String;
+    }
+
+    public boolean isPrimitive()
+    {
+        return this instanceof PrimitiveType;
+    }
+
+    String getName()
     {
         return Name;
     }
@@ -53,24 +60,37 @@ abstract class Type
         Size = size;
     }
 
-    private static class PrimitiveType extends Type
+    public void addTypeSize(Type t)
     {
-        PrimitiveType(String name, int Size)
+        Size += t.Size;
+    }
+
+    static class PrimitiveType extends Type
+    {
+        PrimitiveType(String name, int size)
         {
-            super(name, Size);
+            super(name, size);
+        }
+
+        @Override
+        public java.lang.String toString()
+        {
+            return "type " + getName();
         }
     }
+
 }
 
-class Array
+class Array extends Type
 {
     private final Type type;
-    private final int length;
+    private final int Length;
 
-    Array(@NotNull Type type, int length, int Size)
+    Array(@NotNull Type t, int length)
     {
-        this.length = length;
-        this.type = type;
+        super("Array<" + t.getName() + '>', length * t.getSize());
+        Length = length;
+        type = t;
     }
 
     public Type getType()
@@ -80,15 +100,42 @@ class Array
 
     public int getLength()
     {
-        return length;
+        return Length;
     }
 
+    @Override
+    public java.lang.String toString()
+    {
+        return "type Array<" + ((type instanceof UserDefinedType) ? "LULU." + type.getName() : type.getName()) + '>';
+    }
 }
 
 class UserDefinedType extends Type
 {
     UserDefinedType(String name)
     {
+        super(name, 0);
+    }
+
+    @Override
+    public String toString()
+    {
+        return "type LULU." + getName();
+    }
+}
+
+class ArraySignature extends Type
+{
+    private final int Dimension;
+
+    ArraySignature(String name, int dimension)
+    {
         super(name, 4);
+        Dimension = dimension;
+    }
+
+    public int getDimension()
+    {
+        return Dimension;
     }
 }

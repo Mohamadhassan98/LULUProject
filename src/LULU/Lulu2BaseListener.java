@@ -1,4 +1,5 @@
-package LULU;// Generated from C:/Users/Mohamadhassan/IdeaProjects/LULUProject/src\Lulu2.g4 by ANTLR 4.7
+// Generated from C:/Users/Mohamadhassan/IdeaProjects/LULUProject/src/LULU\Lulu2.g4 by ANTLR 4.7
+package LULU;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -47,11 +48,31 @@ public class Lulu2BaseListener implements Lulu2Listener {
 	 */
 	@Override public void exitFuncDcl(Lulu2Parser.FuncDclContext ctx) { }
 	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterArgs(Lulu2Parser.ArgsContext ctx) { }
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void enterTypeBrace(Lulu2Parser.TypeBraceContext ctx)
+    {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitTypeBrace(Lulu2Parser.TypeBraceContext ctx)
+    {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override public void enterArgs(Lulu2Parser.ArgsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -182,7 +203,7 @@ public class Lulu2BaseListener implements Lulu2Listener {
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
-	 */
+     */
     @Override
     public void enterASSIGNAlt(Lulu2Parser.ASSIGNAltContext ctx)
     {
@@ -364,12 +385,16 @@ public class Lulu2BaseListener implements Lulu2Listener {
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterRef(Lulu2Parser.RefContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void enterRef(Lulu2Parser.RefContext ctx)
+    {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
      */
     @Override
     public void exitRef(Lulu2Parser.RefContext ctx)
@@ -698,8 +723,8 @@ public class Lulu2BaseListener implements Lulu2Listener {
 
     /**
      * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+     *
+     * <p>The default implementation does nothing.</p>
      */
     @Override
     public void enterBITWISELOGICALXORAlt(Lulu2Parser.BITWISELOGICALXORAltContext ctx)
@@ -775,22 +800,31 @@ public class Lulu2BaseListener implements Lulu2Listener {
     public void exitWRITEAlt(Lulu2Parser.WRITEAltContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
+
+    /**
+     * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterList(Lulu2Parser.ListContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitList(Lulu2Parser.ListContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void enterList(Lulu2Parser.ListContext ctx)
+    {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitList(Lulu2Parser.ListContext ctx)
+    {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
      */
     @Override
     public void enterHandleCall(Lulu2Parser.HandleCallContext ctx)
@@ -809,8 +843,8 @@ public class Lulu2BaseListener implements Lulu2Listener {
 
     /**
      * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+     *
+     * <p>The default implementation does nothing.</p>
      */
     @Override
     public void enterParams(Lulu2Parser.ParamsContext ctx)
