@@ -102,14 +102,20 @@ class Tree
 
     static class DeclareScope extends Scope
     {
-        private final LinkedList<UserDefinedType> types = new LinkedList<>();
+        private final LinkedList<Type> types = new LinkedList<>()
+        {{
+            add(Type.Float());
+            add(Type.Bool());
+            add(Type.Int());
+            add(Type.String());
+        }};
 
         DeclareScope()
         {
             super(resourceBundle.getString("declare"), ScopeType.DeclareScope);
         }
 
-        public LinkedList<UserDefinedType> getTypes()
+        public LinkedList<Type> getTypes()
         {
             return types;
         }
