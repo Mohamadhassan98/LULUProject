@@ -2,6 +2,7 @@ package LULU;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 abstract class Type
@@ -16,7 +17,7 @@ abstract class Type
 
     Type(String name, int size)
     {
-        Name = name;
+        Name = "lulu." + name;
         Size = size;
     }
 
@@ -65,6 +66,27 @@ abstract class Type
         Size += t.Size;
     }
 
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o)
+        {
+            return true;
+        }
+        if ((o == null) || (getClass() != o.getClass()))
+        {
+            return false;
+        }
+        Type type = (Type) o;
+        return Objects.equals(Name, type.Name);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(Name);
+    }
+
     static class PrimitiveType extends Type
     {
         PrimitiveType(String name, int size)
@@ -73,12 +95,11 @@ abstract class Type
         }
 
         @Override
-        public java.lang.String toString()
+        public String toString()
         {
             return "type " + getName();
         }
     }
-
 }
 
 class Array extends Type
@@ -88,7 +109,7 @@ class Array extends Type
 
     Array(@NotNull Type t, int length)
     {
-        super("Array<" + t.getName() + '>', length * t.getSize());
+        super("lulu.Array<" + t.getName() + '>', length * t.getSize());
         Length = length;
         type = t;
     }
@@ -104,9 +125,9 @@ class Array extends Type
     }
 
     @Override
-    public java.lang.String toString()
+    public String toString()
     {
-        return "type Array<" + ((type instanceof UserDefinedType) ? "LULU." + type.getName() : type.getName()) + '>';
+        return "type " + getName();
     }
 }
 
@@ -120,22 +141,34 @@ class UserDefinedType extends Type
     @Override
     public String toString()
     {
-        return "type LULU." + getName();
+        return "type " + getName();
     }
 }
 
 class ArraySignature extends Type
 {
     private final int Dimension;
+    private final Type type;
 
-    ArraySignature(String name, int dimension)
+    ArraySignature(Type t, int dimension)
     {
-        super(name, 4);
+        super("Array<" + t.getName() + ", " + dimension + '>', 4);
         Dimension = dimension;
+        type = t;
     }
 
     public int getDimension()
     {
         return Dimension;
+    }
+
+    public Type getType()
+    {
+        return type;
+    }
+
+    public String toString()
+    {
+        return "Abstract type " + type.getName();
     }
 }

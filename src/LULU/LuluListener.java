@@ -7,8 +7,11 @@ import LULU.Lulu2Parser.VarDefContext;
 import LULU.Tree.DeclareScope;
 import LULU.Tree.Node;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.ResourceBundle;
 
+@SuppressWarnings("ALL")
 public class LuluListener extends Lulu2BaseListener
 {
     private static final ResourceBundle resourceBundle = ResourceBundle.getBundle("LULUStrings");
@@ -27,50 +30,138 @@ public class LuluListener extends Lulu2BaseListener
     {
         var children = ctx.children;
         FunctionSignature functionSignature = new FunctionSignature(ctx.ID().getText());
+        var argsSize = ctx.args().size();
+        //region Description
         if (ctx.OpenPar().size() != 1)
         {
             //Have return type
+            argsSize--;
             for (var i = 0; i < ctx.args(0).typeBrace().size(); i++)
             {
                 var child = ctx.args(0).typeBrace(i).OpenBrace();
                 int index = i;
+                var ide = ctx.args(0).typeBrace(index).type().getText();
                 if (child.isEmpty())
                 {//Have no dimension
-//                    Type typee = ctx.args(0).typeBrace(i).type().t;
-//                    if (typee == null)
-//                    {
+//                    System.out.println(currentNode);
+//                    System.out.println(((DeclareScope) currentNode.getScope()));
+//                    System.out.println(((DeclareScope) currentNode.getScope()).getTypes());
+//                    System.out.println(ctx);
+//                    System.out.println(ctx.args());
+//                    System.out.println(ctx.args(0).typeBrace());
+//                    System.out.println(ctx.args(0).typeBrace(index).type());
+//                    System.out.println(ctx.args(0).typeBrace(index).type().ID());
                     var typee = ((DeclareScope) currentNode.getScope()).getTypes()
-                            .stream()
-                            .filter(type -> type.getName()
-                                    .equals(ctx.args(0)
-                                            .typeBrace(index).type
-                                            .ID()
-                                            .getText()))
-                            .findFirst();
-//                    }
+                                                                       .stream()
+                                                                       .filter(type -> type.getName().equals(ide))
+                                                                       .findFirst();
+
                     if (typee.isEmpty())
                     {
-                        throw new CompileError("Type is not defined");
+                        throw new CompileError(resourceBundle.getString("typenotdefined") + " '" + ide + "'");
                     }
                     functionSignature.addReturnParam(i, typee.get());
                 }
                 //At least have one dimension
                 else
                 {
-                    //                            new ArraySignature(ctx.args(0).typeBrace(i).type.ID().getText(), child.size());
                     var typee = ((DeclareScope) currentNode.getScope()).getTypes()
-                            .stream()
-                            .filter(type -> type.getName()
-                                    .equals(ctx.args(0)
-                                            .typeBrace(index).type
-                                            .ID()
-                                            .getText()))
-                            .findFirst();
-
+                                                                       .stream()
+                                                                       .filter(type -> type.getName().equals(ide))
+                                                                       .findFirst();
+                    if (typee.isEmpty())
+                    {
+                        throw new CompileError(resourceBundle.getString("typenotdefined") + " '" + ide + "'");
+                    }
+                    functionSignature.addReturnParam(i, new ArraySignature(typee.get(), child.size()));
                 }
             }
         }
-
+        //endregion
+        if (argsSize == 1)
+        {
+            //args, no argsVar
+            for (var i = 0; i < ctx.args(ctx.args().size() - 1).typeBrace().size(); i++)
+            {
+                var child = ctx.args(ctx.args().size() - 1).typeBrace(i).OpenBrace();
+                int index = i;
+                var ide = ctx.args(ctx.args().size() - 1).typeBrace(index).type().getText();
+                if (child.isEmpty())
+                {//Have no dimension
+                    var typee = ((DeclareScope) currentNode.getScope()).getTypes()
+                                                                       .stream()
+                                                                       .filter(type -> type.getName().equals(ide))
+                                                                       .findFirst();
+                    if (typee.isEmpty())
+                    {
+                        throw new CompileError(resourceBundle.getString("typenotdefined") + " '" + ide + "'");
+                    }
+                    functionSignature.addInputParam(i, typee.get());
+                }
+                //At least have one dimension
+                else
+                {
+                    var typee = ((DeclareScope) currentNode.getScope()).getTypes()
+                                                                       .stream()
+                                                                       .filter(type -> type.getName().equals(ide))
+                                                                       .findFirst();
+                    if (typee.isEmpty())
+                    {
+                        throw new CompileError(resourceBundle.getString("typenotdefined") + " '" + ide + "'");
+                    }
+                    functionSignature.addInputParam(i, new ArraySignature(typee.get(), child.size()));
+                }
+            }
+        }
+        else if (ctx.argsVar() != null)
+        {
+            List<String> ids = new LinkedList<>();
+            //argsVar, no args
+            for (var i = 0; i < ctx.argsVar().typeBrace().size(); i++)
+            {
+                var child = ctx.argsVar().typeBrace(i).OpenBrace();
+                int index = i;
+                var ide = ctx.argsVar().typeBrace(index).type().getText();
+                if (child.isEmpty())
+                {//Have no dimension
+                    var typee = ((DeclareScope) currentNode.getScope()).getTypes()
+                                                                       .stream()
+                                                                       .filter(type -> type.getName().equals(ide))
+                                                                       .findFirst();
+                    if (typee.isEmpty())
+                    {
+                        throw new CompileError(resourceBundle.getString("typenotdefined") + " '" + ide + "'");
+                    }
+                    var id = ctx.argsVar().ID(i).getText();
+                    if (ids.contains(id))
+                    {
+                        throw new CompileError(resourceBundle.getString("typenotdefined") + " '" + ide + "'");
+                    }
+                    ids.add(id);
+                    functionSignature.addInputParam(id, typee.get());
+                }
+                //At least have one dimension
+                else
+                {
+                    var typee = ((DeclareScope) currentNode.getScope()).getTypes()
+                                                                       .stream()
+                                                                       .filter(type -> type.getName().equals(ide))
+                                                                       .findFirst();
+                    if (typee.isEmpty())
+                    {
+                        throw new CompileError(resourceBundle.getString("typenotdefined") + " '" + ide + "'");
+                    }
+                    var id = ctx.argsVar().ID(i).getText();
+                    if (ids.contains(id))
+                    {
+                        throw new CompileError("variable already defined");
+                    }
+                    ids.add(id);
+                    functionSignature.addInputParam(id, new ArraySignature(typee.get(), child.size()));
+                }
+            }
+        }
+        ((DeclareScope) currentNode.getScope()).addFunctionSignature(functionSignature);
 //        System.out.println("*******");
 //        System.out.println(ctx.OpenPar());
 //        System.out.println("*******");
@@ -84,14 +175,26 @@ public class LuluListener extends Lulu2BaseListener
     }
 
     @Override
+    public void exitFtDcl(FtDclContext ctx)
+    {
+        ((DeclareScope) currentNode.getScope()).getFunctionSignatures().forEach(functionSignature ->
+        {
+            System.out.println(functionSignature.getName());
+            functionSignature.getReturnParameters().forEach(symbol ->
+            {
+                System.out.println(symbol.getName() + "##" + symbol.getType().getName() + "##" + symbol.getSize());
+            });
+            functionSignature.getInputParameters().forEach(symbol ->
+            {
+                System.out.println(symbol.getName() + "##" + symbol.getType().getName() + "##" + symbol.getSize());
+            });
+        });
+    }
+
+    @Override
     public void enterVarDef(VarDefContext ctx)
     {
-
-        if (ctx.children.get(0).getText().equals(ctx.CONST().getText()))
-        {
-            //TODO :)
-        }
-
+        System.out.println(ctx.varVal().size());
     }
 
     @Override

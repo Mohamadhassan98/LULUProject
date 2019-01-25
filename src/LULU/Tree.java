@@ -110,6 +110,8 @@ class Tree
             add(Type.String());
         }};
 
+        private final LinkedList<FunctionSignature> functionSignatures = new LinkedList<>();
+
         DeclareScope()
         {
             super(resourceBundle.getString("declare"), ScopeType.DeclareScope);
@@ -125,6 +127,27 @@ class Tree
             types.add(type);
         }
 
+        public void addFunctionSignature(FunctionSignature fS)
+        {
+            if (functionSignatures.contains(fS))
+            {
+                throw new CompileError("Function already defined");
+            }
+//            System.out.println(functionSignatures.stream().anyMatch(functionSignature -> functionSignature.equals(fS)));
+//            for (FunctionSignature functionSignature : functionSignatures)
+//            {
+//                if (functionSignature.equals(fS))
+//                {
+//                    throw new CompileError("Function already defined");
+//                }
+//            }
+            functionSignatures.add(fS);
+        }
+
+        public LinkedList<FunctionSignature> getFunctionSignatures()
+        {
+            return functionSignatures;
+        }
     }
 
     static class TypeScope extends Scope

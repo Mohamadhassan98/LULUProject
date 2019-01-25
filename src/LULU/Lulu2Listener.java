@@ -1,6 +1,7 @@
 // Generated from C:/Users/Mohamadhassan/IdeaProjects/LULUProject/src/LULU\Lulu2.g4 by ANTLR 4.7
 package LULU;
 
+import LULU.Lulu2Parser.*;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -14,210 +15,210 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterMain(Lulu2Parser.MainContext ctx);
+    void enterMain(MainContext ctx);
 
     /**
      * Exit a parse tree produced by {@link Lulu2Parser#main}.
      *
      * @param ctx the parse tree
      */
-    void exitMain(Lulu2Parser.MainContext ctx);
+    void exitMain(MainContext ctx);
 
     /**
      * Enter a parse tree produced by {@link Lulu2Parser#ftDcl}.
      *
      * @param ctx the parse tree
      */
-    void enterFtDcl(Lulu2Parser.FtDclContext ctx);
+    void enterFtDcl(FtDclContext ctx);
 
     /**
      * Exit a parse tree produced by {@link Lulu2Parser#ftDcl}.
      *
      * @param ctx the parse tree
      */
-    void exitFtDcl(Lulu2Parser.FtDclContext ctx);
+    void exitFtDcl(FtDclContext ctx);
 
     /**
      * Enter a parse tree produced by {@link Lulu2Parser#funcDcl}.
      *
      * @param ctx the parse tree
      */
-    void enterFuncDcl(Lulu2Parser.FuncDclContext ctx);
+    void enterFuncDcl(FuncDclContext ctx);
 
     /**
      * Exit a parse tree produced by {@link Lulu2Parser#funcDcl}.
      *
      * @param ctx the parse tree
      */
-    void exitFuncDcl(Lulu2Parser.FuncDclContext ctx);
+    void exitFuncDcl(FuncDclContext ctx);
 
     /**
      * Enter a parse tree produced by {@link Lulu2Parser#typeBrace}.
      *
      * @param ctx the parse tree
      */
-    void enterTypeBrace(Lulu2Parser.TypeBraceContext ctx);
+    void enterTypeBrace(TypeBraceContext ctx);
 
     /**
      * Exit a parse tree produced by {@link Lulu2Parser#typeBrace}.
      *
      * @param ctx the parse tree
      */
-    void exitTypeBrace(Lulu2Parser.TypeBraceContext ctx);
+    void exitTypeBrace(TypeBraceContext ctx);
 
     /**
      * Enter a parse tree produced by {@link Lulu2Parser#args}.
      *
      * @param ctx the parse tree
      */
-    void enterArgs(Lulu2Parser.ArgsContext ctx);
+    void enterArgs(ArgsContext ctx);
 
     /**
      * Exit a parse tree produced by {@link Lulu2Parser#args}.
      *
      * @param ctx the parse tree
      */
-    void exitArgs(Lulu2Parser.ArgsContext ctx);
+    void exitArgs(ArgsContext ctx);
 
     /**
      * Enter a parse tree produced by {@link Lulu2Parser#argsVar}.
      *
      * @param ctx the parse tree
      */
-    void enterArgsVar(Lulu2Parser.ArgsVarContext ctx);
+    void enterArgsVar(ArgsVarContext ctx);
 
     /**
      * Exit a parse tree produced by {@link Lulu2Parser#argsVar}.
      *
      * @param ctx the parse tree
      */
-    void exitArgsVar(Lulu2Parser.ArgsVarContext ctx);
+    void exitArgsVar(ArgsVarContext ctx);
 
     /**
      * Enter a parse tree produced by {@link Lulu2Parser#typeDcl}.
      *
      * @param ctx the parse tree
      */
-    void enterTypeDcl(Lulu2Parser.TypeDclContext ctx);
+    void enterTypeDcl(TypeDclContext ctx);
 
     /**
      * Exit a parse tree produced by {@link Lulu2Parser#typeDcl}.
      *
      * @param ctx the parse tree
      */
-    void exitTypeDcl(Lulu2Parser.TypeDclContext ctx);
+    void exitTypeDcl(TypeDclContext ctx);
 
     /**
      * Enter a parse tree produced by {@link Lulu2Parser#varDef}.
      *
      * @param ctx the parse tree
      */
-    void enterVarDef(Lulu2Parser.VarDefContext ctx);
+    void enterVarDef(VarDefContext ctx);
 
     /**
      * Exit a parse tree produced by {@link Lulu2Parser#varDef}.
      *
      * @param ctx the parse tree
      */
-    void exitVarDef(Lulu2Parser.VarDefContext ctx);
+    void exitVarDef(VarDefContext ctx);
 
     /**
      * Enter a parse tree produced by {@link Lulu2Parser#varVal}.
      *
      * @param ctx the parse tree
      */
-    void enterVarVal(Lulu2Parser.VarValContext ctx);
+    void enterVarVal(VarValContext ctx);
 
     /**
      * Exit a parse tree produced by {@link Lulu2Parser#varVal}.
      *
      * @param ctx the parse tree
      */
-    void exitVarVal(Lulu2Parser.VarValContext ctx);
+    void exitVarVal(VarValContext ctx);
 
     /**
      * Enter a parse tree produced by {@link Lulu2Parser#ftDef}.
      *
      * @param ctx the parse tree
      */
-    void enterFtDef(Lulu2Parser.FtDefContext ctx);
+    void enterFtDef(FtDefContext ctx);
 
     /**
      * Exit a parse tree produced by {@link Lulu2Parser#ftDef}.
      *
      * @param ctx the parse tree
      */
-    void exitFtDef(Lulu2Parser.FtDefContext ctx);
+    void exitFtDef(FtDefContext ctx);
 
     /**
      * Enter a parse tree produced by {@link Lulu2Parser#typeDef}.
      *
      * @param ctx the parse tree
      */
-    void enterTypeDef(Lulu2Parser.TypeDefContext ctx);
+    void enterTypeDef(TypeDefContext ctx);
 
     /**
      * Exit a parse tree produced by {@link Lulu2Parser#typeDef}.
      *
      * @param ctx the parse tree
      */
-    void exitTypeDef(Lulu2Parser.TypeDefContext ctx);
+    void exitTypeDef(TypeDefContext ctx);
 
     /**
      * Enter a parse tree produced by {@link Lulu2Parser#component}.
      *
      * @param ctx the parse tree
      */
-    void enterComponent(Lulu2Parser.ComponentContext ctx);
+    void enterComponent(ComponentContext ctx);
 
     /**
      * Exit a parse tree produced by {@link Lulu2Parser#component}.
      *
      * @param ctx the parse tree
      */
-    void exitComponent(Lulu2Parser.ComponentContext ctx);
+    void exitComponent(ComponentContext ctx);
 
     /**
      * Enter a parse tree produced by {@link Lulu2Parser#accessModifier}.
      *
      * @param ctx the parse tree
      */
-    void enterAccessModifier(Lulu2Parser.AccessModifierContext ctx);
+    void enterAccessModifier(AccessModifierContext ctx);
 
     /**
      * Exit a parse tree produced by {@link Lulu2Parser#accessModifier}.
      *
      * @param ctx the parse tree
      */
-    void exitAccessModifier(Lulu2Parser.AccessModifierContext ctx);
+    void exitAccessModifier(AccessModifierContext ctx);
 
     /**
      * Enter a parse tree produced by {@link Lulu2Parser#funcDef}.
      *
      * @param ctx the parse tree
      */
-    void enterFuncDef(Lulu2Parser.FuncDefContext ctx);
+    void enterFuncDef(FuncDefContext ctx);
 
     /**
      * Exit a parse tree produced by {@link Lulu2Parser#funcDef}.
      *
      * @param ctx the parse tree
      */
-    void exitFuncDef(Lulu2Parser.FuncDefContext ctx);
+    void exitFuncDef(FuncDefContext ctx);
 
     /**
      * Enter a parse tree produced by {@link Lulu2Parser#block}.
      *
      * @param ctx the parse tree
      */
-    void enterBlock(Lulu2Parser.BlockContext ctx);
+    void enterBlock(BlockContext ctx);
 
     /**
      * Exit a parse tree produced by {@link Lulu2Parser#block}.
      *
      * @param ctx the parse tree
      */
-    void exitBlock(Lulu2Parser.BlockContext ctx);
+    void exitBlock(BlockContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code ASSIGNAlt}
@@ -225,7 +226,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterASSIGNAlt(Lulu2Parser.ASSIGNAltContext ctx);
+    void enterASSIGNAlt(ASSIGNAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code ASSIGNAlt}
@@ -233,7 +234,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitASSIGNAlt(Lulu2Parser.ASSIGNAltContext ctx);
+    void exitASSIGNAlt(ASSIGNAltContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code FUNCCALLSTMTAlt}
@@ -241,7 +242,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterFUNCCALLSTMTAlt(Lulu2Parser.FUNCCALLSTMTAltContext ctx);
+    void enterFUNCCALLSTMTAlt(FUNCCALLSTMTAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code FUNCCALLSTMTAlt}
@@ -249,7 +250,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitFUNCCALLSTMTAlt(Lulu2Parser.FUNCCALLSTMTAltContext ctx);
+    void exitFUNCCALLSTMTAlt(FUNCCALLSTMTAltContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code CONDSTMTAlt}
@@ -257,7 +258,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterCONDSTMTAlt(Lulu2Parser.CONDSTMTAltContext ctx);
+    void enterCONDSTMTAlt(CONDSTMTAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code CONDSTMTAlt}
@@ -265,7 +266,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitCONDSTMTAlt(Lulu2Parser.CONDSTMTAltContext ctx);
+    void exitCONDSTMTAlt(CONDSTMTAltContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code LOOPSTMTAlt}
@@ -273,7 +274,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterLOOPSTMTAlt(Lulu2Parser.LOOPSTMTAltContext ctx);
+    void enterLOOPSTMTAlt(LOOPSTMTAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code LOOPSTMTAlt}
@@ -281,7 +282,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitLOOPSTMTAlt(Lulu2Parser.LOOPSTMTAltContext ctx);
+    void exitLOOPSTMTAlt(LOOPSTMTAltContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code RETURNAlt}
@@ -289,7 +290,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterRETURNAlt(Lulu2Parser.RETURNAltContext ctx);
+    void enterRETURNAlt(RETURNAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code RETURNAlt}
@@ -297,7 +298,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitRETURNAlt(Lulu2Parser.RETURNAltContext ctx);
+    void exitRETURNAlt(RETURNAltContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code BREAKAlt}
@@ -305,7 +306,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterBREAKAlt(Lulu2Parser.BREAKAltContext ctx);
+    void enterBREAKAlt(BREAKAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code BREAKAlt}
@@ -313,7 +314,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitBREAKAlt(Lulu2Parser.BREAKAltContext ctx);
+    void exitBREAKAlt(BREAKAltContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code CONTINUEAlt}
@@ -321,7 +322,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterCONTINUEAlt(Lulu2Parser.CONTINUEAltContext ctx);
+    void enterCONTINUEAlt(CONTINUEAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code CONTINUEAlt}
@@ -329,7 +330,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitCONTINUEAlt(Lulu2Parser.CONTINUEAltContext ctx);
+    void exitCONTINUEAlt(CONTINUEAltContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code DESTRUCTAlt}
@@ -337,7 +338,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterDESTRUCTAlt(Lulu2Parser.DESTRUCTAltContext ctx);
+    void enterDESTRUCTAlt(DESTRUCTAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code DESTRUCTAlt}
@@ -345,49 +346,49 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitDESTRUCTAlt(Lulu2Parser.DESTRUCTAltContext ctx);
+    void exitDESTRUCTAlt(DESTRUCTAltContext ctx);
 
     /**
      * Enter a parse tree produced by {@link Lulu2Parser#assign}.
      *
      * @param ctx the parse tree
      */
-    void enterAssign(Lulu2Parser.AssignContext ctx);
+    void enterAssign(AssignContext ctx);
 
     /**
      * Exit a parse tree produced by {@link Lulu2Parser#assign}.
      *
      * @param ctx the parse tree
      */
-    void exitAssign(Lulu2Parser.AssignContext ctx);
+    void exitAssign(AssignContext ctx);
 
     /**
      * Enter a parse tree produced by {@link Lulu2Parser#var}.
      *
      * @param ctx the parse tree
      */
-    void enterVar(Lulu2Parser.VarContext ctx);
+    void enterVar(VarContext ctx);
 
     /**
      * Exit a parse tree produced by {@link Lulu2Parser#var}.
      *
      * @param ctx the parse tree
      */
-    void exitVar(Lulu2Parser.VarContext ctx);
+    void exitVar(VarContext ctx);
 
     /**
      * Enter a parse tree produced by {@link Lulu2Parser#ref}.
      *
      * @param ctx the parse tree
      */
-    void enterRef(Lulu2Parser.RefContext ctx);
+    void enterRef(RefContext ctx);
 
     /**
      * Exit a parse tree produced by {@link Lulu2Parser#ref}.
      *
      * @param ctx the parse tree
      */
-    void exitRef(Lulu2Parser.RefContext ctx);
+    void exitRef(RefContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code LOGICALANDAlt}
@@ -395,7 +396,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterLOGICALANDAlt(Lulu2Parser.LOGICALANDAltContext ctx);
+    void enterLOGICALANDAlt(LOGICALANDAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code LOGICALANDAlt}
@@ -403,7 +404,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitLOGICALANDAlt(Lulu2Parser.LOGICALANDAltContext ctx);
+    void exitLOGICALANDAlt(LOGICALANDAltContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code BITWISEORAlt}
@@ -411,7 +412,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterBITWISEORAlt(Lulu2Parser.BITWISEORAltContext ctx);
+    void enterBITWISEORAlt(BITWISEORAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code BITWISEORAlt}
@@ -419,7 +420,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitBITWISEORAlt(Lulu2Parser.BITWISEORAltContext ctx);
+    void exitBITWISEORAlt(BITWISEORAltContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code CONSTVALAlt}
@@ -427,7 +428,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterCONSTVALAlt(Lulu2Parser.CONSTVALAltContext ctx);
+    void enterCONSTVALAlt(CONSTVALAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code CONSTVALAlt}
@@ -435,7 +436,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitCONSTVALAlt(Lulu2Parser.CONSTVALAltContext ctx);
+    void exitCONSTVALAlt(CONSTVALAltContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code ALLOCATIONAlt}
@@ -443,7 +444,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterALLOCATIONAlt(Lulu2Parser.ALLOCATIONAltContext ctx);
+    void enterALLOCATIONAlt(ALLOCATIONAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code ALLOCATIONAlt}
@@ -451,7 +452,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitALLOCATIONAlt(Lulu2Parser.ALLOCATIONAltContext ctx);
+    void exitALLOCATIONAlt(ALLOCATIONAltContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code PAREXPRAlt}
@@ -459,7 +460,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterPAREXPRAlt(Lulu2Parser.PAREXPRAltContext ctx);
+    void enterPAREXPRAlt(PAREXPRAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code PAREXPRAlt}
@@ -467,7 +468,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitPAREXPRAlt(Lulu2Parser.PAREXPRAltContext ctx);
+    void exitPAREXPRAlt(PAREXPRAltContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code ADDSUBAlt}
@@ -475,7 +476,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterADDSUBAlt(Lulu2Parser.ADDSUBAltContext ctx);
+    void enterADDSUBAlt(ADDSUBAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code ADDSUBAlt}
@@ -483,7 +484,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitADDSUBAlt(Lulu2Parser.ADDSUBAltContext ctx);
+    void exitADDSUBAlt(ADDSUBAltContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code LISTAlt}
@@ -491,7 +492,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterLISTAlt(Lulu2Parser.LISTAltContext ctx);
+    void enterLISTAlt(LISTAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code LISTAlt}
@@ -499,7 +500,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitLISTAlt(Lulu2Parser.LISTAltContext ctx);
+    void exitLISTAlt(LISTAltContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code FUNCCALLAlt}
@@ -507,7 +508,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterFUNCCALLAlt(Lulu2Parser.FUNCCALLAltContext ctx);
+    void enterFUNCCALLAlt(FUNCCALLAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code FUNCCALLAlt}
@@ -515,7 +516,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitFUNCCALLAlt(Lulu2Parser.FUNCCALLAltContext ctx);
+    void exitFUNCCALLAlt(FUNCCALLAltContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code MULDIVAlt}
@@ -523,7 +524,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterMULDIVAlt(Lulu2Parser.MULDIVAltContext ctx);
+    void enterMULDIVAlt(MULDIVAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code MULDIVAlt}
@@ -531,7 +532,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitMULDIVAlt(Lulu2Parser.MULDIVAltContext ctx);
+    void exitMULDIVAlt(MULDIVAltContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code EQUALITYAlt}
@@ -539,7 +540,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterEQUALITYAlt(Lulu2Parser.EQUALITYAltContext ctx);
+    void enterEQUALITYAlt(EQUALITYAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code EQUALITYAlt}
@@ -547,7 +548,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitEQUALITYAlt(Lulu2Parser.EQUALITYAltContext ctx);
+    void exitEQUALITYAlt(EQUALITYAltContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code COMPAREAlt}
@@ -555,7 +556,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterCOMPAREAlt(Lulu2Parser.COMPAREAltContext ctx);
+    void enterCOMPAREAlt(COMPAREAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code COMPAREAlt}
@@ -563,7 +564,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitCOMPAREAlt(Lulu2Parser.COMPAREAltContext ctx);
+    void exitCOMPAREAlt(COMPAREAltContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code LOGICALORAlt}
@@ -571,7 +572,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterLOGICALORAlt(Lulu2Parser.LOGICALORAltContext ctx);
+    void enterLOGICALORAlt(LOGICALORAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code LOGICALORAlt}
@@ -579,7 +580,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitLOGICALORAlt(Lulu2Parser.LOGICALORAltContext ctx);
+    void exitLOGICALORAlt(LOGICALORAltContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code VARAlt}
@@ -587,7 +588,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterVARAlt(Lulu2Parser.VARAltContext ctx);
+    void enterVARAlt(VARAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code VARAlt}
@@ -595,7 +596,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitVARAlt(Lulu2Parser.VARAltContext ctx);
+    void exitVARAlt(VARAltContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code NILAlt}
@@ -603,7 +604,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterNILAlt(Lulu2Parser.NILAltContext ctx);
+    void enterNILAlt(NILAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code NILAlt}
@@ -611,7 +612,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitNILAlt(Lulu2Parser.NILAltContext ctx);
+    void exitNILAlt(NILAltContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code BITWISEANDAlt}
@@ -619,7 +620,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterBITWISEANDAlt(Lulu2Parser.BITWISEANDAltContext ctx);
+    void enterBITWISEANDAlt(BITWISEANDAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code BITWISEANDAlt}
@@ -627,7 +628,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitBITWISEANDAlt(Lulu2Parser.BITWISEANDAltContext ctx);
+    void exitBITWISEANDAlt(BITWISEANDAltContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code UNARYOPAlt}
@@ -635,7 +636,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterUNARYOPAlt(Lulu2Parser.UNARYOPAltContext ctx);
+    void enterUNARYOPAlt(UNARYOPAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code UNARYOPAlt}
@@ -643,7 +644,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitUNARYOPAlt(Lulu2Parser.UNARYOPAltContext ctx);
+    void exitUNARYOPAlt(UNARYOPAltContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code BITWISELOGICALXORAlt}
@@ -651,7 +652,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterBITWISELOGICALXORAlt(Lulu2Parser.BITWISELOGICALXORAltContext ctx);
+    void enterBITWISELOGICALXORAlt(BITWISELOGICALXORAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code BITWISELOGICALXORAlt}
@@ -659,7 +660,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitBITWISELOGICALXORAlt(Lulu2Parser.BITWISELOGICALXORAltContext ctx);
+    void exitBITWISELOGICALXORAlt(BITWISELOGICALXORAltContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code METHODCALLAlt}
@@ -667,7 +668,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterMETHODCALLAlt(Lulu2Parser.METHODCALLAltContext ctx);
+    void enterMETHODCALLAlt(METHODCALLAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code METHODCALLAlt}
@@ -675,7 +676,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitMETHODCALLAlt(Lulu2Parser.METHODCALLAltContext ctx);
+    void exitMETHODCALLAlt(METHODCALLAltContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code READAlt}
@@ -683,7 +684,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterREADAlt(Lulu2Parser.READAltContext ctx);
+    void enterREADAlt(READAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code READAlt}
@@ -691,7 +692,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitREADAlt(Lulu2Parser.READAltContext ctx);
+    void exitREADAlt(READAltContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code WRITEAlt}
@@ -699,7 +700,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterWRITEAlt(Lulu2Parser.WRITEAltContext ctx);
+    void enterWRITEAlt(WRITEAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code WRITEAlt}
@@ -707,49 +708,49 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitWRITEAlt(Lulu2Parser.WRITEAltContext ctx);
+    void exitWRITEAlt(WRITEAltContext ctx);
 
     /**
      * Enter a parse tree produced by {@link Lulu2Parser#list}.
      *
      * @param ctx the parse tree
      */
-    void enterList(Lulu2Parser.ListContext ctx);
+    void enterList(ListContext ctx);
 
     /**
      * Exit a parse tree produced by {@link Lulu2Parser#list}.
      *
      * @param ctx the parse tree
      */
-    void exitList(Lulu2Parser.ListContext ctx);
+    void exitList(ListContext ctx);
 
     /**
      * Enter a parse tree produced by {@link Lulu2Parser#handleCall}.
      *
      * @param ctx the parse tree
      */
-    void enterHandleCall(Lulu2Parser.HandleCallContext ctx);
+    void enterHandleCall(HandleCallContext ctx);
 
     /**
      * Exit a parse tree produced by {@link Lulu2Parser#handleCall}.
      *
      * @param ctx the parse tree
      */
-    void exitHandleCall(Lulu2Parser.HandleCallContext ctx);
+    void exitHandleCall(HandleCallContext ctx);
 
     /**
      * Enter a parse tree produced by {@link Lulu2Parser#params}.
      *
      * @param ctx the parse tree
      */
-    void enterParams(Lulu2Parser.ParamsContext ctx);
+    void enterParams(ParamsContext ctx);
 
     /**
      * Exit a parse tree produced by {@link Lulu2Parser#params}.
      *
      * @param ctx the parse tree
      */
-    void exitParams(Lulu2Parser.ParamsContext ctx);
+    void exitParams(ParamsContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code IFAlt}
@@ -757,7 +758,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterIFAlt(Lulu2Parser.IFAltContext ctx);
+    void enterIFAlt(IFAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code IFAlt}
@@ -765,7 +766,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitIFAlt(Lulu2Parser.IFAltContext ctx);
+    void exitIFAlt(IFAltContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code SWITCHAlt}
@@ -773,7 +774,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterSWITCHAlt(Lulu2Parser.SWITCHAltContext ctx);
+    void enterSWITCHAlt(SWITCHAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code SWITCHAlt}
@@ -781,7 +782,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitSWITCHAlt(Lulu2Parser.SWITCHAltContext ctx);
+    void exitSWITCHAlt(SWITCHAltContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code FORAlt}
@@ -789,7 +790,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterFORAlt(Lulu2Parser.FORAltContext ctx);
+    void enterFORAlt(FORAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code FORAlt}
@@ -797,7 +798,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitFORAlt(Lulu2Parser.FORAltContext ctx);
+    void exitFORAlt(FORAltContext ctx);
 
     /**
      * Enter a parse tree produced by the {@code WHILEAlt}
@@ -805,7 +806,7 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void enterWHILEAlt(Lulu2Parser.WHILEAltContext ctx);
+    void enterWHILEAlt(WHILEAltContext ctx);
 
     /**
      * Exit a parse tree produced by the {@code WHILEAlt}
@@ -813,103 +814,103 @@ public interface Lulu2Listener extends ParseTreeListener
      *
      * @param ctx the parse tree
      */
-    void exitWHILEAlt(Lulu2Parser.WHILEAltContext ctx);
+    void exitWHILEAlt(WHILEAltContext ctx);
 
     /**
      * Enter a parse tree produced by {@link Lulu2Parser#type}.
      *
      * @param ctx the parse tree
      */
-    void enterType(Lulu2Parser.TypeContext ctx);
+    void enterType(TypeContext ctx);
 
     /**
      * Exit a parse tree produced by {@link Lulu2Parser#type}.
      *
      * @param ctx the parse tree
      */
-    void exitType(Lulu2Parser.TypeContext ctx);
+    void exitType(TypeContext ctx);
 
     /**
      * Enter a parse tree produced by {@link Lulu2Parser#constVal}.
      *
      * @param ctx the parse tree
      */
-    void enterConstVal(Lulu2Parser.ConstValContext ctx);
+    void enterConstVal(ConstValContext ctx);
 
     /**
      * Exit a parse tree produced by {@link Lulu2Parser#constVal}.
      *
      * @param ctx the parse tree
      */
-    void exitConstVal(Lulu2Parser.ConstValContext ctx);
+    void exitConstVal(ConstValContext ctx);
 
     /**
      * Enter a parse tree produced by {@link Lulu2Parser#unaryOp}.
      *
      * @param ctx the parse tree
      */
-    void enterUnaryOp(Lulu2Parser.UnaryOpContext ctx);
+    void enterUnaryOp(UnaryOpContext ctx);
 
     /**
      * Exit a parse tree produced by {@link Lulu2Parser#unaryOp}.
      *
      * @param ctx the parse tree
      */
-    void exitUnaryOp(Lulu2Parser.UnaryOpContext ctx);
+    void exitUnaryOp(UnaryOpContext ctx);
 
     /**
      * Enter a parse tree produced by {@link Lulu2Parser#firstLevelBinaryArithmeticOp}.
      *
      * @param ctx the parse tree
      */
-    void enterFirstLevelBinaryArithmeticOp(Lulu2Parser.FirstLevelBinaryArithmeticOpContext ctx);
+    void enterFirstLevelBinaryArithmeticOp(FirstLevelBinaryArithmeticOpContext ctx);
 
     /**
      * Exit a parse tree produced by {@link Lulu2Parser#firstLevelBinaryArithmeticOp}.
      *
      * @param ctx the parse tree
      */
-    void exitFirstLevelBinaryArithmeticOp(Lulu2Parser.FirstLevelBinaryArithmeticOpContext ctx);
+    void exitFirstLevelBinaryArithmeticOp(FirstLevelBinaryArithmeticOpContext ctx);
 
     /**
      * Enter a parse tree produced by {@link Lulu2Parser#secondLevelBinaryArithmeticOp}.
      *
      * @param ctx the parse tree
      */
-    void enterSecondLevelBinaryArithmeticOp(Lulu2Parser.SecondLevelBinaryArithmeticOpContext ctx);
+    void enterSecondLevelBinaryArithmeticOp(SecondLevelBinaryArithmeticOpContext ctx);
 
     /**
      * Exit a parse tree produced by {@link Lulu2Parser#secondLevelBinaryArithmeticOp}.
      *
      * @param ctx the parse tree
      */
-    void exitSecondLevelBinaryArithmeticOp(Lulu2Parser.SecondLevelBinaryArithmeticOpContext ctx);
+    void exitSecondLevelBinaryArithmeticOp(SecondLevelBinaryArithmeticOpContext ctx);
 
     /**
      * Enter a parse tree produced by {@link Lulu2Parser#firstLevelBinaryRelationalOp}.
      *
      * @param ctx the parse tree
      */
-    void enterFirstLevelBinaryRelationalOp(Lulu2Parser.FirstLevelBinaryRelationalOpContext ctx);
+    void enterFirstLevelBinaryRelationalOp(FirstLevelBinaryRelationalOpContext ctx);
 
     /**
      * Exit a parse tree produced by {@link Lulu2Parser#firstLevelBinaryRelationalOp}.
      *
      * @param ctx the parse tree
      */
-    void exitFirstLevelBinaryRelationalOp(Lulu2Parser.FirstLevelBinaryRelationalOpContext ctx);
+    void exitFirstLevelBinaryRelationalOp(FirstLevelBinaryRelationalOpContext ctx);
 
     /**
      * Enter a parse tree produced by {@link Lulu2Parser#secondLevelBinaryRelationalOp}.
      *
      * @param ctx the parse tree
      */
-    void enterSecondLevelBinaryRelationalOp(Lulu2Parser.SecondLevelBinaryRelationalOpContext ctx);
+    void enterSecondLevelBinaryRelationalOp(SecondLevelBinaryRelationalOpContext ctx);
 
     /**
      * Exit a parse tree produced by {@link Lulu2Parser#secondLevelBinaryRelationalOp}.
      *
      * @param ctx the parse tree
      */
-    void exitSecondLevelBinaryRelationalOp(Lulu2Parser.SecondLevelBinaryRelationalOpContext ctx);
+    void exitSecondLevelBinaryRelationalOp(SecondLevelBinaryRelationalOpContext ctx);
 }
