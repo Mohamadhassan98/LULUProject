@@ -65,7 +65,6 @@ public class Lulu2Lexer extends Lexer {
 		"COMMA", "COLON", "SEMICOLON", "IntLiteral", "FloatLiteral", "StringLiteral", 
 		"BoolLiteral", "ID", "WhiteSpace"
 	};
-	//region Desc
 	private static final String[] _LITERAL_NAMES = {
 			null,
 			null,
@@ -129,8 +128,6 @@ public class Lulu2Lexer extends Lexer {
 			"':'",
 			"';'"
 	};
-	//endregion
-
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
 	/**
@@ -169,6 +166,7 @@ public class Lulu2Lexer extends Lexer {
 		super(input);
 		_interp = new LexerATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
+
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }

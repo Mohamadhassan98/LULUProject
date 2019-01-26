@@ -16,6 +16,8 @@ import java.util.List;
 public class Lulu2Parser extends Parser
 {
 	public static final int SingleLineComment = 1, MultiLineComment = 2, ALLOCATE = 3, BOOL = 4, BREAK = 5, CASE = 6, CONST = 7, CONTINUE = 8, DECLARE = 9, DEFAULT = 10, DESTRUCT = 11, ELSE = 12, FUNCTION = 13, FLOAT = 14, FOR = 15, IF = 16, INT = 17, NIL = 18, OF = 19, PRIVATE = 20, PROTECTED = 21, PUBLIC = 22, READ = 23, RETURN = 24, STRING = 25, SUPER = 26, SWITCH = 27, THIS = 28, TYPE = 29, WHILE = 30, WRITE = 31, EQUAL = 32, NotEqual = 33, LessThanOrEqual = 34, LessThan = 35, BiggerThan = 36, BiggerThanOrEqual = 37, BitwiseNegation = 38, BitwiseOr = 39, BitwiseAnd = 40, BitwiseLogicalXor = 41, LogicalOr = 42, LogicalAnd = 43, LogicalNot = 44, SUBTRACTION = 45, ADDITION = 46, MULTIPLICATION = 47, DIVISION = 48, MODULUS = 49, ASSIGN = 50, OpenCurlyBrace = 51, CloseCurlyBrace = 52, OpenPar = 53, ClosePar = 54, OpenBrace = 55, CloseBrace = 56, DOT = 57, COMMA = 58, COLON = 59, SEMICOLON = 60, IntLiteral = 61, FloatLiteral = 62, StringLiteral = 63, BoolLiteral = 64, ID = 65, WhiteSpace = 66;
+
+	protected static final DFA[] _decisionToDFA;
 	public static final int RULE_main = 0, RULE_ftDcl = 1, RULE_funcDcl = 2, RULE_typeBrace = 3, RULE_args = 4, RULE_argsVar = 5, RULE_typeDcl = 6, RULE_varDef = 7, RULE_varVal = 8, RULE_ftDef = 9, RULE_typeDef = 10, RULE_component = 11, RULE_accessModifier = 12, RULE_funcDef = 13, RULE_block = 14, RULE_stmt = 15, RULE_assign = 16, RULE_var = 17, RULE_ref = 18, RULE_expr = 19, RULE_funcCall = 20, RULE_list = 21, RULE_handleCall = 22, RULE_params = 23, RULE_condStmt = 24, RULE_loopStmt = 25, RULE_type = 26, RULE_constVal = 27, RULE_unaryOp = 28, RULE_firstLevelBinaryArithmeticOp = 29, RULE_secondLevelBinaryArithmeticOp = 30, RULE_firstLevelBinaryRelationalOp = 31, RULE_secondLevelBinaryRelationalOp = 32;
 	public static final String[] ruleNames = {
 			"main",
@@ -59,7 +61,6 @@ public class Lulu2Parser extends Parser
 	public static final String[] tokenNames;
 	public static final String _serializedATN = "\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3D\u01d2\4\2\t\2\4" + "\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t" + "\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22" + "\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31" + "\4\32\t\32\4\33\t\33\4\34\t\34\4\35\t\35\4\36\t\36\4\37\t\37\4 \t \4!" + "\t!\4\"\t\"\3\2\5\2F\n\2\3\2\6\2I\n\2\r\2\16\2J\3\2\3\2\3\3\3\3\3\3\3" + "\3\3\3\6\3T\n\3\r\3\16\3U\3\3\3\3\3\4\3\4\3\4\3\4\3\4\5\4_\n\4\3\4\3\4" + "\3\4\3\4\5\4e\n\4\3\4\3\4\3\4\3\5\3\5\3\5\7\5m\n\5\f\5\16\5p\13\5\3\6" + "\3\6\3\6\7\6u\n\6\f\6\16\6x\13\6\3\7\3\7\3\7\3\7\3\7\3\7\7\7\u0080\n\7" + "\f\7\16\7\u0083\13\7\3\b\3\b\3\b\3\t\5\t\u0089\n\t\3\t\3\t\3\t\3\t\7\t" + "\u008f\n\t\f\t\16\t\u0092\13\t\3\t\3\t\3\n\3\n\3\n\5\n\u0099\n\n\3\13" + "\3\13\5\13\u009d\n\13\3\f\3\f\3\f\3\f\5\f\u00a3\n\f\3\f\3\f\6\f\u00a7" + "\n\f\r\f\16\f\u00a8\3\f\3\f\3\r\5\r\u00ae\n\r\3\r\3\r\5\r\u00b2\n\r\3" + "\16\3\16\3\17\3\17\3\17\3\17\3\17\5\17\u00bb\n\17\3\17\3\17\3\17\3\17" + "\5\17\u00c1\n\17\3\17\3\17\3\17\3\20\3\20\3\20\7\20\u00c9\n\20\f\20\16" + "\20\u00cc\13\20\3\20\3\20\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21" + "\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\7\21\u00e1\n\21\f\21\16\21\u00e4" + "\13\21\3\21\3\21\5\21\u00e8\n\21\3\22\3\22\3\22\3\22\3\22\7\22\u00ef\n" + "\22\f\22\16\22\u00f2\13\22\3\22\3\22\5\22\u00f6\n\22\3\22\3\22\3\22\3" + "\23\3\23\5\23\u00fd\n\23\3\23\3\23\3\23\7\23\u0102\n\23\f\23\16\23\u0105" + "\13\23\3\24\3\24\3\24\3\24\3\24\7\24\u010c\n\24\f\24\16\24\u010f\13\24" + "\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25" + "\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\5\25\u0128\n\25\3\25\3\25" + "\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25" + "\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25" + "\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25" + "\3\25\7\25\u0157\n\25\f\25\16\25\u015a\13\25\3\26\3\26\3\26\5\26\u015f" + "\n\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\5\26\u016c" + "\n\26\3\27\3\27\3\27\5\27\u0171\n\27\3\27\3\27\3\27\5\27\u0176\n\27\7" + "\27\u0178\n\27\f\27\16\27\u017b\13\27\3\27\3\27\3\30\3\30\3\30\5\30\u0182" + "\n\30\3\30\3\30\3\31\3\31\3\31\3\31\3\31\5\31\u018b\n\31\3\32\3\32\3\32" + "\3\32\3\32\5\32\u0192\n\32\3\32\3\32\3\32\3\32\3\32\3\32\3\32\7\32\u019b" + "\n\32\f\32\16\32\u019e\13\32\3\32\3\32\3\32\3\32\3\32\5\32\u01a5\n\32" + "\3\33\3\33\5\33\u01a9\n\33\3\33\5\33\u01ac\n\33\3\33\3\33\3\33\3\33\5" + "\33\u01b2\n\33\3\33\3\33\3\33\3\33\3\33\3\33\5\33\u01ba\n\33\3\34\3\34" + "\3\35\3\35\3\35\3\35\3\35\3\35\3\35\3\35\5\35\u01c6\n\35\3\36\3\36\3\37" + "\3\37\3 \3 \3!\3!\3\"\3\"\3\"\2\3(#\2\4\6\b\n\f\16\20\22\24\26\30\32\34" + "\36 \"$&(*,.\60\62\64\668:<>@B\2\n\3\2\26\30\4\2\34\34\36\36\7\2\6\6\20" + "\20\23\23\33\33CC\4\2((./\3\2\61\63\3\2/\60\3\2$\'\3\2\"#\2\u01f6\2E\3" + "\2\2\2\4N\3\2\2\2\6^\3\2\2\2\bi\3\2\2\2\nq\3\2\2\2\fy\3\2\2\2\16\u0084" + "\3\2\2\2\20\u0088\3\2\2\2\22\u0095\3\2\2\2\24\u009c\3\2\2\2\26\u009e\3" + "\2\2\2\30\u00ad\3\2\2\2\32\u00b3\3\2\2\2\34\u00ba\3\2\2\2\36\u00c5\3\2" + "\2\2 \u00e7\3\2\2\2\"\u00f5\3\2\2\2$\u00fc\3\2\2\2&\u0106\3\2\2\2(\u0127" + "\3\2\2\2*\u016b\3\2\2\2,\u016d\3\2\2\2.\u017e\3\2\2\2\60\u018a\3\2\2\2" + "\62\u01a4\3\2\2\2\64\u01b9\3\2\2\2\66\u01bb\3\2\2\28\u01c5\3\2\2\2:\u01c7" + "\3\2\2\2<\u01c9\3\2\2\2>\u01cb\3\2\2\2@\u01cd\3\2\2\2B\u01cf\3\2\2\2D" + "F\5\4\3\2ED\3\2\2\2EF\3\2\2\2FH\3\2\2\2GI\5\24\13\2HG\3\2\2\2IJ\3\2\2" + "\2JH\3\2\2\2JK\3\2\2\2KL\3\2\2\2LM\7\2\2\3M\3\3\2\2\2NO\7\13\2\2OS\7\65" + "\2\2PT\5\6\4\2QT\5\16\b\2RT\5\20\t\2SP\3\2\2\2SQ\3\2\2\2SR\3\2\2\2TU\3" + "\2\2\2US\3\2\2\2UV\3\2\2\2VW\3\2\2\2WX\7\66\2\2X\5\3\2\2\2YZ\7\67\2\2" + "Z[\5\n\6\2[\\\78\2\2\\]\7\64\2\2]_\3\2\2\2^Y\3\2\2\2^_\3\2\2\2_`\3\2\2" + "\2`a\7C\2\2ad\7\67\2\2be\5\n\6\2ce\5\f\7\2db\3\2\2\2dc\3\2\2\2de\3\2\2" + "\2ef\3\2\2\2fg\78\2\2gh\7>\2\2h\7\3\2\2\2in\5\66\34\2jk\79\2\2km\7:\2" + "\2lj\3\2\2\2mp\3\2\2\2nl\3\2\2\2no\3\2\2\2o\t\3\2\2\2pn\3\2\2\2qv\5\b" + "\5\2rs\7<\2\2su\5\b\5\2tr\3\2\2\2ux\3\2\2\2vt\3\2\2\2vw\3\2\2\2w\13\3" + "\2\2\2xv\3\2\2\2yz\5\b\5\2z\u0081\7C\2\2{|\7<\2\2|}\5\b\5\2}~\7C\2\2~" + "\u0080\3\2\2\2\177{\3\2\2\2\u0080\u0083\3\2\2\2\u0081\177\3\2\2\2\u0081" + "\u0082\3\2\2\2\u0082\r\3\2\2\2\u0083\u0081\3\2\2\2\u0084\u0085\7C\2\2" + "\u0085\u0086\7>\2\2\u0086\17\3\2\2\2\u0087\u0089\7\t\2\2\u0088\u0087\3" + "\2\2\2\u0088\u0089\3\2\2\2\u0089\u008a\3\2\2\2\u008a\u008b\5\66\34\2\u008b" + "\u0090\5\22\n\2\u008c\u008d\7<\2\2\u008d\u008f\5\22\n\2\u008e\u008c\3" + "\2\2\2\u008f\u0092\3\2\2\2\u0090\u008e\3\2\2\2\u0090\u0091\3\2\2\2\u0091" + "\u0093\3\2\2\2\u0092\u0090\3\2\2\2\u0093\u0094\7>\2\2\u0094\21\3\2\2\2" + "\u0095\u0098\5&\24\2\u0096\u0097\7\64\2\2\u0097\u0099\5(\25\2\u0098\u0096" + "\3\2\2\2\u0098\u0099\3\2\2\2\u0099\23\3\2\2\2\u009a\u009d\5\26\f\2\u009b" + "\u009d\5\34\17\2\u009c\u009a\3\2\2\2\u009c\u009b\3\2\2\2\u009d\25\3\2" + "\2\2\u009e\u009f\7\37\2\2\u009f\u00a2\7C\2\2\u00a0\u00a1\7=\2\2\u00a1" + "\u00a3\7C\2\2\u00a2\u00a0\3\2\2\2\u00a2\u00a3\3\2\2\2\u00a3\u00a4\3\2" + "\2\2\u00a4\u00a6\7\65\2\2\u00a5\u00a7\5\30\r\2\u00a6\u00a5\3\2\2\2\u00a7" + "\u00a8\3\2\2\2\u00a8\u00a6\3\2\2\2\u00a8\u00a9\3\2\2\2\u00a9\u00aa\3\2" + "\2\2\u00aa\u00ab\7\66\2\2\u00ab\27\3\2\2\2\u00ac\u00ae\5\32\16\2\u00ad" + "\u00ac\3\2\2\2\u00ad\u00ae\3\2\2\2\u00ae\u00b1\3\2\2\2\u00af\u00b2\5\20" + "\t\2\u00b0\u00b2\5\34\17\2\u00b1\u00af\3\2\2\2\u00b1\u00b0\3\2\2\2\u00b2" + "\31\3\2\2\2\u00b3\u00b4\t\2\2\2\u00b4\33\3\2\2\2\u00b5\u00b6\7\67\2\2" + "\u00b6\u00b7\5\f\7\2\u00b7\u00b8\78\2\2\u00b8\u00b9\7\64\2\2\u00b9\u00bb" + "\3\2\2\2\u00ba\u00b5\3\2\2\2\u00ba\u00bb\3\2\2\2\u00bb\u00bc\3\2\2\2\u00bc" + "\u00bd\7\17\2\2\u00bd\u00be\7C\2\2\u00be\u00c0\7\67\2\2\u00bf\u00c1\5" + "\f\7\2\u00c0\u00bf\3\2\2\2\u00c0\u00c1\3\2\2\2\u00c1\u00c2\3\2\2\2\u00c2" + "\u00c3\78\2\2\u00c3\u00c4\5\36\20\2\u00c4\35\3\2\2\2\u00c5\u00ca\7\65" + "\2\2\u00c6\u00c9\5\20\t\2\u00c7\u00c9\5 \21\2\u00c8\u00c6\3\2\2\2\u00c8" + "\u00c7\3\2\2\2\u00c9\u00cc\3\2\2\2\u00ca\u00c8\3\2\2\2\u00ca\u00cb\3\2" + "\2\2\u00cb\u00cd\3\2\2\2\u00cc\u00ca\3\2\2\2\u00cd\u00ce\7\66\2\2\u00ce" + "\37\3\2\2\2\u00cf\u00d0\5\"\22\2\u00d0\u00d1\7>\2\2\u00d1\u00e8\3\2\2" + "\2\u00d2\u00d3\5*\26\2\u00d3\u00d4\7>\2\2\u00d4\u00e8\3\2\2\2\u00d5\u00e8" + "\5\62\32\2\u00d6\u00e8\5\64\33\2\u00d7\u00d8\7\32\2\2\u00d8\u00e8\7>\2" + "\2\u00d9\u00da\7\7\2\2\u00da\u00e8\7>\2\2\u00db\u00dc\7\n\2\2\u00dc\u00e8" + "\7>\2\2\u00dd\u00e2\7\r\2\2\u00de\u00df\79\2\2\u00df\u00e1\7:\2\2\u00e0" + "\u00de\3\2\2\2\u00e1\u00e4\3\2\2\2\u00e2\u00e0\3\2\2\2\u00e2\u00e3\3\2" + "\2\2\u00e3\u00e5\3\2\2\2\u00e4\u00e2\3\2\2\2\u00e5\u00e6\7C\2\2\u00e6" + "\u00e8\7>\2\2\u00e7\u00cf\3\2\2\2\u00e7\u00d2\3\2\2\2\u00e7\u00d5\3\2" + "\2\2\u00e7\u00d6\3\2\2\2\u00e7\u00d7\3\2\2\2\u00e7\u00d9\3\2\2\2\u00e7" + "\u00db\3\2\2\2\u00e7\u00dd\3\2\2\2\u00e8!\3\2\2\2\u00e9\u00f6\5$\23\2" + "\u00ea\u00eb\7\67\2\2\u00eb\u00f0\5$\23\2\u00ec\u00ed\7<\2\2\u00ed\u00ef" + "\5$\23\2\u00ee\u00ec\3\2\2\2\u00ef\u00f2\3\2\2\2\u00f0\u00ee\3\2\2\2\u00f0" + "\u00f1\3\2\2\2\u00f1\u00f3\3\2\2\2\u00f2\u00f0\3\2\2\2\u00f3\u00f4\78" + "\2\2\u00f4\u00f6\3\2\2\2\u00f5\u00e9\3\2\2\2\u00f5\u00ea\3\2\2\2\u00f6" + "\u00f7\3\2\2\2\u00f7\u00f8\7\64\2\2\u00f8\u00f9\5(\25\2\u00f9#\3\2\2\2" + "\u00fa\u00fb\t\3\2\2\u00fb\u00fd\7;\2\2\u00fc\u00fa\3\2\2\2\u00fc\u00fd" + "\3\2\2\2\u00fd\u00fe\3\2\2\2\u00fe\u0103\5&\24\2\u00ff\u0100\7;\2\2\u0100" + "\u0102\5&\24\2\u0101\u00ff\3\2\2\2\u0102\u0105\3\2\2\2\u0103\u0101\3\2" + "\2\2\u0103\u0104\3\2\2\2\u0104%\3\2\2\2\u0105\u0103\3\2\2\2\u0106\u010d" + "\7C\2\2\u0107\u0108\79\2\2\u0108\u0109\5(\25\2\u0109\u010a\7:\2\2\u010a" + "\u010c\3\2\2\2\u010b\u0107\3\2\2\2\u010c\u010f\3\2\2\2\u010d\u010b\3\2" + "\2\2\u010d\u010e\3\2\2\2\u010e\'\3\2\2\2\u010f\u010d\3\2\2\2\u0110\u0111" + "\b\25\1\2\u0111\u0112\7\67\2\2\u0112\u0113\5(\25\2\u0113\u0114\78\2\2" + "\u0114\u0115\b\25\1\2\u0115\u0128\3\2\2\2\u0116\u0117\5:\36\2\u0117\u0118" + "\5(\25\22\u0118\u0119\b\25\1\2\u0119\u0128\3\2\2\2\u011a\u011b\58\35\2" + "\u011b\u011c\b\25\1\2\u011c\u0128\3\2\2\2\u011d\u011e\7\5\2\2\u011e\u011f" + "\5.\30\2\u011f\u0120\b\25\1\2\u0120\u0128\3\2\2\2\u0121\u0122\5*\26\2" + "\u0122\u0123\b\25\1\2\u0123\u0128\3\2\2\2\u0124\u0128\5$\23\2\u0125\u0128" + "\5,\27\2\u0126\u0128\7\24\2\2\u0127\u0110\3\2\2\2\u0127\u0116\3\2\2\2" + "\u0127\u011a\3\2\2\2\u0127\u011d\3\2\2\2\u0127\u0121\3\2\2\2\u0127\u0124" + "\3\2\2\2\u0127\u0125\3\2\2\2\u0127\u0126\3\2\2\2\u0128\u0158\3\2\2\2\u0129" + "\u012a\f\21\2\2\u012a\u012b\5<\37\2\u012b\u012c\5(\25\22\u012c\u012d\b" + "\25\1\2\u012d\u0157\3\2\2\2\u012e\u012f\f\20\2\2\u012f\u0130\5> \2\u0130" + "\u0131\5(\25\21\u0131\u0132\b\25\1\2\u0132\u0157\3\2\2\2\u0133\u0134\f" + "\17\2\2\u0134\u0135\5@!\2\u0135\u0136\5(\25\20\u0136\u0137\b\25\1\2\u0137" + "\u0157\3\2\2\2\u0138\u0139\f\16\2\2\u0139\u013a\5B\"\2\u013a\u013b\5(" + "\25\17\u013b\u013c\b\25\1\2\u013c\u0157\3\2\2\2\u013d\u013e\f\r\2\2\u013e" + "\u013f\7*\2\2\u013f\u0140\5(\25\16\u0140\u0141\b\25\1\2\u0141\u0157\3" + "\2\2\2\u0142\u0143\f\f\2\2\u0143\u0144\7+\2\2\u0144\u0145\5(\25\r\u0145" + "\u0146\b\25\1\2\u0146\u0157\3\2\2\2\u0147\u0148\f\13\2\2\u0148\u0149\7" + ")\2\2\u0149\u014a\5(\25\f\u014a\u014b\b\25\1\2\u014b\u0157\3\2\2\2\u014c" + "\u014d\f\n\2\2\u014d\u014e\7-\2\2\u014e\u014f\5(\25\13\u014f\u0150\b\25" + "\1\2\u0150\u0157\3\2\2\2\u0151\u0152\f\t\2\2\u0152\u0153\7,\2\2\u0153" + "\u0154\5(\25\n\u0154\u0155\b\25\1\2\u0155\u0157\3\2\2\2\u0156\u0129\3" + "\2\2\2\u0156\u012e\3\2\2\2\u0156\u0133\3\2\2\2\u0156\u0138\3\2\2\2\u0156" + "\u013d\3\2\2\2\u0156\u0142\3\2\2\2\u0156\u0147\3\2\2\2\u0156\u014c\3\2" + "\2\2\u0156\u0151\3\2\2\2\u0157\u015a\3\2\2\2\u0158\u0156\3\2\2\2\u0158" + "\u0159\3\2\2\2\u0159)\3\2\2\2\u015a\u0158\3\2\2\2\u015b\u015c\5$\23\2" + "\u015c\u015d\7;\2\2\u015d\u015f\3\2\2\2\u015e\u015b\3\2\2\2\u015e\u015f" + "\3\2\2\2\u015f\u0160\3\2\2\2\u0160\u016c\5.\30\2\u0161\u0162\7\31\2\2" + "\u0162\u0163\7\67\2\2\u0163\u0164\5$\23\2\u0164\u0165\78\2\2\u0165\u016c" + "\3\2\2\2\u0166\u0167\7!\2\2\u0167\u0168\7\67\2\2\u0168\u0169\5$\23\2\u0169" + "\u016a\78\2\2\u016a\u016c\3\2\2\2\u016b\u015e\3\2\2\2\u016b\u0161\3\2" + "\2\2\u016b\u0166\3\2\2\2\u016c+\3\2\2\2\u016d\u0170\79\2\2\u016e\u0171" + "\5(\25\2\u016f\u0171\5,\27\2\u0170\u016e\3\2\2\2\u0170\u016f\3\2\2\2\u0171" + "\u0179\3\2\2\2\u0172\u0175\7<\2\2\u0173\u0176\5(\25\2\u0174\u0176\5,\27" + "\2\u0175\u0173\3\2\2\2\u0175\u0174\3\2\2\2\u0176\u0178\3\2\2\2\u0177\u0172" + "\3\2\2\2\u0178\u017b\3\2\2\2\u0179\u0177\3\2\2\2\u0179\u017a\3\2\2\2\u017a" + "\u017c\3\2\2\2\u017b\u0179\3\2\2\2\u017c\u017d\7:\2\2\u017d-\3\2\2\2\u017e" + "\u017f\7C\2\2\u017f\u0181\7\67\2\2\u0180\u0182\5\60\31\2\u0181\u0180\3" + "\2\2\2\u0181\u0182\3\2\2\2\u0182\u0183\3\2\2\2\u0183\u0184\78\2\2\u0184" + "/\3\2\2\2\u0185\u018b\5(\25\2\u0186\u0187\5(\25\2\u0187\u0188\7<\2\2\u0188" + "\u0189\5\60\31\2\u0189\u018b\3\2\2\2\u018a\u0185\3\2\2\2\u018a\u0186\3" + "\2\2\2\u018b\61\3\2\2\2\u018c\u018d\7\22\2\2\u018d\u018e\5(\25\2\u018e" + "\u0191\5\36\20\2\u018f\u0190\7\16\2\2\u0190\u0192\5\36\20\2\u0191\u018f" + "\3\2\2\2\u0191\u0192\3\2\2\2\u0192\u01a5\3\2\2\2\u0193\u0194\7\35\2\2" + "\u0194\u0195\5$\23\2\u0195\u019c\7\65\2\2\u0196\u0197\7\b\2\2\u0197\u0198" + "\7?\2\2\u0198\u0199\7=\2\2\u0199\u019b\5\36\20\2\u019a\u0196\3\2\2\2\u019b" + "\u019e\3\2\2\2\u019c\u019a\3\2\2\2\u019c\u019d\3\2\2\2\u019d\u019f\3\2" + "\2\2\u019e\u019c\3\2\2\2\u019f\u01a0\7\f\2\2\u01a0\u01a1\7=\2\2\u01a1" + "\u01a2\5\36\20\2\u01a2\u01a3\7\66\2\2\u01a3\u01a5\3\2\2\2\u01a4\u018c" + "\3\2\2\2\u01a4\u0193\3\2\2\2\u01a5\63\3\2\2\2\u01a6\u01ab\7\21\2\2\u01a7" + "\u01a9\5\66\34\2\u01a8\u01a7\3\2\2\2\u01a8\u01a9\3\2\2\2\u01a9\u01aa\3" + "\2\2\2\u01aa\u01ac\5\"\22\2\u01ab\u01a8\3\2\2\2\u01ab\u01ac\3\2\2\2\u01ac" + "\u01ad\3\2\2\2\u01ad\u01ae\7>\2\2\u01ae\u01af\5(\25\2\u01af\u01b1\7>\2" + "\2\u01b0\u01b2\5\"\22\2\u01b1\u01b0\3\2\2\2\u01b1\u01b2\3\2\2\2\u01b2" + "\u01b3\3\2\2\2\u01b3\u01b4\5\36\20\2\u01b4\u01ba\3\2\2\2\u01b5\u01b6\7" + " \2\2\u01b6\u01b7\5(\25\2\u01b7\u01b8\5\36\20\2\u01b8\u01ba\3\2\2\2\u01b9" + "\u01a6\3\2\2\2\u01b9\u01b5\3\2\2\2\u01ba\65\3\2\2\2\u01bb\u01bc\t\4\2" + "\2\u01bc\67\3\2\2\2\u01bd\u01be\7?\2\2\u01be\u01c6\b\35\1\2\u01bf\u01c0" + "\7@\2\2\u01c0\u01c6\b\35\1\2\u01c1\u01c2\7B\2\2\u01c2\u01c6\b\35\1\2\u01c3" + "\u01c4\7A\2\2\u01c4\u01c6\b\35\1\2\u01c5\u01bd\3\2\2\2\u01c5\u01bf\3\2" + "\2\2\u01c5\u01c1\3\2\2\2\u01c5\u01c3\3\2\2\2\u01c69\3\2\2\2\u01c7\u01c8" + "\t\5\2\2\u01c8;\3\2\2\2\u01c9\u01ca\t\6\2\2\u01ca=\3\2\2\2\u01cb\u01cc" + "\t\7\2\2\u01cc?\3\2\2\2\u01cd\u01ce\t\b\2\2\u01ceA\3\2\2\2\u01cf\u01d0" + "\t\t\2\2\u01d0C\3\2\2\2\60EJSU^dnv\u0081\u0088\u0090\u0098\u009c\u00a2" + "\u00a8\u00ad\u00b1\u00ba\u00c0\u00c8\u00ca\u00e2\u00e7\u00f0\u00f5\u00fc" + "\u0103\u010d\u0127\u0156\u0158\u015e\u016b\u0170\u0175\u0179\u0181\u018a" + "\u0191\u019c\u01a4\u01a8\u01ab\u01b1\u01b9\u01c5";
 	public static final ATN _ATN = new ATNDeserializer().deserialize(_serializedATN.toCharArray());
-	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache = new PredictionContextCache();
 	private static final String[] _LITERAL_NAMES = {
 			null,
@@ -1395,10 +1396,8 @@ public class Lulu2Parser extends Parser
 						((UNARYOPAltContext) _localctx).expr = expr(16);
 
 						if (((UNARYOPAltContext) _localctx).expr.t != TypeEnum.Int || ((UNARYOPAltContext) _localctx).expr.t != TypeEnum.Bool)
-						{
 							throw new CompileError("bad operand types for unary operator " + (((UNARYOPAltContext) _localctx).unaryOp != null ? _input
 									.getText(((UNARYOPAltContext) _localctx).unaryOp.start, ((UNARYOPAltContext) _localctx).unaryOp.stop) : null) + " ");
-						}
 						else
 						{
 							((UNARYOPAltContext) _localctx).t = TypeEnum.Int;
@@ -1497,85 +1496,78 @@ public class Lulu2Parser extends Parser
 									pushNewRecursionContext(_localctx, _startState, RULE_expr);
 									setState(295);
 									if (!(precpred(_ctx, 15)))
-									{
 										throw new FailedPredicateException(this, "precpred(_ctx, 15)");
-									}
 									setState(296);
 									((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp = firstLevelBinaryArithmeticOp();
 									setState(297);
 									((MULDIVAltContext) _localctx).b = ((MULDIVAltContext) _localctx).expr = expr(16);
 
 									if (((MULDIVAltContext) _localctx).a.t == ((MULDIVAltContext) _localctx).b.t)
-									{
 										((MULDIVAltContext) _localctx).t = ((MULDIVAltContext) _localctx).a.t;
-									}
-									else
+									else switch (((MULDIVAltContext) _localctx).a.t)
 									{
-										switch (((MULDIVAltContext) _localctx).a.t)
-										{
-											case Int:
-												switch (((MULDIVAltContext) _localctx).b.t)
-												{
-													case Float:
-														((MULDIVAltContext) _localctx).t = TypeEnum.Float;
-														break;
-													case Bool:
-														((MULDIVAltContext) _localctx).t = TypeEnum.Int;
-														break;
-													case string:
-														((MULDIVAltContext) _localctx).t = TypeEnum.string;
-														break;
-													default:
-														throw new CompileError("bad operand types for binary operator " + (((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp != null ? _input
-																.getText(((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp.start, ((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp.stop) : null) + " ");
-												}
-												break;
-											case Float:
-												switch (((MULDIVAltContext) _localctx).b.t)
-												{
-													case Bool:
-														((MULDIVAltContext) _localctx).t = TypeEnum.Float;
-														break;
-													case Int:
-														((MULDIVAltContext) _localctx).t = TypeEnum.Float;
-														break;
-													default:
-														throw new CompileError("bad operand types for binary operator " + (((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp != null ? _input
-																.getText(((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp.start, ((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp.stop) : null) + " ");
-												}
-												break;
-											case Bool:
-												switch (((MULDIVAltContext) _localctx).b.t)
-												{
-													case Float:
-														((MULDIVAltContext) _localctx).t = TypeEnum.Float;
-														break;
-													case Int:
-														((MULDIVAltContext) _localctx).t = TypeEnum.Int;
-														break;
-													case string:
-														((MULDIVAltContext) _localctx).t = TypeEnum.string;
-														break;
-													default:
-														throw new CompileError("bad operand types for binary operator " + (((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp != null ? _input
-																.getText(((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp.start, ((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp.stop) : null) + " ");
-												}
-												break;
-											case string:
-												switch (((MULDIVAltContext) _localctx).b.t)
-												{
-													case Bool:
-														((MULDIVAltContext) _localctx).t = TypeEnum.string;
-														break;
-													case Int:
-														((MULDIVAltContext) _localctx).t = TypeEnum.string;
-														break;
-													default:
-														throw new CompileError("bad operand types for binary operator " + (((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp != null ? _input
-																.getText(((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp.start, ((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp.stop) : null) + " ");
-												}
-												break;
-										}
+										case Int:
+											switch (((MULDIVAltContext) _localctx).b.t)
+											{
+												case Float:
+													((MULDIVAltContext) _localctx).t = TypeEnum.Float;
+													break;
+												case Bool:
+													((MULDIVAltContext) _localctx).t = TypeEnum.Int;
+													break;
+												case string:
+													((MULDIVAltContext) _localctx).t = TypeEnum.string;
+													break;
+												default:
+													throw new CompileError("bad operand types for binary operator " + (((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp != null ? _input
+															.getText(((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp.start, ((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp.stop) : null) + " ");
+											}
+											break;
+										case Float:
+											switch (((MULDIVAltContext) _localctx).b.t)
+											{
+												case Bool:
+													((MULDIVAltContext) _localctx).t = TypeEnum.Float;
+													break;
+												case Int:
+													((MULDIVAltContext) _localctx).t = TypeEnum.Float;
+													break;
+												default:
+													throw new CompileError("bad operand types for binary operator " + (((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp != null ? _input
+															.getText(((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp.start, ((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp.stop) : null) + " ");
+											}
+											break;
+										case Bool:
+											switch (((MULDIVAltContext) _localctx).b.t)
+											{
+												case Float:
+													((MULDIVAltContext) _localctx).t = TypeEnum.Float;
+													break;
+												case Int:
+													((MULDIVAltContext) _localctx).t = TypeEnum.Int;
+													break;
+												case string:
+													((MULDIVAltContext) _localctx).t = TypeEnum.string;
+													break;
+												default:
+													throw new CompileError("bad operand types for binary operator " + (((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp != null ? _input
+															.getText(((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp.start, ((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp.stop) : null) + " ");
+											}
+											break;
+										case string:
+											switch (((MULDIVAltContext) _localctx).b.t)
+											{
+												case Bool:
+													((MULDIVAltContext) _localctx).t = TypeEnum.string;
+													break;
+												case Int:
+													((MULDIVAltContext) _localctx).t = TypeEnum.string;
+													break;
+												default:
+													throw new CompileError("bad operand types for binary operator " + (((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp != null ? _input
+															.getText(((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp.start, ((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp.stop) : null) + " ");
+											}
+											break;
 									}
 
 								}
@@ -1587,84 +1579,77 @@ public class Lulu2Parser extends Parser
 									pushNewRecursionContext(_localctx, _startState, RULE_expr);
 									setState(300);
 									if (!(precpred(_ctx, 14)))
-									{
 										throw new FailedPredicateException(this, "precpred(_ctx, 14)");
-									}
 									setState(301);
 									((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp = secondLevelBinaryArithmeticOp();
 									setState(302);
 									((ADDSUBAltContext) _localctx).b = ((ADDSUBAltContext) _localctx).expr = expr(15);
 
 									if (((ADDSUBAltContext) _localctx).a.t == ((ADDSUBAltContext) _localctx).b.t)
-									{
 										((ADDSUBAltContext) _localctx).t = ((ADDSUBAltContext) _localctx).a.t;
-									}
-									else
+									else switch (((ADDSUBAltContext) _localctx).a.t)
 									{
-										switch (((ADDSUBAltContext) _localctx).a.t)
-										{
-											case Int:
-												switch (((ADDSUBAltContext) _localctx).b.t)
-												{
-													case Float:
-														((ADDSUBAltContext) _localctx).t = TypeEnum.Float;
-														break;
-													case Bool:
-														((ADDSUBAltContext) _localctx).t = TypeEnum.Int;
-														break;
-													case string:
-														((ADDSUBAltContext) _localctx).t = TypeEnum.string;
-														break;
-													default:
-														throw new CompileError("bad operand types for binary operator " + (((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp != null ? _input
-																.getText(((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp.start, ((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp.stop) : null) + " ");
-												}
-												break;
-											case Float:
-												switch (((ADDSUBAltContext) _localctx).b.t)
-												{
-													case Bool:
-														((ADDSUBAltContext) _localctx).t = TypeEnum.Float;
-														break;
-													case Int:
-														((ADDSUBAltContext) _localctx).t = TypeEnum.Float;
-														break;
-													default:
-														throw new CompileError("bad operand types for binary operator " + (((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp != null ? _input
-																.getText(((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp.start, ((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp.stop) : null) + " ");
-												}
-												break;
-											case Bool:
-												switch (((ADDSUBAltContext) _localctx).b.t)
-												{
-													case Float:
-														((ADDSUBAltContext) _localctx).t = TypeEnum.Float;
-														break;
-													case Int:
-														((ADDSUBAltContext) _localctx).t = TypeEnum.Int;
-														break;
-													case string:
-														((ADDSUBAltContext) _localctx).t = TypeEnum.string;
-														break;
-													default:
-														throw new CompileError("bad operand types for binary operator " + (((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp != null ? _input
-																.getText(((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp.start, ((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp.stop) : null) + " ");
-												}
-												break;
-											case string:
-												switch (((ADDSUBAltContext) _localctx).b.t)
-												{
-													case Bool:
-														((ADDSUBAltContext) _localctx).t = TypeEnum.string;
-														break;
-													case Int:
-														((ADDSUBAltContext) _localctx).t = TypeEnum.string;
-														break;
-													default:
-														throw new CompileError("bad operand types for binary operator " + (((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp != null ? _input
-																.getText(((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp.start, ((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp.stop) : null) + " ");
-												}
-										}
+										case Int:
+											switch (((ADDSUBAltContext) _localctx).b.t)
+											{
+												case Float:
+													((ADDSUBAltContext) _localctx).t = TypeEnum.Float;
+													break;
+												case Bool:
+													((ADDSUBAltContext) _localctx).t = TypeEnum.Int;
+													break;
+												case string:
+													((ADDSUBAltContext) _localctx).t = TypeEnum.string;
+													break;
+												default:
+													throw new CompileError("bad operand types for binary operator " + (((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp != null ? _input
+															.getText(((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp.start, ((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp.stop) : null) + " ");
+											}
+											break;
+										case Float:
+											switch (((ADDSUBAltContext) _localctx).b.t)
+											{
+												case Bool:
+													((ADDSUBAltContext) _localctx).t = TypeEnum.Float;
+													break;
+												case Int:
+													((ADDSUBAltContext) _localctx).t = TypeEnum.Float;
+													break;
+												default:
+													throw new CompileError("bad operand types for binary operator " + (((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp != null ? _input
+															.getText(((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp.start, ((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp.stop) : null) + " ");
+											}
+											break;
+										case Bool:
+											switch (((ADDSUBAltContext) _localctx).b.t)
+											{
+												case Float:
+													((ADDSUBAltContext) _localctx).t = TypeEnum.Float;
+													break;
+												case Int:
+													((ADDSUBAltContext) _localctx).t = TypeEnum.Int;
+													break;
+												case string:
+													((ADDSUBAltContext) _localctx).t = TypeEnum.string;
+													break;
+												default:
+													throw new CompileError("bad operand types for binary operator " + (((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp != null ? _input
+															.getText(((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp.start, ((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp.stop) : null) + " ");
+											}
+											break;
+										case string:
+											switch (((ADDSUBAltContext) _localctx).b.t)
+											{
+												case Bool:
+													((ADDSUBAltContext) _localctx).t = TypeEnum.string;
+													break;
+												case Int:
+													((ADDSUBAltContext) _localctx).t = TypeEnum.string;
+													break;
+												default:
+													throw new CompileError("bad operand types for binary operator " + (((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp != null ? _input
+															.getText(((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp.start, ((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp.stop) : null) + " ");
+											}
 									}
 
 								}
@@ -1676,85 +1661,78 @@ public class Lulu2Parser extends Parser
 									pushNewRecursionContext(_localctx, _startState, RULE_expr);
 									setState(305);
 									if (!(precpred(_ctx, 13)))
-									{
 										throw new FailedPredicateException(this, "precpred(_ctx, 13)");
-									}
 									setState(306);
 									((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp = firstLevelBinaryRelationalOp();
 									setState(307);
 									((COMPAREAltContext) _localctx).b = ((COMPAREAltContext) _localctx).expr = expr(14);
 
 									if (((COMPAREAltContext) _localctx).a.t == ((COMPAREAltContext) _localctx).b.t)
-									{
 										((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
-									}
-									else
+									else switch (((COMPAREAltContext) _localctx).a.t)
 									{
-										switch (((COMPAREAltContext) _localctx).a.t)
-										{
-											case Int:
-												switch (((COMPAREAltContext) _localctx).b.t)
-												{
-													case Float:
-														((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
-														break;
-													case Bool:
-														((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
-														break;
-													case string:
-														((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
-														break;
-													default:
-														throw new CompileError("bad operand types for binary operator " + (((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp != null ? _input
-																.getText(((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp.start, ((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp.stop) : null) + " ");
-												}
-												break;
-											case Float:
-												switch (((COMPAREAltContext) _localctx).b.t)
-												{
-													case Bool:
-														((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
-														break;
-													case Int:
-														((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
-														break;
-													default:
-														throw new CompileError("bad operand types for binary operator " + (((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp != null ? _input
-																.getText(((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp.start, ((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp.stop) : null) + " ");
-												}
-												break;
-											case Bool:
-												switch (((COMPAREAltContext) _localctx).b.t)
-												{
-													case Float:
-														((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
-														break;
-													case Int:
-														((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
-														break;
-													case string:
-														((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
-														break;
-													default:
-														throw new CompileError("bad operand types for binary operator " + (((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp != null ? _input
-																.getText(((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp.start, ((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp.stop) : null) + " ");
-												}
-												break;
-											case string:
-												switch (((COMPAREAltContext) _localctx).b.t)
-												{
-													case Bool:
-														((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
-														break;
-													case Int:
-														((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
-														break;
-													default:
-														throw new CompileError("bad operand types for binary operator " + (((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp != null ? _input
-																.getText(((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp.start, ((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp.stop) : null) + " ");
-												}
-												break;
-										}
+										case Int:
+											switch (((COMPAREAltContext) _localctx).b.t)
+											{
+												case Float:
+													((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
+													break;
+												case Bool:
+													((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
+													break;
+												case string:
+													((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
+													break;
+												default:
+													throw new CompileError("bad operand types for binary operator " + (((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp != null ? _input
+															.getText(((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp.start, ((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp.stop) : null) + " ");
+											}
+											break;
+										case Float:
+											switch (((COMPAREAltContext) _localctx).b.t)
+											{
+												case Bool:
+													((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
+													break;
+												case Int:
+													((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
+													break;
+												default:
+													throw new CompileError("bad operand types for binary operator " + (((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp != null ? _input
+															.getText(((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp.start, ((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp.stop) : null) + " ");
+											}
+											break;
+										case Bool:
+											switch (((COMPAREAltContext) _localctx).b.t)
+											{
+												case Float:
+													((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
+													break;
+												case Int:
+													((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
+													break;
+												case string:
+													((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
+													break;
+												default:
+													throw new CompileError("bad operand types for binary operator " + (((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp != null ? _input
+															.getText(((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp.start, ((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp.stop) : null) + " ");
+											}
+											break;
+										case string:
+											switch (((COMPAREAltContext) _localctx).b.t)
+											{
+												case Bool:
+													((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
+													break;
+												case Int:
+													((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
+													break;
+												default:
+													throw new CompileError("bad operand types for binary operator " + (((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp != null ? _input
+															.getText(((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp.start, ((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp.stop) : null) + " ");
+											}
+											break;
 									}
 
 								}
@@ -1766,85 +1744,78 @@ public class Lulu2Parser extends Parser
 									pushNewRecursionContext(_localctx, _startState, RULE_expr);
 									setState(310);
 									if (!(precpred(_ctx, 12)))
-									{
 										throw new FailedPredicateException(this, "precpred(_ctx, 12)");
-									}
 									setState(311);
 									((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp = secondLevelBinaryRelationalOp();
 									setState(312);
 									((EQUALITYAltContext) _localctx).b = ((EQUALITYAltContext) _localctx).expr = expr(13);
 
 									if (((EQUALITYAltContext) _localctx).a.t == ((EQUALITYAltContext) _localctx).b.t)
-									{
 										((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
-									}
-									else
+									else switch (((EQUALITYAltContext) _localctx).a.t)
 									{
-										switch (((EQUALITYAltContext) _localctx).a.t)
-										{
-											case Int:
-												switch (((EQUALITYAltContext) _localctx).b.t)
-												{
-													case Float:
-														((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
-														break;
-													case Bool:
-														((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
-														break;
-													case string:
-														((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
-														break;
-													default:
-														throw new CompileError("bad operand types for binary operator " + (((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp != null ? _input
-																.getText(((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp.start, ((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp.stop) : null) + " ");
-												}
-												break;
-											case Float:
-												switch (((EQUALITYAltContext) _localctx).b.t)
-												{
-													case Bool:
-														((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
-														break;
-													case Int:
-														((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
-														break;
-													default:
-														throw new CompileError("bad operand types for binary operator " + (((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp != null ? _input
-																.getText(((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp.start, ((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp.stop) : null) + " ");
-												}
-												break;
-											case Bool:
-												switch (((EQUALITYAltContext) _localctx).b.t)
-												{
-													case Float:
-														((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
-														break;
-													case Int:
-														((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
-														break;
-													case string:
-														((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
-														break;
-													default:
-														throw new CompileError("bad operand types for binary operator " + (((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp != null ? _input
-																.getText(((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp.start, ((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp.stop) : null) + " ");
-												}
-												break;
-											case string:
-												switch (((EQUALITYAltContext) _localctx).b.t)
-												{
-													case Bool:
-														((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
-														break;
-													case Int:
-														((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
-														break;
-													default:
-														throw new CompileError("bad operand types for binary operator " + (((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp != null ? _input
-																.getText(((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp.start, ((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp.stop) : null) + " ");
-												}
-												break;
-										}
+										case Int:
+											switch (((EQUALITYAltContext) _localctx).b.t)
+											{
+												case Float:
+													((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
+													break;
+												case Bool:
+													((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
+													break;
+												case string:
+													((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
+													break;
+												default:
+													throw new CompileError("bad operand types for binary operator " + (((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp != null ? _input
+															.getText(((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp.start, ((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp.stop) : null) + " ");
+											}
+											break;
+										case Float:
+											switch (((EQUALITYAltContext) _localctx).b.t)
+											{
+												case Bool:
+													((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
+													break;
+												case Int:
+													((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
+													break;
+												default:
+													throw new CompileError("bad operand types for binary operator " + (((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp != null ? _input
+															.getText(((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp.start, ((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp.stop) : null) + " ");
+											}
+											break;
+										case Bool:
+											switch (((EQUALITYAltContext) _localctx).b.t)
+											{
+												case Float:
+													((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
+													break;
+												case Int:
+													((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
+													break;
+												case string:
+													((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
+													break;
+												default:
+													throw new CompileError("bad operand types for binary operator " + (((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp != null ? _input
+															.getText(((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp.start, ((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp.stop) : null) + " ");
+											}
+											break;
+										case string:
+											switch (((EQUALITYAltContext) _localctx).b.t)
+											{
+												case Bool:
+													((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
+													break;
+												case Int:
+													((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
+													break;
+												default:
+													throw new CompileError("bad operand types for binary operator " + (((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp != null ? _input
+															.getText(((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp.start, ((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp.stop) : null) + " ");
+											}
+											break;
 									}
 
 								}
@@ -1856,23 +1827,17 @@ public class Lulu2Parser extends Parser
 									pushNewRecursionContext(_localctx, _startState, RULE_expr);
 									setState(315);
 									if (!(precpred(_ctx, 11)))
-									{
 										throw new FailedPredicateException(this, "precpred(_ctx, 11)");
-									}
 									setState(316);
 									((BITWISEANDAltContext) _localctx).BitwiseAnd = match(BitwiseAnd);
 									setState(317);
 									((BITWISEANDAltContext) _localctx).b = ((BITWISEANDAltContext) _localctx).expr = expr(12);
 
 									if ((((BITWISEANDAltContext) _localctx).a.t == TypeEnum.Int || ((BITWISEANDAltContext) _localctx).a.t == TypeEnum.Bool) && (((BITWISEANDAltContext) _localctx).b.t == TypeEnum.Int || ((BITWISEANDAltContext) _localctx).b.t == TypeEnum.Bool))
-									{
 										((BITWISEANDAltContext) _localctx).t = TypeEnum.Int;
-									}
 									else
-									{
 										throw new CompileError("bad operand types for binary operator " + (((BITWISEANDAltContext) _localctx).BitwiseAnd != null ? ((BITWISEANDAltContext) _localctx).BitwiseAnd
 												.getText() : null) + " ");
-									}
 
 								}
 								break;
@@ -1883,23 +1848,17 @@ public class Lulu2Parser extends Parser
 									pushNewRecursionContext(_localctx, _startState, RULE_expr);
 									setState(320);
 									if (!(precpred(_ctx, 10)))
-									{
 										throw new FailedPredicateException(this, "precpred(_ctx, 10)");
-									}
 									setState(321);
 									((BITWISELOGICALXORAltContext) _localctx).BitwiseLogicalXor = match(BitwiseLogicalXor);
 									setState(322);
 									((BITWISELOGICALXORAltContext) _localctx).b = ((BITWISELOGICALXORAltContext) _localctx).expr = expr(11);
 
 									if ((((BITWISELOGICALXORAltContext) _localctx).a.t == TypeEnum.Int || ((BITWISELOGICALXORAltContext) _localctx).a.t == TypeEnum.Bool) && (((BITWISELOGICALXORAltContext) _localctx).b.t == TypeEnum.Int || ((BITWISELOGICALXORAltContext) _localctx).b.t == TypeEnum.Bool))
-									{
 										((BITWISELOGICALXORAltContext) _localctx).t = TypeEnum.Int;
-									}
 									else
-									{
 										throw new CompileError("bad operand types for binary operator " + (((BITWISELOGICALXORAltContext) _localctx).BitwiseLogicalXor != null ? ((BITWISELOGICALXORAltContext) _localctx).BitwiseLogicalXor
 												.getText() : null) + " ");
-									}
 
 								}
 								break;
@@ -1910,23 +1869,17 @@ public class Lulu2Parser extends Parser
 									pushNewRecursionContext(_localctx, _startState, RULE_expr);
 									setState(325);
 									if (!(precpred(_ctx, 9)))
-									{
 										throw new FailedPredicateException(this, "precpred(_ctx, 9)");
-									}
 									setState(326);
 									((BITWISEORAltContext) _localctx).BitwiseOr = match(BitwiseOr);
 									setState(327);
 									((BITWISEORAltContext) _localctx).b = ((BITWISEORAltContext) _localctx).expr = expr(10);
 
 									if ((((BITWISEORAltContext) _localctx).a.t == TypeEnum.Int || ((BITWISEORAltContext) _localctx).a.t == TypeEnum.Bool) && (((BITWISEORAltContext) _localctx).b.t == TypeEnum.Int || ((BITWISEORAltContext) _localctx).b.t == TypeEnum.Bool))
-									{
 										((BITWISEORAltContext) _localctx).t = TypeEnum.Int;
-									}
 									else
-									{
 										throw new CompileError("bad operand types for binary operator " + (((BITWISEORAltContext) _localctx).BitwiseOr != null ? ((BITWISEORAltContext) _localctx).BitwiseOr
 												.getText() : null) + " ");
-									}
 
 								}
 								break;
@@ -1937,23 +1890,17 @@ public class Lulu2Parser extends Parser
 									pushNewRecursionContext(_localctx, _startState, RULE_expr);
 									setState(330);
 									if (!(precpred(_ctx, 8)))
-									{
 										throw new FailedPredicateException(this, "precpred(_ctx, 8)");
-									}
 									setState(331);
 									((LOGICALANDAltContext) _localctx).LogicalAnd = match(LogicalAnd);
 									setState(332);
 									((LOGICALANDAltContext) _localctx).b = ((LOGICALANDAltContext) _localctx).expr = expr(9);
 
 									if ((((LOGICALANDAltContext) _localctx).a.t == TypeEnum.Int || ((LOGICALANDAltContext) _localctx).a.t == TypeEnum.Bool) && (((LOGICALANDAltContext) _localctx).b.t == TypeEnum.Int || ((LOGICALANDAltContext) _localctx).b.t == TypeEnum.Bool))
-									{
 										((LOGICALANDAltContext) _localctx).t = TypeEnum.Bool;
-									}
 									else
-									{
 										throw new CompileError("bad operand types for binary operator " + (((LOGICALANDAltContext) _localctx).LogicalAnd != null ? ((LOGICALANDAltContext) _localctx).LogicalAnd
 												.getText() : null) + " ");
-									}
 
 								}
 								break;
@@ -1964,23 +1911,17 @@ public class Lulu2Parser extends Parser
 									pushNewRecursionContext(_localctx, _startState, RULE_expr);
 									setState(335);
 									if (!(precpred(_ctx, 7)))
-									{
 										throw new FailedPredicateException(this, "precpred(_ctx, 7)");
-									}
 									setState(336);
 									((LOGICALORAltContext) _localctx).LogicalOr = match(LogicalOr);
 									setState(337);
 									((LOGICALORAltContext) _localctx).b = ((LOGICALORAltContext) _localctx).expr = expr(8);
 
 									if ((((LOGICALORAltContext) _localctx).a.t == TypeEnum.Int || ((LOGICALORAltContext) _localctx).a.t == TypeEnum.Bool) && (((LOGICALORAltContext) _localctx).b.t == TypeEnum.Int || ((LOGICALORAltContext) _localctx).b.t == TypeEnum.Bool))
-									{
 										((LOGICALORAltContext) _localctx).t = TypeEnum.Bool;
-									}
 									else
-									{
 										throw new CompileError("bad operand types for binary operator " + (((LOGICALORAltContext) _localctx).LogicalOr != null ? ((LOGICALORAltContext) _localctx).LogicalOr
 												.getText() : null) + " ");
-									}
 
 								}
 								break;
@@ -2803,7 +2744,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterMain(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -2880,7 +2820,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterFtDcl(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -2962,7 +2901,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterFuncDcl(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -3010,7 +2948,6 @@ public class Lulu2Parser extends Parser
 		{
 			return RULE_typeBrace;
 		}
-
 		@Override
 		public void enterRule(ParseTreeListener listener)
 		{
@@ -3019,7 +2956,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterTypeBrace(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -3062,7 +2998,6 @@ public class Lulu2Parser extends Parser
 		{
 			return RULE_args;
 		}
-
 		@Override
 		public void enterRule(ParseTreeListener listener)
 		{
@@ -3071,7 +3006,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterArgs(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -3133,7 +3067,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterArgsVar(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -3175,7 +3108,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterTypeDcl(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -3242,7 +3174,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterVarDef(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -3280,7 +3211,6 @@ public class Lulu2Parser extends Parser
 		{
 			return RULE_varVal;
 		}
-
 		@Override
 		public void enterRule(ParseTreeListener listener)
 		{
@@ -3289,7 +3219,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterVarVal(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -3322,7 +3251,6 @@ public class Lulu2Parser extends Parser
 		{
 			return RULE_ftDef;
 		}
-
 		@Override
 		public void enterRule(ParseTreeListener listener)
 		{
@@ -3331,7 +3259,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterFtDef(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -3403,7 +3330,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterTypeDef(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -3450,7 +3376,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterComponent(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -3497,7 +3422,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterAccessModifier(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -3579,7 +3503,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterFuncDef(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -3641,7 +3564,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterBlock(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -3695,7 +3617,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterCONDSTMTAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -3731,7 +3652,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterCONTINUEAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -3767,7 +3687,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterRETURNAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -3798,7 +3717,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterLOOPSTMTAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -3834,7 +3752,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterFUNCCALLSTMTAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -3870,7 +3787,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterBREAKAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -3931,7 +3847,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterDESTRUCTAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -3967,7 +3882,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterASSIGNAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -4030,7 +3944,6 @@ public class Lulu2Parser extends Parser
 		{
 			return RULE_assign;
 		}
-
 		@Override
 		public void enterRule(ParseTreeListener listener)
 		{
@@ -4039,7 +3952,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterAssign(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -4092,7 +4004,6 @@ public class Lulu2Parser extends Parser
 		{
 			return RULE_var;
 		}
-
 		@Override
 		public void enterRule(ParseTreeListener listener)
 		{
@@ -4101,7 +4012,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterVar(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -4168,7 +4078,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterRef(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -4240,7 +4149,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterLOGICALANDAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -4286,7 +4194,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterBITWISEORAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -4319,7 +4226,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterCONSTVALAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -4355,7 +4261,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterALLOCATIONAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -4398,7 +4303,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterPAREXPRAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -4444,7 +4348,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterADDSUBAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -4475,7 +4378,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterLISTAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -4506,7 +4408,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterFUNCCALLAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -4552,7 +4453,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterMULDIVAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -4598,7 +4498,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterEQUALITYAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -4644,7 +4543,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterCOMPAREAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -4690,7 +4588,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterLOGICALORAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -4721,7 +4618,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterVARAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -4752,7 +4648,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterNILAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -4798,7 +4693,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterBITWISEANDAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -4837,7 +4731,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterUNARYOPAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -4883,7 +4776,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterBITWISELOGICALXORAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -4947,7 +4839,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterMETHODCALLAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -4993,7 +4884,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterREADAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -5039,7 +4929,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterWRITEAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -5102,7 +4991,6 @@ public class Lulu2Parser extends Parser
 		{
 			return RULE_list;
 		}
-
 		@Override
 		public void enterRule(ParseTreeListener listener)
 		{
@@ -5111,7 +4999,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterList(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -5154,7 +5041,6 @@ public class Lulu2Parser extends Parser
 		{
 			return RULE_handleCall;
 		}
-
 		@Override
 		public void enterRule(ParseTreeListener listener)
 		{
@@ -5163,7 +5049,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterHandleCall(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -5210,7 +5095,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterParams(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -5324,7 +5208,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterSWITCHAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -5375,7 +5258,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterIFAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -5439,7 +5321,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterWHILEAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -5505,7 +5386,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterFORAlt(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -5562,7 +5442,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterType(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -5616,7 +5495,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterConstVal(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -5663,7 +5541,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterUnaryOp(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -5701,7 +5578,6 @@ public class Lulu2Parser extends Parser
 		{
 			return RULE_firstLevelBinaryArithmeticOp;
 		}
-
 		@Override
 		public void enterRule(ParseTreeListener listener)
 		{
@@ -5710,7 +5586,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterFirstLevelBinaryArithmeticOp(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -5743,7 +5618,6 @@ public class Lulu2Parser extends Parser
 		{
 			return RULE_secondLevelBinaryArithmeticOp;
 		}
-
 		@Override
 		public void enterRule(ParseTreeListener listener)
 		{
@@ -5752,7 +5626,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterSecondLevelBinaryArithmeticOp(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -5804,7 +5677,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterFirstLevelBinaryRelationalOp(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{
@@ -5846,7 +5718,6 @@ public class Lulu2Parser extends Parser
 				((Lulu2Listener) listener).enterSecondLevelBinaryRelationalOp(this);
 			}
 		}
-
 		@Override
 		public void exitRule(ParseTreeListener listener)
 		{

@@ -1,5 +1,7 @@
 package LULU;
 
+import org.antlr.v4.runtime.tree.TerminalNode;
+
 class LULUException extends java.lang.Exception
 {
     private static final long serialVersionUID = 6977107888999680595L;
@@ -27,6 +29,11 @@ class CompileError extends RuntimeException
     CompileError(String message)
     {
         super(message);
+    }
+
+    CompileError(String message, TerminalNode node)
+    {
+        super(message + " at line #" + node.getSymbol().getLine());
     }
 
     CompileError(String message, Throwable cause)

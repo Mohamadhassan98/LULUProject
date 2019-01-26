@@ -59,7 +59,10 @@ public class LuluListener extends Lulu2BaseListener
 
                     if (typee.isEmpty())
                     {
-                        throw new CompileError(resourceBundle.getString("typenotdefined") + " '" + ide + "'");
+                        throw new CompileError(resourceBundle.getString("typenotdefined") + " '" + ide + "'", ctx.args(0)
+                                                                                                                 .typeBrace(index)
+                                                                                                                 .type()
+                                                                                                                 .ID());
                     }
                     functionSignature.addReturnParam(i, typee.get());
                 }
@@ -72,7 +75,10 @@ public class LuluListener extends Lulu2BaseListener
                                                                        .findFirst();
                     if (typee.isEmpty())
                     {
-                        throw new CompileError(resourceBundle.getString("typenotdefined") + " '" + ide + "'");
+                        throw new CompileError(resourceBundle.getString("typenotdefined") + " '" + ide + "'", ctx.args(0)
+                                                                                                                 .typeBrace(index)
+                                                                                                                 .type()
+                                                                                                                 .ID());
                     }
                     functionSignature.addReturnParam(i, new ArraySignature(typee.get(), child.size()));
                 }
@@ -95,7 +101,9 @@ public class LuluListener extends Lulu2BaseListener
                                                                        .findFirst();
                     if (typee.isEmpty())
                     {
-                        throw new CompileError(resourceBundle.getString("typenotdefined") + " '" + ide + "'");
+                        throw new CompileError(resourceBundle.getString("typenotdefined") + " '" + ide + "'", ctx.args(ctx
+                                .args()
+                                .size() - 1).typeBrace(index).type().ID());
                     }
                     functionSignature.addInputParam(i, typee.get());
                 }
@@ -108,7 +116,9 @@ public class LuluListener extends Lulu2BaseListener
                                                                        .findFirst();
                     if (typee.isEmpty())
                     {
-                        throw new CompileError(resourceBundle.getString("typenotdefined") + " '" + ide + "'");
+                        throw new CompileError(resourceBundle.getString("typenotdefined") + " '" + ide + "'", ctx.args(ctx
+                                .args()
+                                .size() - 1).typeBrace(index).type().ID());
                     }
                     functionSignature.addInputParam(i, new ArraySignature(typee.get(), child.size()));
                 }
@@ -131,12 +141,18 @@ public class LuluListener extends Lulu2BaseListener
                                                                        .findFirst();
                     if (typee.isEmpty())
                     {
-                        throw new CompileError(resourceBundle.getString("typenotdefined") + " '" + ide + "'");
+                        throw new CompileError(resourceBundle.getString("typenotdefined") + " '" + ide + "'", ctx.argsVar()
+                                                                                                                 .typeBrace(index)
+                                                                                                                 .type()
+                                                                                                                 .ID());
                     }
                     var id = ctx.argsVar().ID(i).getText();
                     if (ids.contains(id))
                     {
-                        throw new CompileError(resourceBundle.getString("typenotdefined") + " '" + ide + "'");
+                        throw new CompileError(resourceBundle.getString("typenotdefined") + " '" + ide + "'", ctx.argsVar()
+                                                                                                                 .typeBrace(index)
+                                                                                                                 .type()
+                                                                                                                 .ID());
                     }
                     ids.add(id);
                     functionSignature.addInputParam(id, typee.get());
@@ -150,12 +166,15 @@ public class LuluListener extends Lulu2BaseListener
                                                                        .findFirst();
                     if (typee.isEmpty())
                     {
-                        throw new CompileError(resourceBundle.getString("typenotdefined") + " '" + ide + "'");
+                        throw new CompileError(resourceBundle.getString("typenotdefined") + " '" + ide + "'", ctx.argsVar()
+                                                                                                                 .typeBrace(index)
+                                                                                                                 .type()
+                                                                                                                 .ID());
                     }
                     var id = ctx.argsVar().ID(i).getText();
                     if (ids.contains(id))
                     {
-                        throw new CompileError("variable already defined");
+                        throw new CompileError("variable already defined", ctx.argsVar().typeBrace(index).type().ID());
                     }
                     ids.add(id);
                     functionSignature.addInputParam(id, new ArraySignature(typee.get(), child.size()));
@@ -195,7 +214,15 @@ public class LuluListener extends Lulu2BaseListener
     @Override
     public void enterVarDef(VarDefContext ctx)
     {
-        System.out.println(ctx.varVal().size());
+//        System.out.println(ctx.CONST().getSymbol().getLine());
+        if (ctx.CONST() != null)
+        {
+
+        }
+        else
+        {
+
+        }
     }
 
     @Override
@@ -214,7 +241,8 @@ public class LuluListener extends Lulu2BaseListener
         if (duplicate)
         //the ID has already been added to the list
         {
-            throw new CompileError("Type" + ctx.ID().getText() + " has already been defined in declare scope");
+            throw new CompileError("Type " + ctx.ID()
+                                                .getText() + " has already been defined in declare scope", ctx.ID());
         }
         //else
         ((DeclareScope) currentNode.getScope()).addType(new UserDefinedType(ctx.ID().getText()));
