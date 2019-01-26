@@ -102,13 +102,11 @@ WhiteSpace : [ \t\r\n]+ -> skip;
 main : ftDcl? ftDef+ EOF;
 ftDcl : DECLARE OpenCurlyBrace (funcDcl | typeDcl | varDef)+ CloseCurlyBrace;
 funcDcl : (OpenPar args ClosePar ASSIGN)? ID OpenPar (args | argsVar)? ClosePar SEMICOLON;
-typeBrace returns [Type.PrimitiveType t]
-    : type (OpenBrace CloseBrace)* {$t = $type.t;}
-    ;
+typeBrace : type (OpenBrace CloseBrace)*;
 args : typeBrace (COMMA typeBrace)*; //Why Not?
 //    : type(OpenBrace CloseBrace)*
 //    | args COMMA type (OpenBrace CloseBrace)*;
-argsVar : type (OpenBrace CloseBrace)* ID (COMMA type (OpenBrace CloseBrace)* ID)*;
+argsVar : typeBrace ID (COMMA typeBrace ID)*;
 //    : type (OpenBrace CloseBrace)* ID | argsVar COMMA type (OpenBrace CloseBrace)* ID;
 typeDcl : ID SEMICOLON;
 varDef : CONST? type varVal (COMMA varVal)* SEMICOLON;
@@ -425,13 +423,7 @@ loopStmt
         assign? block                                  #FORAlt
     | WHILE expr block                                 #WHILEAlt
     ;
-type returns [Type.PrimitiveType t]
-    : INT {$t = Type.Int();}
-    | BOOL {$t = Type.Bool();}
-    | FLOAT {$t = Type.Float();}
-    | STRING {$t = Type.String();}
-    | ID {$t = null;}
-    ;
+type : INT | BOOL | FLOAT | STRING | ID;
 constVal returns [TypeEnum t]
     : IntLiteral {$t = TypeEnum.Int;}
     | FloatLiteral {$t = TypeEnum.Float;}

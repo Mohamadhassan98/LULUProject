@@ -4,6 +4,7 @@ import LULU.Type.PrimitiveType;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 public abstract class Symbol
 {
@@ -39,7 +40,14 @@ public abstract class Symbol
 
     public static Symbol addNew(String name, Type t, int offset, boolean isConst)
     {
-        return (t instanceof PrimitiveType) ? new PrimitiveSymbol(name, t, offset, isConst) : new UserDefinedSymbol(name, t, offset, isConst);
+        if (t instanceof PrimitiveType)
+        {
+            return new PrimitiveSymbol(name, t, offset, isConst);
+        }
+        else
+        {
+            return new UserDefinedSymbol(name, t, offset, isConst);
+        }
     }
 
     public int getOffset()
@@ -74,9 +82,38 @@ class UserDefinedSymbol extends Symbol
     }
 }
 
+class ArraySignatureSymbol extends Symbol
+{
+    ArraySignatureSymbol(String name, Type t, int offset)
+    {
+        super(name, 4, t, offset, false);
+        if (!(t instanceof ArraySignature))
+        {
+            throw new IllegalArgumentException("Array Signature symbol cannot defined with non-array signature type");
+        }
+    }
+}
+
+class ArraySymbol extends Symbol
+{
+    ArraySymbol(String name, Type t, int offset, boolean isConst)
+    {
+        super(name, t.getSize(), t, offset, isConst);
+        if (!(t instanceof Array))
+        {
+            throw new IllegalArgumentException("Array symbol cannot defined with non-array type");
+        }
+    }
+}
+
 class FunctionSignature
 {
     private final List<Symbol> inputParameters = new LinkedList<>(), returnParameters = new LinkedList<>();
+
+    public String getName()
+    {
+        return name;
+    }
 
     private final String name;
 
@@ -132,6 +169,39 @@ class FunctionSignature
 //            returnParameters.add(new UserDefinedSymbol("*" + index, type, 0, false));
 //        }
         returnParameters.add(Symbol.addNew("*" + index, type, 0, false));
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (this == obj)
+        {
+            return true;
+        }
+        if ((obj == null) || (getClass() != obj.getClass()))
+        {
+            return false;
+        }
+        FunctionSignature that = (FunctionSignature) obj;
+        var inputs = that.inputParameters;
+        if (inputs.size() != inputParameters.size())
+        {
+            return false;
+        }
+        for (int i = 0; i < inputs.size(); i++)
+        {
+            if (!inputs.get(i).getType().getName().equals(inputParameters.get(i).getType().getName()))
+            {
+                return false;
+            }
+        }
+        return that.name.equals(name);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(inputParameters, returnParameters, name);
     }
 }
 

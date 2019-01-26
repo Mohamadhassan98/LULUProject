@@ -1,16 +1,21 @@
 package LULU;
 
-import java.util.ResourceBundle;
-
 class Sample
 {
     final int i = 2, j = 3, k = 12;
 
     public static void main(String[] args)
     {
-        System.out.println(ResourceBundle.getBundle("LULUStrings").getString("hello"));
-        System.out.println(String[].class);
+//        System.out.println(ResourceBundle.getBundle("LULUStrings").getString("hello"));
+        System.out.println(Integer.class);
     }
+
+    void foo(int a)
+    {
+//        var t = new Alaki();
+    }
+
+
 //    public static void LULU.main(String[] args)
 //    {
 //        new Sample();
