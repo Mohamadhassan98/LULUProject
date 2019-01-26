@@ -201,19 +201,24 @@ public class LuluListener extends Lulu2BaseListener
     @Override
     public void enterTypeDcl(TypeDclContext ctx)
     {
-        var types = ((DeclareScope)currentNode.getScope()).getTypes();
+        var types = ((DeclareScope) currentNode.getScope()).getTypes();
         boolean duplicate = false;
-        for (var type:types)
-            if((ctx.ID().getText().equals(type.getName())))
+        for (var type : types)
+        {
+            System.out.println(ctx.ID().getText());
+            if ((ctx.ID().getText().equals(type.getName())))
             {
                 duplicate = true;
                 break;
             }
+        }
         if (duplicate)
-            //the ID has already been added to the list
-            throw new CompileError("Type" + ctx.ID().getText() +" has already been defined in declare scope");
+        //the ID has already been added to the list
+        {
+            throw new CompileError("Type" + ctx.ID().getText() + " has already been defined in declare scope");
+        }
         //else
-        ((DeclareScope)currentNode.getScope()).addType(new UserDefinedType(ctx.ID().getText()));
+        ((DeclareScope) currentNode.getScope()).addType(new UserDefinedType(ctx.ID().getText()));
     }
 
 

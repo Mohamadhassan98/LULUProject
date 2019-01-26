@@ -14,10 +14,12 @@ abstract class Type
     private static final PrimitiveType String = new PrimitiveType(resourceBundle.getString("string"), 32);
     private final String Name;
     private int Size;
+    protected String toString;
 
     Type(String name, int size)
     {
-        Name = "lulu." + name;
+        Name = name;
+        toString = "lulu." + name;
         Size = size;
     }
 
@@ -87,6 +89,11 @@ abstract class Type
         return Objects.hash(Name);
     }
 
+    public java.lang.String getToString()
+    {
+        return toString;
+    }
+
     static class PrimitiveType extends Type
     {
         PrimitiveType(String name, int size)
@@ -109,8 +116,9 @@ class Array extends Type
 
     Array(@NotNull Type t, int length)
     {
-        super("lulu.Array<" + t.getName() + '>', length * t.getSize());
+        super("Array<" + t.getName() + '>', length * t.getSize());
         Length = length;
+        toString = "lulu.Array<" + toString + '>';
         type = t;
     }
 
@@ -127,7 +135,7 @@ class Array extends Type
     @Override
     public String toString()
     {
-        return "type " + getName();
+        return "type " + getToString();
     }
 }
 
@@ -141,7 +149,7 @@ class UserDefinedType extends Type
     @Override
     public String toString()
     {
-        return "type " + getName();
+        return "type " + getToString();
     }
 }
 
@@ -169,6 +177,6 @@ class ArraySignature extends Type
 
     public String toString()
     {
-        return "Abstract type " + type.getName();
+        return "Abstract type " + type.getToString();
     }
 }
