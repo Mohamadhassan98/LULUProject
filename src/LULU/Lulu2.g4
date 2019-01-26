@@ -9,6 +9,10 @@ grammar Lulu2;
     {
         Int, Bool, Float, string, nullable
     }
+
+    private Type getTypeById(String id)
+    {
+
 }
 //----------------------------------------Lexer----------------------------------------\\
 //--------------------Comment--------------------\\

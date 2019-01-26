@@ -211,10 +211,40 @@ public class LuluListener extends Lulu2BaseListener
         });
     }
 
+    private boolean declareHasType(String id)
+    {
+//        var global = tree.getGlobalScope();
+        DeclareScope declare = null;
+        if (tree.getRoot().getChild(0).getScope().getScopeType() == ScopeType.DeclareScope)
+        {
+            declare = (DeclareScope) tree.getRoot().getScope();
+        }
+        if (declare != null)
+        {
+            return declare.getTypes().stream().anyMatch(type -> type.getName().equals(id));
+        }
+        return false;
+    }
+
+    private boolean globalHasType(String id)
+    {
+        var global = tree.getGlobalScope();
+        return global.getTypes().stream().anyMatch(type -> type.getName().equals(id));
+    }
+
+    private boolean hasType(String id)
+    {
+        return declareHasType(id) || globalHasType(id);
+    }
+
+    private boolean nodeHasId(Node node, String id)
+    {
+        return node.getScope().getSymbols().stream().anyMatch(symbol -> symbol.getName().equals(id));
+    }
+
     @Override
     public void enterVarDef(VarDefContext ctx)
     {
-//        System.out.println(ctx.CONST().getSymbol().getLine());
         if (ctx.CONST() != null)
         {
 
