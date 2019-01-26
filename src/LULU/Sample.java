@@ -13,6 +13,7 @@ class Sample
     void foo(int a)
     {
 //        var t = new Alaki();
+        int[] arr = {1, 2, 3, 4};
     }
 
 

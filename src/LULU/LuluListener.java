@@ -205,7 +205,6 @@ public class LuluListener extends Lulu2BaseListener
         boolean duplicate = false;
         for (var type : types)
         {
-            System.out.println(ctx.ID().getText());
             if ((ctx.ID().getText().equals(type.getName())))
             {
                 duplicate = true;

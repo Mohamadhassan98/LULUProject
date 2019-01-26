@@ -168,7 +168,7 @@ class FunctionSignature
 //        {
 //            returnParameters.add(new UserDefinedSymbol("*" + index, type, 0, false));
 //        }
-        returnParameters.add(Symbol.addNew("*" + index, type, 0, false));
+        returnParameters.add(Symbol.addNew("#" + index, type, 0, false));
     }
 
     @Override
