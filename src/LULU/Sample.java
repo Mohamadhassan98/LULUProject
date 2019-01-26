@@ -14,6 +14,7 @@ class Sample
     {
 //        var t = new Alaki();
         int[] arr = {1, 2, 3, 4};
+
     }
 
 
