@@ -1,26 +1,99 @@
 package LULU;
 
+import LULU.Lulu2Parser.TypeEnum;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.LinkedList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+@SuppressWarnings("Duplicates")
 abstract class Type
 {
     private static final ResourceBundle resourceBundle = ResourceBundle.getBundle("LULUStrings");
-    private static final PrimitiveType Int = new PrimitiveType(resourceBundle.getString("int"), 32);
-    private static final PrimitiveType Float = new PrimitiveType(resourceBundle.getString("float"), 64);
-    private static final PrimitiveType Bool = new PrimitiveType(resourceBundle.getString("bool"), 1);
-    private static final PrimitiveType String = new PrimitiveType(resourceBundle.getString("string"), 32);
+    private static final PrimitiveType Int = new PrimitiveType(resourceBundle.getString("int"), 32, TypeEnum.Int);
+    private static final PrimitiveType Float = new PrimitiveType(resourceBundle.getString("float"), 64, TypeEnum.Float);
+    private static final PrimitiveType Bool = new PrimitiveType(resourceBundle.getString("bool"), 1, TypeEnum.Bool);
+    private static final PrimitiveType String = new PrimitiveType(resourceBundle.getString("string"), 32, TypeEnum.string);
     private final String Name;
     private int Size;
     protected String toString;
+    private final TypeEnum typeEnum;
+    private LinkedList<FunctionSignature> functionSignatures = new LinkedList<>();
 
-    Type(String name, int size)
+    Type(String name, int size, TypeEnum t)
     {
         Name = name;
         toString = "lulu." + name;
         Size = size;
+        typeEnum = t;
+    }
+
+    public TypeEnum getTypeEnum()
+    {
+        return typeEnum;
+    }
+
+    public boolean isConvertable(Type t)
+    {
+        if (t == null)
+        {
+            return getTypeEnum() == TypeEnum.nullable;
+        }
+        if (getTypeEnum() == t.getTypeEnum())
+        {
+            return true;
+        }
+        switch (getTypeEnum())
+        {
+            case Int:
+                switch (t.getTypeEnum())
+                {
+                    case Bool:
+                        return true;
+                    default:
+                        return false;
+                }
+            case Float:
+                switch (t.getTypeEnum())
+                {
+                    case Int:
+                    case Bool:
+                        return true;
+                    default:
+                        return false;
+                }
+            case Bool:
+                if (t.getTypeEnum() == TypeEnum.Int)
+                {
+                    return true;
+                }
+                break;
+            case string:
+                switch (t.getTypeEnum())
+                {
+                    case Int:
+                    case Bool:
+                        return true;
+                    default:
+                        return false;
+                }
+        }
+        return false;
+    }
+
+    public LinkedList<FunctionSignature> getFunctionSignatures()
+    {
+        return functionSignatures;
+    }
+
+    public void addFunctionSignature(FunctionSignature fS)
+    {
+        if (functionSignatures.contains(fS))
+        {
+            throw new CompileError("Function already defined in scope");
+        }
+        functionSignatures.add(fS);
     }
 
     public static PrimitiveType Int()
@@ -96,9 +169,9 @@ abstract class Type
 
     static class PrimitiveType extends Type
     {
-        PrimitiveType(String name, int size)
+        PrimitiveType(String name, int size, TypeEnum typeEnum)
         {
-            super(name, size);
+            super(name, size, typeEnum);
         }
 
         @Override
@@ -116,7 +189,7 @@ class Array extends Type
 
     Array(@NotNull Type t, int length)
     {
-        super("Array<" + t.getName() + '>', length * t.getSize());
+        super("Array<" + t.getName() + '>', length * t.getSize(), TypeEnum.Array);
         Length = length;
         toString = "lulu.Array<" + toString + '>';
         type = t;
@@ -143,7 +216,7 @@ class UserDefinedType extends Type
 {
     UserDefinedType(String name)
     {
-        super(name, 0);
+        super(name, 0, TypeEnum.nullable);
     }
 
     @Override
@@ -153,30 +226,26 @@ class UserDefinedType extends Type
     }
 }
 
-class ArraySignature extends Type
+class ArraySignature extends Array
 {
-    private final int Dimension;
-    private final Type type;
 
-    ArraySignature(Type t, int dimension)
+    ArraySignature(Type t)
     {
-        super("Array<" + t.getName() + ", " + dimension + '>', 4);
-        Dimension = dimension;
-        type = t;
+        super(t, 0);
     }
 
-    public int getDimension()
+    static ArraySignature generator(Type t, int dimension)
     {
-        return Dimension;
-    }
-
-    public Type getType()
-    {
-        return type;
+        var temp = new ArraySignature(t);
+        for (int i = 1; i < dimension; i++)
+        {
+            temp = new ArraySignature(temp);
+        }
+        return temp;
     }
 
     public String toString()
     {
-        return "Abstract type " + type.getToString();
+        return "Abstract type " + getType().getToString();
     }
 }

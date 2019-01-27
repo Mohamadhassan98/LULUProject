@@ -8,6 +8,7 @@ class Sample
     {
 //        System.out.println(ResourceBundle.getBundle("LULUStrings").getString("hello"));
         System.out.println(Integer.class);
+//        int a[][][][][][][] = 1;
     }
 
     void foo(int a)
@@ -47,3 +48,27 @@ class Sample
 //    int rrr;
 //    UserDefinedType myType = new UserDefinedType("s", 21);
 }
+
+class A
+{
+}
+
+class B extends A
+{
+    public B(String string)
+    {
+
+    }
+
+}
+
+class Mainnnn
+{
+    public static void main(String[] args)
+    {
+//        A a = new B();
+
+    }
+}
+
+

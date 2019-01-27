@@ -128,6 +128,7 @@ public class Lulu2Lexer extends Lexer {
 			"':'",
 			"';'"
 	};
+
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
 	/**

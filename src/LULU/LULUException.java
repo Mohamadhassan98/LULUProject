@@ -2,26 +2,6 @@ package LULU;
 
 import org.antlr.v4.runtime.tree.TerminalNode;
 
-class LULUException extends java.lang.Exception
-{
-    private static final long serialVersionUID = 6977107888999680595L;
-
-    LULUException(String message)
-    {
-        super(message);
-    }
-
-    LULUException(String message, Throwable cause)
-    {
-        super(message, cause);
-    }
-
-    LULUException(Throwable cause)
-    {
-        super(cause);
-    }
-}
-
 class CompileError extends RuntimeException
 {
     private static final long serialVersionUID = -1166148932026956741L;

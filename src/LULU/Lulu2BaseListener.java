@@ -20,52 +20,58 @@ public class Lulu2BaseListener implements Lulu2Listener {
     public void enterMain(Lulu2Parser.MainContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
     @Override
     public void exitMain(Lulu2Parser.MainContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
     @Override
     public void enterFtDcl(Lulu2Parser.FtDclContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
     @Override
     public void exitFtDcl(Lulu2Parser.FtDclContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
     @Override
     public void enterFuncDcl(Lulu2Parser.FuncDclContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
     @Override
     public void exitFuncDcl(Lulu2Parser.FuncDclContext ctx)
     {
     }
-	/**
+
+    /**
      * {@inheritDoc}
      *
      * <p>The default implementation does nothing.</p>
@@ -94,44 +100,49 @@ public class Lulu2BaseListener implements Lulu2Listener {
     public void enterArgs(Lulu2Parser.ArgsContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
      */
     @Override
     public void exitArgs(Lulu2Parser.ArgsContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
      */
     @Override
     public void enterArgsVar(Lulu2Parser.ArgsVarContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
      */
     @Override
     public void exitArgsVar(Lulu2Parser.ArgsVarContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
      */
     @Override
     public void enterTypeDcl(Lulu2Parser.TypeDclContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
+
+    /**
+     * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
      */
@@ -139,154 +150,171 @@ public class Lulu2BaseListener implements Lulu2Listener {
     public void exitTypeDcl(Lulu2Parser.TypeDclContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
      */
     @Override
     public void enterVarDef(Lulu2Parser.VarDefContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
      */
     @Override
     public void exitVarDef(Lulu2Parser.VarDefContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
      */
     @Override
     public void enterVarVal(Lulu2Parser.VarValContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
      */
     @Override
     public void exitVarVal(Lulu2Parser.VarValContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
      */
     @Override
     public void enterFtDef(Lulu2Parser.FtDefContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
      */
     @Override
     public void exitFtDef(Lulu2Parser.FtDefContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
      */
     @Override
     public void enterTypeDef(Lulu2Parser.TypeDefContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
      */
     @Override
     public void exitTypeDef(Lulu2Parser.TypeDefContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
      */
     @Override
     public void enterComponent(Lulu2Parser.ComponentContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
      */
     @Override
     public void exitComponent(Lulu2Parser.ComponentContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
      */
     @Override
     public void enterAccessModifier(Lulu2Parser.AccessModifierContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
      */
     @Override
     public void exitAccessModifier(Lulu2Parser.AccessModifierContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
      */
     @Override
     public void enterFuncDef(Lulu2Parser.FuncDefContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
      */
     @Override
     public void exitFuncDef(Lulu2Parser.FuncDefContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
      */
     @Override
     public void enterBlock(Lulu2Parser.BlockContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
      */
     @Override
     public void exitBlock(Lulu2Parser.BlockContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
      */
     @Override
     public void enterASSIGNAlt(Lulu2Parser.ASSIGNAltContext ctx)
@@ -432,19 +460,21 @@ public class Lulu2BaseListener implements Lulu2Listener {
     public void enterDESTRUCTAlt(Lulu2Parser.DESTRUCTAltContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
      */
     @Override
     public void exitDESTRUCTAlt(Lulu2Parser.DESTRUCTAltContext ctx)
     {
     }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
      */
     @Override
     public void enterAssign(Lulu2Parser.AssignContext ctx)
@@ -507,7 +537,7 @@ public class Lulu2BaseListener implements Lulu2Listener {
      * <p>The default implementation does nothing.</p>
      */
     @Override
-    public void enterLOGICALANDAlt(Lulu2Parser.LOGICALANDAltContext ctx)
+    public void enterExpr(Lulu2Parser.ExprContext ctx)
     {
     }
 
@@ -517,327 +547,7 @@ public class Lulu2BaseListener implements Lulu2Listener {
      * <p>The default implementation does nothing.</p>
      */
     @Override
-    public void exitLOGICALANDAlt(Lulu2Parser.LOGICALANDAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void enterBITWISEORAlt(Lulu2Parser.BITWISEORAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void exitBITWISEORAlt(Lulu2Parser.BITWISEORAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void enterCONSTVALAlt(Lulu2Parser.CONSTVALAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void exitCONSTVALAlt(Lulu2Parser.CONSTVALAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void enterALLOCATIONAlt(Lulu2Parser.ALLOCATIONAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void exitALLOCATIONAlt(Lulu2Parser.ALLOCATIONAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void enterPAREXPRAlt(Lulu2Parser.PAREXPRAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void exitPAREXPRAlt(Lulu2Parser.PAREXPRAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void enterADDSUBAlt(Lulu2Parser.ADDSUBAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void exitADDSUBAlt(Lulu2Parser.ADDSUBAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void enterLISTAlt(Lulu2Parser.LISTAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void exitLISTAlt(Lulu2Parser.LISTAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void enterFUNCCALLAlt(Lulu2Parser.FUNCCALLAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void exitFUNCCALLAlt(Lulu2Parser.FUNCCALLAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void enterMULDIVAlt(Lulu2Parser.MULDIVAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void exitMULDIVAlt(Lulu2Parser.MULDIVAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void enterEQUALITYAlt(Lulu2Parser.EQUALITYAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void exitEQUALITYAlt(Lulu2Parser.EQUALITYAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void enterCOMPAREAlt(Lulu2Parser.COMPAREAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void exitCOMPAREAlt(Lulu2Parser.COMPAREAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void enterLOGICALORAlt(Lulu2Parser.LOGICALORAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void exitLOGICALORAlt(Lulu2Parser.LOGICALORAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void enterVARAlt(Lulu2Parser.VARAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void exitVARAlt(Lulu2Parser.VARAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void enterNILAlt(Lulu2Parser.NILAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void exitNILAlt(Lulu2Parser.NILAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void enterBITWISEANDAlt(Lulu2Parser.BITWISEANDAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void exitBITWISEANDAlt(Lulu2Parser.BITWISEANDAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void enterUNARYOPAlt(Lulu2Parser.UNARYOPAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void exitUNARYOPAlt(Lulu2Parser.UNARYOPAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void enterBITWISELOGICALXORAlt(Lulu2Parser.BITWISELOGICALXORAltContext ctx)
-    {
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * <p>The default implementation does nothing.</p>
-     */
-    @Override
-    public void exitBITWISELOGICALXORAlt(Lulu2Parser.BITWISELOGICALXORAltContext ctx)
+    public void exitExpr(Lulu2Parser.ExprContext ctx)
     {
     }
 

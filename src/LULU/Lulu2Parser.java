@@ -10,6 +10,7 @@ import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
@@ -59,7 +60,7 @@ public class Lulu2Parser extends Parser
 	 */
 	@Deprecated
 	public static final String[] tokenNames;
-	public static final String _serializedATN = "\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3D\u01d2\4\2\t\2\4" + "\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t" + "\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22" + "\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31" + "\4\32\t\32\4\33\t\33\4\34\t\34\4\35\t\35\4\36\t\36\4\37\t\37\4 \t \4!" + "\t!\4\"\t\"\3\2\5\2F\n\2\3\2\6\2I\n\2\r\2\16\2J\3\2\3\2\3\3\3\3\3\3\3" + "\3\3\3\6\3T\n\3\r\3\16\3U\3\3\3\3\3\4\3\4\3\4\3\4\3\4\5\4_\n\4\3\4\3\4" + "\3\4\3\4\5\4e\n\4\3\4\3\4\3\4\3\5\3\5\3\5\7\5m\n\5\f\5\16\5p\13\5\3\6" + "\3\6\3\6\7\6u\n\6\f\6\16\6x\13\6\3\7\3\7\3\7\3\7\3\7\3\7\7\7\u0080\n\7" + "\f\7\16\7\u0083\13\7\3\b\3\b\3\b\3\t\5\t\u0089\n\t\3\t\3\t\3\t\3\t\7\t" + "\u008f\n\t\f\t\16\t\u0092\13\t\3\t\3\t\3\n\3\n\3\n\5\n\u0099\n\n\3\13" + "\3\13\5\13\u009d\n\13\3\f\3\f\3\f\3\f\5\f\u00a3\n\f\3\f\3\f\6\f\u00a7" + "\n\f\r\f\16\f\u00a8\3\f\3\f\3\r\5\r\u00ae\n\r\3\r\3\r\5\r\u00b2\n\r\3" + "\16\3\16\3\17\3\17\3\17\3\17\3\17\5\17\u00bb\n\17\3\17\3\17\3\17\3\17" + "\5\17\u00c1\n\17\3\17\3\17\3\17\3\20\3\20\3\20\7\20\u00c9\n\20\f\20\16" + "\20\u00cc\13\20\3\20\3\20\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21" + "\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\7\21\u00e1\n\21\f\21\16\21\u00e4" + "\13\21\3\21\3\21\5\21\u00e8\n\21\3\22\3\22\3\22\3\22\3\22\7\22\u00ef\n" + "\22\f\22\16\22\u00f2\13\22\3\22\3\22\5\22\u00f6\n\22\3\22\3\22\3\22\3" + "\23\3\23\5\23\u00fd\n\23\3\23\3\23\3\23\7\23\u0102\n\23\f\23\16\23\u0105" + "\13\23\3\24\3\24\3\24\3\24\3\24\7\24\u010c\n\24\f\24\16\24\u010f\13\24" + "\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25" + "\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\5\25\u0128\n\25\3\25\3\25" + "\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25" + "\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25" + "\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25" + "\3\25\7\25\u0157\n\25\f\25\16\25\u015a\13\25\3\26\3\26\3\26\5\26\u015f" + "\n\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\5\26\u016c" + "\n\26\3\27\3\27\3\27\5\27\u0171\n\27\3\27\3\27\3\27\5\27\u0176\n\27\7" + "\27\u0178\n\27\f\27\16\27\u017b\13\27\3\27\3\27\3\30\3\30\3\30\5\30\u0182" + "\n\30\3\30\3\30\3\31\3\31\3\31\3\31\3\31\5\31\u018b\n\31\3\32\3\32\3\32" + "\3\32\3\32\5\32\u0192\n\32\3\32\3\32\3\32\3\32\3\32\3\32\3\32\7\32\u019b" + "\n\32\f\32\16\32\u019e\13\32\3\32\3\32\3\32\3\32\3\32\5\32\u01a5\n\32" + "\3\33\3\33\5\33\u01a9\n\33\3\33\5\33\u01ac\n\33\3\33\3\33\3\33\3\33\5" + "\33\u01b2\n\33\3\33\3\33\3\33\3\33\3\33\3\33\5\33\u01ba\n\33\3\34\3\34" + "\3\35\3\35\3\35\3\35\3\35\3\35\3\35\3\35\5\35\u01c6\n\35\3\36\3\36\3\37" + "\3\37\3 \3 \3!\3!\3\"\3\"\3\"\2\3(#\2\4\6\b\n\f\16\20\22\24\26\30\32\34" + "\36 \"$&(*,.\60\62\64\668:<>@B\2\n\3\2\26\30\4\2\34\34\36\36\7\2\6\6\20" + "\20\23\23\33\33CC\4\2((./\3\2\61\63\3\2/\60\3\2$\'\3\2\"#\2\u01f6\2E\3" + "\2\2\2\4N\3\2\2\2\6^\3\2\2\2\bi\3\2\2\2\nq\3\2\2\2\fy\3\2\2\2\16\u0084" + "\3\2\2\2\20\u0088\3\2\2\2\22\u0095\3\2\2\2\24\u009c\3\2\2\2\26\u009e\3" + "\2\2\2\30\u00ad\3\2\2\2\32\u00b3\3\2\2\2\34\u00ba\3\2\2\2\36\u00c5\3\2" + "\2\2 \u00e7\3\2\2\2\"\u00f5\3\2\2\2$\u00fc\3\2\2\2&\u0106\3\2\2\2(\u0127" + "\3\2\2\2*\u016b\3\2\2\2,\u016d\3\2\2\2.\u017e\3\2\2\2\60\u018a\3\2\2\2" + "\62\u01a4\3\2\2\2\64\u01b9\3\2\2\2\66\u01bb\3\2\2\28\u01c5\3\2\2\2:\u01c7" + "\3\2\2\2<\u01c9\3\2\2\2>\u01cb\3\2\2\2@\u01cd\3\2\2\2B\u01cf\3\2\2\2D" + "F\5\4\3\2ED\3\2\2\2EF\3\2\2\2FH\3\2\2\2GI\5\24\13\2HG\3\2\2\2IJ\3\2\2" + "\2JH\3\2\2\2JK\3\2\2\2KL\3\2\2\2LM\7\2\2\3M\3\3\2\2\2NO\7\13\2\2OS\7\65" + "\2\2PT\5\6\4\2QT\5\16\b\2RT\5\20\t\2SP\3\2\2\2SQ\3\2\2\2SR\3\2\2\2TU\3" + "\2\2\2US\3\2\2\2UV\3\2\2\2VW\3\2\2\2WX\7\66\2\2X\5\3\2\2\2YZ\7\67\2\2" + "Z[\5\n\6\2[\\\78\2\2\\]\7\64\2\2]_\3\2\2\2^Y\3\2\2\2^_\3\2\2\2_`\3\2\2" + "\2`a\7C\2\2ad\7\67\2\2be\5\n\6\2ce\5\f\7\2db\3\2\2\2dc\3\2\2\2de\3\2\2" + "\2ef\3\2\2\2fg\78\2\2gh\7>\2\2h\7\3\2\2\2in\5\66\34\2jk\79\2\2km\7:\2" + "\2lj\3\2\2\2mp\3\2\2\2nl\3\2\2\2no\3\2\2\2o\t\3\2\2\2pn\3\2\2\2qv\5\b" + "\5\2rs\7<\2\2su\5\b\5\2tr\3\2\2\2ux\3\2\2\2vt\3\2\2\2vw\3\2\2\2w\13\3" + "\2\2\2xv\3\2\2\2yz\5\b\5\2z\u0081\7C\2\2{|\7<\2\2|}\5\b\5\2}~\7C\2\2~" + "\u0080\3\2\2\2\177{\3\2\2\2\u0080\u0083\3\2\2\2\u0081\177\3\2\2\2\u0081" + "\u0082\3\2\2\2\u0082\r\3\2\2\2\u0083\u0081\3\2\2\2\u0084\u0085\7C\2\2" + "\u0085\u0086\7>\2\2\u0086\17\3\2\2\2\u0087\u0089\7\t\2\2\u0088\u0087\3" + "\2\2\2\u0088\u0089\3\2\2\2\u0089\u008a\3\2\2\2\u008a\u008b\5\66\34\2\u008b" + "\u0090\5\22\n\2\u008c\u008d\7<\2\2\u008d\u008f\5\22\n\2\u008e\u008c\3" + "\2\2\2\u008f\u0092\3\2\2\2\u0090\u008e\3\2\2\2\u0090\u0091\3\2\2\2\u0091" + "\u0093\3\2\2\2\u0092\u0090\3\2\2\2\u0093\u0094\7>\2\2\u0094\21\3\2\2\2" + "\u0095\u0098\5&\24\2\u0096\u0097\7\64\2\2\u0097\u0099\5(\25\2\u0098\u0096" + "\3\2\2\2\u0098\u0099\3\2\2\2\u0099\23\3\2\2\2\u009a\u009d\5\26\f\2\u009b" + "\u009d\5\34\17\2\u009c\u009a\3\2\2\2\u009c\u009b\3\2\2\2\u009d\25\3\2" + "\2\2\u009e\u009f\7\37\2\2\u009f\u00a2\7C\2\2\u00a0\u00a1\7=\2\2\u00a1" + "\u00a3\7C\2\2\u00a2\u00a0\3\2\2\2\u00a2\u00a3\3\2\2\2\u00a3\u00a4\3\2" + "\2\2\u00a4\u00a6\7\65\2\2\u00a5\u00a7\5\30\r\2\u00a6\u00a5\3\2\2\2\u00a7" + "\u00a8\3\2\2\2\u00a8\u00a6\3\2\2\2\u00a8\u00a9\3\2\2\2\u00a9\u00aa\3\2" + "\2\2\u00aa\u00ab\7\66\2\2\u00ab\27\3\2\2\2\u00ac\u00ae\5\32\16\2\u00ad" + "\u00ac\3\2\2\2\u00ad\u00ae\3\2\2\2\u00ae\u00b1\3\2\2\2\u00af\u00b2\5\20" + "\t\2\u00b0\u00b2\5\34\17\2\u00b1\u00af\3\2\2\2\u00b1\u00b0\3\2\2\2\u00b2" + "\31\3\2\2\2\u00b3\u00b4\t\2\2\2\u00b4\33\3\2\2\2\u00b5\u00b6\7\67\2\2" + "\u00b6\u00b7\5\f\7\2\u00b7\u00b8\78\2\2\u00b8\u00b9\7\64\2\2\u00b9\u00bb" + "\3\2\2\2\u00ba\u00b5\3\2\2\2\u00ba\u00bb\3\2\2\2\u00bb\u00bc\3\2\2\2\u00bc" + "\u00bd\7\17\2\2\u00bd\u00be\7C\2\2\u00be\u00c0\7\67\2\2\u00bf\u00c1\5" + "\f\7\2\u00c0\u00bf\3\2\2\2\u00c0\u00c1\3\2\2\2\u00c1\u00c2\3\2\2\2\u00c2" + "\u00c3\78\2\2\u00c3\u00c4\5\36\20\2\u00c4\35\3\2\2\2\u00c5\u00ca\7\65" + "\2\2\u00c6\u00c9\5\20\t\2\u00c7\u00c9\5 \21\2\u00c8\u00c6\3\2\2\2\u00c8" + "\u00c7\3\2\2\2\u00c9\u00cc\3\2\2\2\u00ca\u00c8\3\2\2\2\u00ca\u00cb\3\2" + "\2\2\u00cb\u00cd\3\2\2\2\u00cc\u00ca\3\2\2\2\u00cd\u00ce\7\66\2\2\u00ce" + "\37\3\2\2\2\u00cf\u00d0\5\"\22\2\u00d0\u00d1\7>\2\2\u00d1\u00e8\3\2\2" + "\2\u00d2\u00d3\5*\26\2\u00d3\u00d4\7>\2\2\u00d4\u00e8\3\2\2\2\u00d5\u00e8" + "\5\62\32\2\u00d6\u00e8\5\64\33\2\u00d7\u00d8\7\32\2\2\u00d8\u00e8\7>\2" + "\2\u00d9\u00da\7\7\2\2\u00da\u00e8\7>\2\2\u00db\u00dc\7\n\2\2\u00dc\u00e8" + "\7>\2\2\u00dd\u00e2\7\r\2\2\u00de\u00df\79\2\2\u00df\u00e1\7:\2\2\u00e0" + "\u00de\3\2\2\2\u00e1\u00e4\3\2\2\2\u00e2\u00e0\3\2\2\2\u00e2\u00e3\3\2" + "\2\2\u00e3\u00e5\3\2\2\2\u00e4\u00e2\3\2\2\2\u00e5\u00e6\7C\2\2\u00e6" + "\u00e8\7>\2\2\u00e7\u00cf\3\2\2\2\u00e7\u00d2\3\2\2\2\u00e7\u00d5\3\2" + "\2\2\u00e7\u00d6\3\2\2\2\u00e7\u00d7\3\2\2\2\u00e7\u00d9\3\2\2\2\u00e7" + "\u00db\3\2\2\2\u00e7\u00dd\3\2\2\2\u00e8!\3\2\2\2\u00e9\u00f6\5$\23\2" + "\u00ea\u00eb\7\67\2\2\u00eb\u00f0\5$\23\2\u00ec\u00ed\7<\2\2\u00ed\u00ef" + "\5$\23\2\u00ee\u00ec\3\2\2\2\u00ef\u00f2\3\2\2\2\u00f0\u00ee\3\2\2\2\u00f0" + "\u00f1\3\2\2\2\u00f1\u00f3\3\2\2\2\u00f2\u00f0\3\2\2\2\u00f3\u00f4\78" + "\2\2\u00f4\u00f6\3\2\2\2\u00f5\u00e9\3\2\2\2\u00f5\u00ea\3\2\2\2\u00f6" + "\u00f7\3\2\2\2\u00f7\u00f8\7\64\2\2\u00f8\u00f9\5(\25\2\u00f9#\3\2\2\2" + "\u00fa\u00fb\t\3\2\2\u00fb\u00fd\7;\2\2\u00fc\u00fa\3\2\2\2\u00fc\u00fd" + "\3\2\2\2\u00fd\u00fe\3\2\2\2\u00fe\u0103\5&\24\2\u00ff\u0100\7;\2\2\u0100" + "\u0102\5&\24\2\u0101\u00ff\3\2\2\2\u0102\u0105\3\2\2\2\u0103\u0101\3\2" + "\2\2\u0103\u0104\3\2\2\2\u0104%\3\2\2\2\u0105\u0103\3\2\2\2\u0106\u010d" + "\7C\2\2\u0107\u0108\79\2\2\u0108\u0109\5(\25\2\u0109\u010a\7:\2\2\u010a" + "\u010c\3\2\2\2\u010b\u0107\3\2\2\2\u010c\u010f\3\2\2\2\u010d\u010b\3\2" + "\2\2\u010d\u010e\3\2\2\2\u010e\'\3\2\2\2\u010f\u010d\3\2\2\2\u0110\u0111" + "\b\25\1\2\u0111\u0112\7\67\2\2\u0112\u0113\5(\25\2\u0113\u0114\78\2\2" + "\u0114\u0115\b\25\1\2\u0115\u0128\3\2\2\2\u0116\u0117\5:\36\2\u0117\u0118" + "\5(\25\22\u0118\u0119\b\25\1\2\u0119\u0128\3\2\2\2\u011a\u011b\58\35\2" + "\u011b\u011c\b\25\1\2\u011c\u0128\3\2\2\2\u011d\u011e\7\5\2\2\u011e\u011f" + "\5.\30\2\u011f\u0120\b\25\1\2\u0120\u0128\3\2\2\2\u0121\u0122\5*\26\2" + "\u0122\u0123\b\25\1\2\u0123\u0128\3\2\2\2\u0124\u0128\5$\23\2\u0125\u0128" + "\5,\27\2\u0126\u0128\7\24\2\2\u0127\u0110\3\2\2\2\u0127\u0116\3\2\2\2" + "\u0127\u011a\3\2\2\2\u0127\u011d\3\2\2\2\u0127\u0121\3\2\2\2\u0127\u0124" + "\3\2\2\2\u0127\u0125\3\2\2\2\u0127\u0126\3\2\2\2\u0128\u0158\3\2\2\2\u0129" + "\u012a\f\21\2\2\u012a\u012b\5<\37\2\u012b\u012c\5(\25\22\u012c\u012d\b" + "\25\1\2\u012d\u0157\3\2\2\2\u012e\u012f\f\20\2\2\u012f\u0130\5> \2\u0130" + "\u0131\5(\25\21\u0131\u0132\b\25\1\2\u0132\u0157\3\2\2\2\u0133\u0134\f" + "\17\2\2\u0134\u0135\5@!\2\u0135\u0136\5(\25\20\u0136\u0137\b\25\1\2\u0137" + "\u0157\3\2\2\2\u0138\u0139\f\16\2\2\u0139\u013a\5B\"\2\u013a\u013b\5(" + "\25\17\u013b\u013c\b\25\1\2\u013c\u0157\3\2\2\2\u013d\u013e\f\r\2\2\u013e" + "\u013f\7*\2\2\u013f\u0140\5(\25\16\u0140\u0141\b\25\1\2\u0141\u0157\3" + "\2\2\2\u0142\u0143\f\f\2\2\u0143\u0144\7+\2\2\u0144\u0145\5(\25\r\u0145" + "\u0146\b\25\1\2\u0146\u0157\3\2\2\2\u0147\u0148\f\13\2\2\u0148\u0149\7" + ")\2\2\u0149\u014a\5(\25\f\u014a\u014b\b\25\1\2\u014b\u0157\3\2\2\2\u014c" + "\u014d\f\n\2\2\u014d\u014e\7-\2\2\u014e\u014f\5(\25\13\u014f\u0150\b\25" + "\1\2\u0150\u0157\3\2\2\2\u0151\u0152\f\t\2\2\u0152\u0153\7,\2\2\u0153" + "\u0154\5(\25\n\u0154\u0155\b\25\1\2\u0155\u0157\3\2\2\2\u0156\u0129\3" + "\2\2\2\u0156\u012e\3\2\2\2\u0156\u0133\3\2\2\2\u0156\u0138\3\2\2\2\u0156" + "\u013d\3\2\2\2\u0156\u0142\3\2\2\2\u0156\u0147\3\2\2\2\u0156\u014c\3\2" + "\2\2\u0156\u0151\3\2\2\2\u0157\u015a\3\2\2\2\u0158\u0156\3\2\2\2\u0158" + "\u0159\3\2\2\2\u0159)\3\2\2\2\u015a\u0158\3\2\2\2\u015b\u015c\5$\23\2" + "\u015c\u015d\7;\2\2\u015d\u015f\3\2\2\2\u015e\u015b\3\2\2\2\u015e\u015f" + "\3\2\2\2\u015f\u0160\3\2\2\2\u0160\u016c\5.\30\2\u0161\u0162\7\31\2\2" + "\u0162\u0163\7\67\2\2\u0163\u0164\5$\23\2\u0164\u0165\78\2\2\u0165\u016c" + "\3\2\2\2\u0166\u0167\7!\2\2\u0167\u0168\7\67\2\2\u0168\u0169\5$\23\2\u0169" + "\u016a\78\2\2\u016a\u016c\3\2\2\2\u016b\u015e\3\2\2\2\u016b\u0161\3\2" + "\2\2\u016b\u0166\3\2\2\2\u016c+\3\2\2\2\u016d\u0170\79\2\2\u016e\u0171" + "\5(\25\2\u016f\u0171\5,\27\2\u0170\u016e\3\2\2\2\u0170\u016f\3\2\2\2\u0171" + "\u0179\3\2\2\2\u0172\u0175\7<\2\2\u0173\u0176\5(\25\2\u0174\u0176\5,\27" + "\2\u0175\u0173\3\2\2\2\u0175\u0174\3\2\2\2\u0176\u0178\3\2\2\2\u0177\u0172" + "\3\2\2\2\u0178\u017b\3\2\2\2\u0179\u0177\3\2\2\2\u0179\u017a\3\2\2\2\u017a" + "\u017c\3\2\2\2\u017b\u0179\3\2\2\2\u017c\u017d\7:\2\2\u017d-\3\2\2\2\u017e" + "\u017f\7C\2\2\u017f\u0181\7\67\2\2\u0180\u0182\5\60\31\2\u0181\u0180\3" + "\2\2\2\u0181\u0182\3\2\2\2\u0182\u0183\3\2\2\2\u0183\u0184\78\2\2\u0184" + "/\3\2\2\2\u0185\u018b\5(\25\2\u0186\u0187\5(\25\2\u0187\u0188\7<\2\2\u0188" + "\u0189\5\60\31\2\u0189\u018b\3\2\2\2\u018a\u0185\3\2\2\2\u018a\u0186\3" + "\2\2\2\u018b\61\3\2\2\2\u018c\u018d\7\22\2\2\u018d\u018e\5(\25\2\u018e" + "\u0191\5\36\20\2\u018f\u0190\7\16\2\2\u0190\u0192\5\36\20\2\u0191\u018f" + "\3\2\2\2\u0191\u0192\3\2\2\2\u0192\u01a5\3\2\2\2\u0193\u0194\7\35\2\2" + "\u0194\u0195\5$\23\2\u0195\u019c\7\65\2\2\u0196\u0197\7\b\2\2\u0197\u0198" + "\7?\2\2\u0198\u0199\7=\2\2\u0199\u019b\5\36\20\2\u019a\u0196\3\2\2\2\u019b" + "\u019e\3\2\2\2\u019c\u019a\3\2\2\2\u019c\u019d\3\2\2\2\u019d\u019f\3\2" + "\2\2\u019e\u019c\3\2\2\2\u019f\u01a0\7\f\2\2\u01a0\u01a1\7=\2\2\u01a1" + "\u01a2\5\36\20\2\u01a2\u01a3\7\66\2\2\u01a3\u01a5\3\2\2\2\u01a4\u018c" + "\3\2\2\2\u01a4\u0193\3\2\2\2\u01a5\63\3\2\2\2\u01a6\u01ab\7\21\2\2\u01a7" + "\u01a9\5\66\34\2\u01a8\u01a7\3\2\2\2\u01a8\u01a9\3\2\2\2\u01a9\u01aa\3" + "\2\2\2\u01aa\u01ac\5\"\22\2\u01ab\u01a8\3\2\2\2\u01ab\u01ac\3\2\2\2\u01ac" + "\u01ad\3\2\2\2\u01ad\u01ae\7>\2\2\u01ae\u01af\5(\25\2\u01af\u01b1\7>\2" + "\2\u01b0\u01b2\5\"\22\2\u01b1\u01b0\3\2\2\2\u01b1\u01b2\3\2\2\2\u01b2" + "\u01b3\3\2\2\2\u01b3\u01b4\5\36\20\2\u01b4\u01ba\3\2\2\2\u01b5\u01b6\7" + " \2\2\u01b6\u01b7\5(\25\2\u01b7\u01b8\5\36\20\2\u01b8\u01ba\3\2\2\2\u01b9" + "\u01a6\3\2\2\2\u01b9\u01b5\3\2\2\2\u01ba\65\3\2\2\2\u01bb\u01bc\t\4\2" + "\2\u01bc\67\3\2\2\2\u01bd\u01be\7?\2\2\u01be\u01c6\b\35\1\2\u01bf\u01c0" + "\7@\2\2\u01c0\u01c6\b\35\1\2\u01c1\u01c2\7B\2\2\u01c2\u01c6\b\35\1\2\u01c3" + "\u01c4\7A\2\2\u01c4\u01c6\b\35\1\2\u01c5\u01bd\3\2\2\2\u01c5\u01bf\3\2" + "\2\2\u01c5\u01c1\3\2\2\2\u01c5\u01c3\3\2\2\2\u01c69\3\2\2\2\u01c7\u01c8" + "\t\5\2\2\u01c8;\3\2\2\2\u01c9\u01ca\t\6\2\2\u01ca=\3\2\2\2\u01cb\u01cc" + "\t\7\2\2\u01cc?\3\2\2\2\u01cd\u01ce\t\b\2\2\u01ceA\3\2\2\2\u01cf\u01d0" + "\t\t\2\2\u01d0C\3\2\2\2\60EJSU^dnv\u0081\u0088\u0090\u0098\u009c\u00a2" + "\u00a8\u00ad\u00b1\u00ba\u00c0\u00c8\u00ca\u00e2\u00e7\u00f0\u00f5\u00fc" + "\u0103\u010d\u0127\u0156\u0158\u015e\u016b\u0170\u0175\u0179\u0181\u018a" + "\u0191\u019c\u01a4\u01a8\u01ab\u01b1\u01b9\u01c5";
+	public static final String _serializedATN = "\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3D\u01d2\4\2\t\2\4" + "\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t" + "\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22" + "\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31" + "\4\32\t\32\4\33\t\33\4\34\t\34\4\35\t\35\4\36\t\36\4\37\t\37\4 \t \4!" + "\t!\4\"\t\"\3\2\5\2F\n\2\3\2\6\2I\n\2\r\2\16\2J\3\2\3\2\3\3\3\3\3\3\3" + "\3\3\3\6\3T\n\3\r\3\16\3U\3\3\3\3\3\4\3\4\3\4\3\4\3\4\5\4_\n\4\3\4\3\4" + "\3\4\3\4\5\4e\n\4\3\4\3\4\3\4\3\5\3\5\3\5\7\5m\n\5\f\5\16\5p\13\5\3\6" + "\3\6\3\6\7\6u\n\6\f\6\16\6x\13\6\3\7\3\7\3\7\3\7\3\7\3\7\7\7\u0080\n\7" + "\f\7\16\7\u0083\13\7\3\b\3\b\3\b\3\t\5\t\u0089\n\t\3\t\3\t\3\t\3\t\7\t" + "\u008f\n\t\f\t\16\t\u0092\13\t\3\t\3\t\3\n\3\n\3\n\5\n\u0099\n\n\3\13" + "\3\13\5\13\u009d\n\13\3\f\3\f\3\f\3\f\5\f\u00a3\n\f\3\f\3\f\6\f\u00a7" + "\n\f\r\f\16\f\u00a8\3\f\3\f\3\r\5\r\u00ae\n\r\3\r\3\r\5\r\u00b2\n\r\3" + "\16\3\16\3\17\3\17\3\17\3\17\3\17\5\17\u00bb\n\17\3\17\3\17\3\17\3\17" + "\5\17\u00c1\n\17\3\17\3\17\3\17\3\20\3\20\3\20\7\20\u00c9\n\20\f\20\16" + "\20\u00cc\13\20\3\20\3\20\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21" + "\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\7\21\u00e1\n\21\f\21\16\21\u00e4" + "\13\21\3\21\3\21\5\21\u00e8\n\21\3\22\3\22\3\22\3\22\3\22\7\22\u00ef\n" + "\22\f\22\16\22\u00f2\13\22\3\22\3\22\5\22\u00f6\n\22\3\22\3\22\3\22\3" + "\23\3\23\5\23\u00fd\n\23\3\23\3\23\3\23\7\23\u0102\n\23\f\23\16\23\u0105" + "\13\23\3\24\3\24\3\24\3\24\3\24\7\24\u010c\n\24\f\24\16\24\u010f\13\24" + "\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25" + "\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25" + "\5\25\u012d\n\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25" + "\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25" + "\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25" + "\3\25\3\25\3\25\3\25\3\25\3\25\7\25\u015c\n\25\f\25\16\25\u015f\13\25" + "\3\26\3\26\3\26\5\26\u0164\n\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26" + "\3\26\3\26\3\26\5\26\u0171\n\26\3\27\3\27\3\27\3\27\7\27\u0177\n\27\f" + "\27\16\27\u017a\13\27\3\27\3\27\3\27\3\30\3\30\3\30\5\30\u0182\n\30\3" + "\30\3\30\3\31\3\31\3\31\3\31\3\31\5\31\u018b\n\31\3\32\3\32\3\32\3\32" + "\3\32\5\32\u0192\n\32\3\32\3\32\3\32\3\32\3\32\3\32\3\32\7\32\u019b\n" + "\32\f\32\16\32\u019e\13\32\3\32\3\32\3\32\3\32\3\32\5\32\u01a5\n\32\3" + "\33\3\33\5\33\u01a9\n\33\3\33\5\33\u01ac\n\33\3\33\3\33\3\33\3\33\5\33" + "\u01b2\n\33\3\33\3\33\3\33\3\33\3\33\3\33\5\33\u01ba\n\33\3\34\3\34\3" + "\35\3\35\3\35\3\35\3\35\3\35\3\35\3\35\5\35\u01c6\n\35\3\36\3\36\3\37" + "\3\37\3 \3 \3!\3!\3\"\3\"\3\"\2\3(#\2\4\6\b\n\f\16\20\22\24\26\30\32\34" + "\36 \"$&(*,.\60\62\64\668:<>@B\2\n\3\2\26\30\4\2\34\34\36\36\7\2\6\6\20" + "\20\23\23\33\33CC\4\2((./\3\2\61\63\3\2/\60\3\2$\'\3\2\"#\2\u01f4\2E\3" + "\2\2\2\4N\3\2\2\2\6^\3\2\2\2\bi\3\2\2\2\nq\3\2\2\2\fy\3\2\2\2\16\u0084" + "\3\2\2\2\20\u0088\3\2\2\2\22\u0095\3\2\2\2\24\u009c\3\2\2\2\26\u009e\3" + "\2\2\2\30\u00ad\3\2\2\2\32\u00b3\3\2\2\2\34\u00ba\3\2\2\2\36\u00c5\3\2" + "\2\2 \u00e7\3\2\2\2\"\u00f5\3\2\2\2$\u00fc\3\2\2\2&\u0106\3\2\2\2(\u012c" + "\3\2\2\2*\u0170\3\2\2\2,\u0172\3\2\2\2.\u017e\3\2\2\2\60\u018a\3\2\2\2" + "\62\u01a4\3\2\2\2\64\u01b9\3\2\2\2\66\u01bb\3\2\2\28\u01c5\3\2\2\2:\u01c7" + "\3\2\2\2<\u01c9\3\2\2\2>\u01cb\3\2\2\2@\u01cd\3\2\2\2B\u01cf\3\2\2\2D" + "F\5\4\3\2ED\3\2\2\2EF\3\2\2\2FH\3\2\2\2GI\5\24\13\2HG\3\2\2\2IJ\3\2\2" + "\2JH\3\2\2\2JK\3\2\2\2KL\3\2\2\2LM\7\2\2\3M\3\3\2\2\2NO\7\13\2\2OS\7\65" + "\2\2PT\5\6\4\2QT\5\16\b\2RT\5\20\t\2SP\3\2\2\2SQ\3\2\2\2SR\3\2\2\2TU\3" + "\2\2\2US\3\2\2\2UV\3\2\2\2VW\3\2\2\2WX\7\66\2\2X\5\3\2\2\2YZ\7\67\2\2" + "Z[\5\n\6\2[\\\78\2\2\\]\7\64\2\2]_\3\2\2\2^Y\3\2\2\2^_\3\2\2\2_`\3\2\2" + "\2`a\7C\2\2ad\7\67\2\2be\5\n\6\2ce\5\f\7\2db\3\2\2\2dc\3\2\2\2de\3\2\2" + "\2ef\3\2\2\2fg\78\2\2gh\7>\2\2h\7\3\2\2\2in\5\66\34\2jk\79\2\2km\7:\2" + "\2lj\3\2\2\2mp\3\2\2\2nl\3\2\2\2no\3\2\2\2o\t\3\2\2\2pn\3\2\2\2qv\5\b" + "\5\2rs\7<\2\2su\5\b\5\2tr\3\2\2\2ux\3\2\2\2vt\3\2\2\2vw\3\2\2\2w\13\3" + "\2\2\2xv\3\2\2\2yz\5\b\5\2z\u0081\7C\2\2{|\7<\2\2|}\5\b\5\2}~\7C\2\2~" + "\u0080\3\2\2\2\177{\3\2\2\2\u0080\u0083\3\2\2\2\u0081\177\3\2\2\2\u0081" + "\u0082\3\2\2\2\u0082\r\3\2\2\2\u0083\u0081\3\2\2\2\u0084\u0085\7C\2\2" + "\u0085\u0086\7>\2\2\u0086\17\3\2\2\2\u0087\u0089\7\t\2\2\u0088\u0087\3" + "\2\2\2\u0088\u0089\3\2\2\2\u0089\u008a\3\2\2\2\u008a\u008b\5\66\34\2\u008b" + "\u0090\5\22\n\2\u008c\u008d\7<\2\2\u008d\u008f\5\22\n\2\u008e\u008c\3" + "\2\2\2\u008f\u0092\3\2\2\2\u0090\u008e\3\2\2\2\u0090\u0091\3\2\2\2\u0091" + "\u0093\3\2\2\2\u0092\u0090\3\2\2\2\u0093\u0094\7>\2\2\u0094\21\3\2\2\2" + "\u0095\u0098\5&\24\2\u0096\u0097\7\64\2\2\u0097\u0099\5(\25\2\u0098\u0096" + "\3\2\2\2\u0098\u0099\3\2\2\2\u0099\23\3\2\2\2\u009a\u009d\5\26\f\2\u009b" + "\u009d\5\34\17\2\u009c\u009a\3\2\2\2\u009c\u009b\3\2\2\2\u009d\25\3\2" + "\2\2\u009e\u009f\7\37\2\2\u009f\u00a2\7C\2\2\u00a0\u00a1\7=\2\2\u00a1" + "\u00a3\7C\2\2\u00a2\u00a0\3\2\2\2\u00a2\u00a3\3\2\2\2\u00a3\u00a4\3\2" + "\2\2\u00a4\u00a6\7\65\2\2\u00a5\u00a7\5\30\r\2\u00a6\u00a5\3\2\2\2\u00a7" + "\u00a8\3\2\2\2\u00a8\u00a6\3\2\2\2\u00a8\u00a9\3\2\2\2\u00a9\u00aa\3\2" + "\2\2\u00aa\u00ab\7\66\2\2\u00ab\27\3\2\2\2\u00ac\u00ae\5\32\16\2\u00ad" + "\u00ac\3\2\2\2\u00ad\u00ae\3\2\2\2\u00ae\u00b1\3\2\2\2\u00af\u00b2\5\20" + "\t\2\u00b0\u00b2\5\34\17\2\u00b1\u00af\3\2\2\2\u00b1\u00b0\3\2\2\2\u00b2" + "\31\3\2\2\2\u00b3\u00b4\t\2\2\2\u00b4\33\3\2\2\2\u00b5\u00b6\7\67\2\2" + "\u00b6\u00b7\5\f\7\2\u00b7\u00b8\78\2\2\u00b8\u00b9\7\64\2\2\u00b9\u00bb" + "\3\2\2\2\u00ba\u00b5\3\2\2\2\u00ba\u00bb\3\2\2\2\u00bb\u00bc\3\2\2\2\u00bc" + "\u00bd\7\17\2\2\u00bd\u00be\7C\2\2\u00be\u00c0\7\67\2\2\u00bf\u00c1\5" + "\f\7\2\u00c0\u00bf\3\2\2\2\u00c0\u00c1\3\2\2\2\u00c1\u00c2\3\2\2\2\u00c2" + "\u00c3\78\2\2\u00c3\u00c4\5\36\20\2\u00c4\35\3\2\2\2\u00c5\u00ca\7\65" + "\2\2\u00c6\u00c9\5\20\t\2\u00c7\u00c9\5 \21\2\u00c8\u00c6\3\2\2\2\u00c8" + "\u00c7\3\2\2\2\u00c9\u00cc\3\2\2\2\u00ca\u00c8\3\2\2\2\u00ca\u00cb\3\2" + "\2\2\u00cb\u00cd\3\2\2\2\u00cc\u00ca\3\2\2\2\u00cd\u00ce\7\66\2\2\u00ce" + "\37\3\2\2\2\u00cf\u00d0\5\"\22\2\u00d0\u00d1\7>\2\2\u00d1\u00e8\3\2\2" + "\2\u00d2\u00d3\5*\26\2\u00d3\u00d4\7>\2\2\u00d4\u00e8\3\2\2\2\u00d5\u00e8" + "\5\62\32\2\u00d6\u00e8\5\64\33\2\u00d7\u00d8\7\32\2\2\u00d8\u00e8\7>\2" + "\2\u00d9\u00da\7\7\2\2\u00da\u00e8\7>\2\2\u00db\u00dc\7\n\2\2\u00dc\u00e8" + "\7>\2\2\u00dd\u00e2\7\r\2\2\u00de\u00df\79\2\2\u00df\u00e1\7:\2\2\u00e0" + "\u00de\3\2\2\2\u00e1\u00e4\3\2\2\2\u00e2\u00e0\3\2\2\2\u00e2\u00e3\3\2" + "\2\2\u00e3\u00e5\3\2\2\2\u00e4\u00e2\3\2\2\2\u00e5\u00e6\7C\2\2\u00e6" + "\u00e8\7>\2\2\u00e7\u00cf\3\2\2\2\u00e7\u00d2\3\2\2\2\u00e7\u00d5\3\2" + "\2\2\u00e7\u00d6\3\2\2\2\u00e7\u00d7\3\2\2\2\u00e7\u00d9\3\2\2\2\u00e7" + "\u00db\3\2\2\2\u00e7\u00dd\3\2\2\2\u00e8!\3\2\2\2\u00e9\u00f6\5$\23\2" + "\u00ea\u00eb\7\67\2\2\u00eb\u00f0\5$\23\2\u00ec\u00ed\7<\2\2\u00ed\u00ef" + "\5$\23\2\u00ee\u00ec\3\2\2\2\u00ef\u00f2\3\2\2\2\u00f0\u00ee\3\2\2\2\u00f0" + "\u00f1\3\2\2\2\u00f1\u00f3\3\2\2\2\u00f2\u00f0\3\2\2\2\u00f3\u00f4\78" + "\2\2\u00f4\u00f6\3\2\2\2\u00f5\u00e9\3\2\2\2\u00f5\u00ea\3\2\2\2\u00f6" + "\u00f7\3\2\2\2\u00f7\u00f8\7\64\2\2\u00f8\u00f9\5(\25\2\u00f9#\3\2\2\2" + "\u00fa\u00fb\t\3\2\2\u00fb\u00fd\7;\2\2\u00fc\u00fa\3\2\2\2\u00fc\u00fd" + "\3\2\2\2\u00fd\u00fe\3\2\2\2\u00fe\u0103\5&\24\2\u00ff\u0100\7;\2\2\u0100" + "\u0102\5&\24\2\u0101\u00ff\3\2\2\2\u0102\u0105\3\2\2\2\u0103\u0101\3\2" + "\2\2\u0103\u0104\3\2\2\2\u0104%\3\2\2\2\u0105\u0103\3\2\2\2\u0106\u010d" + "\7C\2\2\u0107\u0108\79\2\2\u0108\u0109\5(\25\2\u0109\u010a\7:\2\2\u010a" + "\u010c\3\2\2\2\u010b\u0107\3\2\2\2\u010c\u010f\3\2\2\2\u010d\u010b\3\2" + "\2\2\u010d\u010e\3\2\2\2\u010e\'\3\2\2\2\u010f\u010d\3\2\2\2\u0110\u0111" + "\b\25\1\2\u0111\u0112\7\67\2\2\u0112\u0113\5(\25\2\u0113\u0114\78\2\2" + "\u0114\u0115\b\25\1\2\u0115\u012d\3\2\2\2\u0116\u0117\5:\36\2\u0117\u0118" + "\5(\25\22\u0118\u0119\b\25\1\2\u0119\u012d\3\2\2\2\u011a\u011b\58\35\2" + "\u011b\u011c\b\25\1\2\u011c\u012d\3\2\2\2\u011d\u011e\7\5\2\2\u011e\u011f" + "\5.\30\2\u011f\u0120\b\25\1\2\u0120\u012d\3\2\2\2\u0121\u0122\5*\26\2" + "\u0122\u0123\b\25\1\2\u0123\u012d\3\2\2\2\u0124\u0125\5$\23\2\u0125\u0126" + "\b\25\1\2\u0126\u012d\3\2\2\2\u0127\u0128\5,\27\2\u0128\u0129\b\25\1\2" + "\u0129\u012d\3\2\2\2\u012a\u012b\7\24\2\2\u012b\u012d\b\25\1\2\u012c\u0110" + "\3\2\2\2\u012c\u0116\3\2\2\2\u012c\u011a\3\2\2\2\u012c\u011d\3\2\2\2\u012c" + "\u0121\3\2\2\2\u012c\u0124\3\2\2\2\u012c\u0127\3\2\2\2\u012c\u012a\3\2" + "\2\2\u012d\u015d\3\2\2\2\u012e\u012f\f\21\2\2\u012f\u0130\5<\37\2\u0130" + "\u0131\5(\25\22\u0131\u0132\b\25\1\2\u0132\u015c\3\2\2\2\u0133\u0134\f" + "\20\2\2\u0134\u0135\5> \2\u0135\u0136\5(\25\21\u0136\u0137\b\25\1\2\u0137" + "\u015c\3\2\2\2\u0138\u0139\f\17\2\2\u0139\u013a\5@!\2\u013a\u013b\5(\25" + "\20\u013b\u013c\b\25\1\2\u013c\u015c\3\2\2\2\u013d\u013e\f\16\2\2\u013e" + "\u013f\5B\"\2\u013f\u0140\5(\25\17\u0140\u0141\b\25\1\2\u0141\u015c\3" + "\2\2\2\u0142\u0143\f\r\2\2\u0143\u0144\7*\2\2\u0144\u0145\5(\25\16\u0145" + "\u0146\b\25\1\2\u0146\u015c\3\2\2\2\u0147\u0148\f\f\2\2\u0148\u0149\7" + "+\2\2\u0149\u014a\5(\25\r\u014a\u014b\b\25\1\2\u014b\u015c\3\2\2\2\u014c" + "\u014d\f\13\2\2\u014d\u014e\7)\2\2\u014e\u014f\5(\25\f\u014f\u0150\b\25" + "\1\2\u0150\u015c\3\2\2\2\u0151\u0152\f\n\2\2\u0152\u0153\7-\2\2\u0153" + "\u0154\5(\25\13\u0154\u0155\b\25\1\2\u0155\u015c\3\2\2\2\u0156\u0157\f" + "\t\2\2\u0157\u0158\7,\2\2\u0158\u0159\5(\25\n\u0159\u015a\b\25\1\2\u015a" + "\u015c\3\2\2\2\u015b\u012e\3\2\2\2\u015b\u0133\3\2\2\2\u015b\u0138\3\2" + "\2\2\u015b\u013d\3\2\2\2\u015b\u0142\3\2\2\2\u015b\u0147\3\2\2\2\u015b" + "\u014c\3\2\2\2\u015b\u0151\3\2\2\2\u015b\u0156\3\2\2\2\u015c\u015f\3\2" + "\2\2\u015d\u015b\3\2\2\2\u015d\u015e\3\2\2\2\u015e)\3\2\2\2\u015f\u015d" + "\3\2\2\2\u0160\u0161\5$\23\2\u0161\u0162\7;\2\2\u0162\u0164\3\2\2\2\u0163" + "\u0160\3\2\2\2\u0163\u0164\3\2\2\2\u0164\u0165\3\2\2\2\u0165\u0171\5." + "\30\2\u0166\u0167\7\31\2\2\u0167\u0168\7\67\2\2\u0168\u0169\5$\23\2\u0169" + "\u016a\78\2\2\u016a\u0171\3\2\2\2\u016b\u016c\7!\2\2\u016c\u016d\7\67" + "\2\2\u016d\u016e\5$\23\2\u016e\u016f\78\2\2\u016f\u0171\3\2\2\2\u0170" + "\u0163\3\2\2\2\u0170\u0166\3\2\2\2\u0170\u016b\3\2\2\2\u0171+\3\2\2\2" + "\u0172\u0173\79\2\2\u0173\u0178\5(\25\2\u0174\u0175\7<\2\2\u0175\u0177" + "\5(\25\2\u0176\u0174\3\2\2\2\u0177\u017a\3\2\2\2\u0178\u0176\3\2\2\2\u0178" + "\u0179\3\2\2\2\u0179\u017b\3\2\2\2\u017a\u0178\3\2\2\2\u017b\u017c\7:" + "\2\2\u017c\u017d\b\27\1\2\u017d-\3\2\2\2\u017e\u017f\7C\2\2\u017f\u0181" + "\7\67\2\2\u0180\u0182\5\60\31\2\u0181\u0180\3\2\2\2\u0181\u0182\3\2\2" + "\2\u0182\u0183\3\2\2\2\u0183\u0184\78\2\2\u0184/\3\2\2\2\u0185\u018b\5" + "(\25\2\u0186\u0187\5(\25\2\u0187\u0188\7<\2\2\u0188\u0189\5\60\31\2\u0189" + "\u018b\3\2\2\2\u018a\u0185\3\2\2\2\u018a\u0186\3\2\2\2\u018b\61\3\2\2" + "\2\u018c\u018d\7\22\2\2\u018d\u018e\5(\25\2\u018e\u0191\5\36\20\2\u018f" + "\u0190\7\16\2\2\u0190\u0192\5\36\20\2\u0191\u018f\3\2\2\2\u0191\u0192" + "\3\2\2\2\u0192\u01a5\3\2\2\2\u0193\u0194\7\35\2\2\u0194\u0195\5$\23\2" + "\u0195\u019c\7\65\2\2\u0196\u0197\7\b\2\2\u0197\u0198\7?\2\2\u0198\u0199" + "\7=\2\2\u0199\u019b\5\36\20\2\u019a\u0196\3\2\2\2\u019b\u019e\3\2\2\2" + "\u019c\u019a\3\2\2\2\u019c\u019d\3\2\2\2\u019d\u019f\3\2\2\2\u019e\u019c" + "\3\2\2\2\u019f\u01a0\7\f\2\2\u01a0\u01a1\7=\2\2\u01a1\u01a2\5\36\20\2" + "\u01a2\u01a3\7\66\2\2\u01a3\u01a5\3\2\2\2\u01a4\u018c\3\2\2\2\u01a4\u0193" + "\3\2\2\2\u01a5\63\3\2\2\2\u01a6\u01ab\7\21\2\2\u01a7\u01a9\5\66\34\2\u01a8" + "\u01a7\3\2\2\2\u01a8\u01a9\3\2\2\2\u01a9\u01aa\3\2\2\2\u01aa\u01ac\5\"" + "\22\2\u01ab\u01a8\3\2\2\2\u01ab\u01ac\3\2\2\2\u01ac\u01ad\3\2\2\2\u01ad" + "\u01ae\7>\2\2\u01ae\u01af\5(\25\2\u01af\u01b1\7>\2\2\u01b0\u01b2\5\"\22" + "\2\u01b1\u01b0\3\2\2\2\u01b1\u01b2\3\2\2\2\u01b2\u01b3\3\2\2\2\u01b3\u01b4" + "\5\36\20\2\u01b4\u01ba\3\2\2\2\u01b5\u01b6\7 \2\2\u01b6\u01b7\5(\25\2" + "\u01b7\u01b8\5\36\20\2\u01b8\u01ba\3\2\2\2\u01b9\u01a6\3\2\2\2\u01b9\u01b5" + "\3\2\2\2\u01ba\65\3\2\2\2\u01bb\u01bc\t\4\2\2\u01bc\67\3\2\2\2\u01bd\u01be" + "\7?\2\2\u01be\u01c6\b\35\1\2\u01bf\u01c0\7@\2\2\u01c0\u01c6\b\35\1\2\u01c1" + "\u01c2\7B\2\2\u01c2\u01c6\b\35\1\2\u01c3\u01c4\7A\2\2\u01c4\u01c6\b\35" + "\1\2\u01c5\u01bd\3\2\2\2\u01c5\u01bf\3\2\2\2\u01c5\u01c1\3\2\2\2\u01c5" + "\u01c3\3\2\2\2\u01c69\3\2\2\2\u01c7\u01c8\t\5\2\2\u01c8;\3\2\2\2\u01c9" + "\u01ca\t\6\2\2\u01ca=\3\2\2\2\u01cb\u01cc\t\7\2\2\u01cc?\3\2\2\2\u01cd" + "\u01ce\t\b\2\2\u01ceA\3\2\2\2\u01cf\u01d0\t\t\2\2\u01d0C\3\2\2\2.EJSU" + "^dnv\u0081\u0088\u0090\u0098\u009c\u00a2\u00a8\u00ad\u00b1\u00ba\u00c0" + "\u00c8\u00ca\u00e2\u00e7\u00f0\u00f5\u00fc\u0103\u010d\u012c\u015b\u015d" + "\u0163\u0170\u0178\u0181\u018a\u0191\u019c\u01a4\u01a8\u01ab\u01b1\u01b9" + "\u01c5";
 	public static final ATN _ATN = new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	protected static final PredictionContextCache _sharedContextCache = new PredictionContextCache();
 	private static final String[] _LITERAL_NAMES = {
@@ -1364,115 +1365,108 @@ public class Lulu2Parser extends Parser
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-				setState(293);
+				setState(298);
 				_errHandler.sync(this);
 				switch (getInterpreter().adaptivePredict(_input, 28, _ctx))
 				{
 					case 1:
 					{
-						_localctx = new PAREXPRAltContext(_localctx);
-						_ctx = _localctx;
-						_prevctx = _localctx;
-
 						setState(271);
 						match(OpenPar);
 						setState(272);
-						((PAREXPRAltContext) _localctx).expr = expr(0);
+						((ExprContext) _localctx).expr = expr(0);
 						setState(273);
 						match(ClosePar);
 
-						((PAREXPRAltContext) _localctx).t = ((PAREXPRAltContext) _localctx).expr.t;
+						((ExprContext) _localctx).t = ((ExprContext) _localctx).expr.t;
 
 					}
 					break;
 					case 2:
 					{
-						_localctx = new UNARYOPAltContext(_localctx);
-						_ctx = _localctx;
-						_prevctx = _localctx;
 						setState(276);
-						((UNARYOPAltContext) _localctx).unaryOp = unaryOp();
+						((ExprContext) _localctx).unaryOp = unaryOp();
 						setState(277);
-						((UNARYOPAltContext) _localctx).expr = expr(16);
+						((ExprContext) _localctx).expr = expr(16);
 
-						if (((UNARYOPAltContext) _localctx).expr.t != TypeEnum.Int || ((UNARYOPAltContext) _localctx).expr.t != TypeEnum.Bool)
-							throw new CompileError("bad operand types for unary operator " + (((UNARYOPAltContext) _localctx).unaryOp != null ? _input
-									.getText(((UNARYOPAltContext) _localctx).unaryOp.start, ((UNARYOPAltContext) _localctx).unaryOp.stop) : null) + " ");
+						if (((ExprContext) _localctx).expr.t != Type.Int() || ((ExprContext) _localctx).expr.t != Type.Bool())
+						{
+							throw new CompileError("bad operand types for unary operator " + (((ExprContext) _localctx).unaryOp != null ? _input
+									.getText(((ExprContext) _localctx).unaryOp.start, ((ExprContext) _localctx).unaryOp.stop) : null) + " ");
+						}
 						else
 						{
-							((UNARYOPAltContext) _localctx).t = TypeEnum.Int;
+							((ExprContext) _localctx).t = Type.Int();
 						}
 
 					}
 					break;
 					case 3:
 					{
-						_localctx = new CONSTVALAltContext(_localctx);
-						_ctx = _localctx;
-						_prevctx = _localctx;
 						setState(280);
-						((CONSTVALAltContext) _localctx).constVal = constVal();
+						((ExprContext) _localctx).constVal = constVal();
 
-						((CONSTVALAltContext) _localctx).t = ((CONSTVALAltContext) _localctx).constVal.t;
+						((ExprContext) _localctx).t = ((ExprContext) _localctx).constVal.t;
 
 					}
 					break;
 					case 4:
 					{
-						_localctx = new ALLOCATIONAltContext(_localctx);
-						_ctx = _localctx;
-						_prevctx = _localctx;
 						setState(283);
 						match(ALLOCATE);
 						setState(284);
-						handleCall();
+						((ExprContext) _localctx).handleCall = handleCall();
 
-						((ALLOCATIONAltContext) _localctx).t = TypeEnum.nullable;
+						var text = (((ExprContext) _localctx).handleCall != null ? _input.getText(((ExprContext) _localctx).handleCall.start, ((ExprContext) _localctx).handleCall.stop) : null);
+						var id = text.split("[(]")[0];
+						var type = LuluListener.getType(id);
+						if (type == null)
+						{
+							throw new CompileError("type not defined");
+						}
+						((ExprContext) _localctx).t = type;
 
 					}
 					break;
 					case 5:
 					{
-						_localctx = new FUNCCALLAltContext(_localctx);
-						_ctx = _localctx;
-						_prevctx = _localctx;
 						setState(287);
 						funcCall();
 
-						((FUNCCALLAltContext) _localctx).t = TypeEnum.nullable;
+						((ExprContext) _localctx).t = null;
 
 					}
 					break;
 					case 6:
 					{
-						_localctx = new VARAltContext(_localctx);
-						_ctx = _localctx;
-						_prevctx = _localctx;
 						setState(290);
-						var();
+						((ExprContext) _localctx).var = var();
+
+						((ExprContext) _localctx).t = ((ExprContext) _localctx).var.varType;
+
 					}
 					break;
 					case 7:
 					{
-						_localctx = new LISTAltContext(_localctx);
-						_ctx = _localctx;
-						_prevctx = _localctx;
-						setState(291);
-						list();
+						setState(293);
+						((ExprContext) _localctx).list = list();
+
+						((ExprContext) _localctx).t = ((ExprContext) _localctx).list.listType;
+
 					}
 					break;
 					case 8:
 					{
-						_localctx = new NILAltContext(_localctx);
-						_ctx = _localctx;
-						_prevctx = _localctx;
-						setState(292);
+						setState(296);
 						match(NIL);
+
+						((ExprContext) _localctx).t = null;
+
 					}
 					break;
 				}
 				_ctx.stop = _input.LT(-1);
-				setState(342);
+				setState(347);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input, 30, _ctx);
 				while (_alt != 2 && _alt != org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER)
@@ -1485,87 +1479,95 @@ public class Lulu2Parser extends Parser
 						}
 						_prevctx = _localctx;
 						{
-							setState(340);
+							setState(345);
 							_errHandler.sync(this);
 							switch (getInterpreter().adaptivePredict(_input, 29, _ctx))
 							{
 								case 1:
 								{
-									_localctx = new MULDIVAltContext(new ExprContext(_parentctx, _parentState));
-									((MULDIVAltContext) _localctx).a = _prevctx;
+									_localctx = new ExprContext(_parentctx, _parentState);
+									_localctx.a = _prevctx;
+									_localctx.a = _prevctx;
 									pushNewRecursionContext(_localctx, _startState, RULE_expr);
-									setState(295);
+									setState(300);
 									if (!(precpred(_ctx, 15)))
 										throw new FailedPredicateException(this, "precpred(_ctx, 15)");
-									setState(296);
-									((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp = firstLevelBinaryArithmeticOp();
-									setState(297);
-									((MULDIVAltContext) _localctx).b = ((MULDIVAltContext) _localctx).expr = expr(16);
+									setState(301);
+									((ExprContext) _localctx).firstLevelBinaryArithmeticOp = firstLevelBinaryArithmeticOp();
+									setState(302);
+									((ExprContext) _localctx).b = ((ExprContext) _localctx).expr = expr(16);
 
-									if (((MULDIVAltContext) _localctx).a.t == ((MULDIVAltContext) _localctx).b.t)
-										((MULDIVAltContext) _localctx).t = ((MULDIVAltContext) _localctx).a.t;
-									else switch (((MULDIVAltContext) _localctx).a.t)
+									if (!(((ExprContext) _localctx).a.t instanceof Type.PrimitiveType) || !(((ExprContext) _localctx).b.t instanceof Type.PrimitiveType))
+									{
+										throw new CompileError("bad operand types for binary operator " + (((ExprContext) _localctx).firstLevelBinaryArithmeticOp != null ? _input
+												.getText(((ExprContext) _localctx).firstLevelBinaryArithmeticOp.start, ((ExprContext) _localctx).firstLevelBinaryArithmeticOp.stop) : null) + " ");
+									}
+									if (((ExprContext) _localctx).a.t == ((ExprContext) _localctx).b.t)
+									{
+										((ExprContext) _localctx).t = ((ExprContext) _localctx).a.t;
+									}
+									else switch (((ExprContext) _localctx).a.t.getTypeEnum())
 									{
 										case Int:
-											switch (((MULDIVAltContext) _localctx).b.t)
+											switch (((ExprContext) _localctx).b.t.getTypeEnum())
 											{
 												case Float:
-													((MULDIVAltContext) _localctx).t = TypeEnum.Float;
+													((ExprContext) _localctx).t = Type.Float();
 													break;
 												case Bool:
-													((MULDIVAltContext) _localctx).t = TypeEnum.Int;
+													((ExprContext) _localctx).t = Type.Int();
 													break;
 												case string:
-													((MULDIVAltContext) _localctx).t = TypeEnum.string;
+													((ExprContext) _localctx).t = Type.String();
 													break;
 												default:
-													throw new CompileError("bad operand types for binary operator " + (((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp != null ? _input
-															.getText(((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp.start, ((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp.stop) : null) + " ");
+													throw new CompileError("bad operand types for binary operator " + (((ExprContext) _localctx).firstLevelBinaryArithmeticOp != null ? _input
+															.getText(((ExprContext) _localctx).firstLevelBinaryArithmeticOp.start, ((ExprContext) _localctx).firstLevelBinaryArithmeticOp.stop) : null) + " ");
 											}
 											break;
 										case Float:
-											switch (((MULDIVAltContext) _localctx).b.t)
+											switch (((ExprContext) _localctx).b.t.getTypeEnum())
 											{
 												case Bool:
-													((MULDIVAltContext) _localctx).t = TypeEnum.Float;
+													((ExprContext) _localctx).t = Type.Float();
 													break;
 												case Int:
-													((MULDIVAltContext) _localctx).t = TypeEnum.Float;
+													((ExprContext) _localctx).t = Type.Float();
 													break;
 												default:
-													throw new CompileError("bad operand types for binary operator " + (((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp != null ? _input
-															.getText(((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp.start, ((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp.stop) : null) + " ");
+													throw new CompileError("bad operand types for binary operator " + (((ExprContext) _localctx).firstLevelBinaryArithmeticOp != null ? _input
+															.getText(((ExprContext) _localctx).firstLevelBinaryArithmeticOp.start, ((ExprContext) _localctx).firstLevelBinaryArithmeticOp.stop) : null) + " ");
 											}
 											break;
 										case Bool:
-											switch (((MULDIVAltContext) _localctx).b.t)
+											switch (((ExprContext) _localctx).b.t.getTypeEnum())
 											{
 												case Float:
-													((MULDIVAltContext) _localctx).t = TypeEnum.Float;
+													((ExprContext) _localctx).t = Type.Float();
 													break;
 												case Int:
-													((MULDIVAltContext) _localctx).t = TypeEnum.Int;
+													((ExprContext) _localctx).t = Type.Int();
 													break;
 												case string:
-													((MULDIVAltContext) _localctx).t = TypeEnum.string;
+													((ExprContext) _localctx).t = Type.String();
 													break;
 												default:
-													throw new CompileError("bad operand types for binary operator " + (((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp != null ? _input
-															.getText(((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp.start, ((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp.stop) : null) + " ");
+													throw new CompileError("bad operand types for binary operator " + (((ExprContext) _localctx).firstLevelBinaryArithmeticOp != null ? _input
+															.getText(((ExprContext) _localctx).firstLevelBinaryArithmeticOp.start, ((ExprContext) _localctx).firstLevelBinaryArithmeticOp.stop) : null) + " ");
 											}
 											break;
 										case string:
-											switch (((MULDIVAltContext) _localctx).b.t)
+											switch (((ExprContext) _localctx).b.t.getTypeEnum())
 											{
 												case Bool:
-													((MULDIVAltContext) _localctx).t = TypeEnum.string;
+													((ExprContext) _localctx).t = Type.String();
 													break;
 												case Int:
-													((MULDIVAltContext) _localctx).t = TypeEnum.string;
+													((ExprContext) _localctx).t = Type.String();
 													break;
 												default:
-													throw new CompileError("bad operand types for binary operator " + (((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp != null ? _input
-															.getText(((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp.start, ((MULDIVAltContext) _localctx).firstLevelBinaryArithmeticOp.stop) : null) + " ");
+													throw new CompileError("bad operand types for binary operator " + (((ExprContext) _localctx).firstLevelBinaryArithmeticOp != null ? _input
+															.getText(((ExprContext) _localctx).firstLevelBinaryArithmeticOp.start, ((ExprContext) _localctx).firstLevelBinaryArithmeticOp.stop) : null) + " ");
 											}
 											break;
 									}
@@ -1574,81 +1576,89 @@ public class Lulu2Parser extends Parser
 								break;
 								case 2:
 								{
-									_localctx = new ADDSUBAltContext(new ExprContext(_parentctx, _parentState));
-									((ADDSUBAltContext) _localctx).a = _prevctx;
+									_localctx = new ExprContext(_parentctx, _parentState);
+									_localctx.a = _prevctx;
+									_localctx.a = _prevctx;
 									pushNewRecursionContext(_localctx, _startState, RULE_expr);
-									setState(300);
+									setState(305);
 									if (!(precpred(_ctx, 14)))
 										throw new FailedPredicateException(this, "precpred(_ctx, 14)");
-									setState(301);
-									((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp = secondLevelBinaryArithmeticOp();
-									setState(302);
-									((ADDSUBAltContext) _localctx).b = ((ADDSUBAltContext) _localctx).expr = expr(15);
+									setState(306);
+									((ExprContext) _localctx).secondLevelBinaryArithmeticOp = secondLevelBinaryArithmeticOp();
+									setState(307);
+									((ExprContext) _localctx).b = ((ExprContext) _localctx).expr = expr(15);
 
-									if (((ADDSUBAltContext) _localctx).a.t == ((ADDSUBAltContext) _localctx).b.t)
-										((ADDSUBAltContext) _localctx).t = ((ADDSUBAltContext) _localctx).a.t;
-									else switch (((ADDSUBAltContext) _localctx).a.t)
+									if (!(((ExprContext) _localctx).a.t instanceof Type.PrimitiveType) || !(((ExprContext) _localctx).b.t instanceof Type.PrimitiveType))
+									{
+										throw new CompileError("bad operand types for binary operator " + (((ExprContext) _localctx).secondLevelBinaryArithmeticOp != null ? _input
+												.getText(((ExprContext) _localctx).secondLevelBinaryArithmeticOp.start, ((ExprContext) _localctx).secondLevelBinaryArithmeticOp.stop) : null) + " ");
+									}
+									if (((ExprContext) _localctx).a.t == ((ExprContext) _localctx).b.t)
+									{
+										((ExprContext) _localctx).t = ((ExprContext) _localctx).a.t;
+									}
+									else switch (((ExprContext) _localctx).a.t.getTypeEnum())
 									{
 										case Int:
-											switch (((ADDSUBAltContext) _localctx).b.t)
+											switch (((ExprContext) _localctx).b.t.getTypeEnum())
 											{
 												case Float:
-													((ADDSUBAltContext) _localctx).t = TypeEnum.Float;
+													((ExprContext) _localctx).t = Type.Float();
 													break;
 												case Bool:
-													((ADDSUBAltContext) _localctx).t = TypeEnum.Int;
+													((ExprContext) _localctx).t = Type.Int();
 													break;
 												case string:
-													((ADDSUBAltContext) _localctx).t = TypeEnum.string;
+													((ExprContext) _localctx).t = Type.String();
 													break;
 												default:
-													throw new CompileError("bad operand types for binary operator " + (((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp != null ? _input
-															.getText(((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp.start, ((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp.stop) : null) + " ");
+													throw new CompileError("bad operand types for binary operator " + (((ExprContext) _localctx).secondLevelBinaryArithmeticOp != null ? _input
+															.getText(((ExprContext) _localctx).secondLevelBinaryArithmeticOp.start, ((ExprContext) _localctx).secondLevelBinaryArithmeticOp.stop) : null) + " ");
 											}
 											break;
 										case Float:
-											switch (((ADDSUBAltContext) _localctx).b.t)
+											switch (((ExprContext) _localctx).b.t.getTypeEnum())
 											{
 												case Bool:
-													((ADDSUBAltContext) _localctx).t = TypeEnum.Float;
+													((ExprContext) _localctx).t = Type.Float();
 													break;
 												case Int:
-													((ADDSUBAltContext) _localctx).t = TypeEnum.Float;
+													((ExprContext) _localctx).t = Type.Float();
 													break;
 												default:
-													throw new CompileError("bad operand types for binary operator " + (((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp != null ? _input
-															.getText(((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp.start, ((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp.stop) : null) + " ");
+													throw new CompileError("bad operand types for binary operator " + (((ExprContext) _localctx).secondLevelBinaryArithmeticOp != null ? _input
+															.getText(((ExprContext) _localctx).secondLevelBinaryArithmeticOp.start, ((ExprContext) _localctx).secondLevelBinaryArithmeticOp.stop) : null) + " ");
 											}
 											break;
 										case Bool:
-											switch (((ADDSUBAltContext) _localctx).b.t)
+											switch (((ExprContext) _localctx).b.t.getTypeEnum())
 											{
 												case Float:
-													((ADDSUBAltContext) _localctx).t = TypeEnum.Float;
+													((ExprContext) _localctx).t = Type.Float();
 													break;
 												case Int:
-													((ADDSUBAltContext) _localctx).t = TypeEnum.Int;
+													((ExprContext) _localctx).t = Type.Int();
 													break;
 												case string:
-													((ADDSUBAltContext) _localctx).t = TypeEnum.string;
+													((ExprContext) _localctx).t = Type.String();
 													break;
 												default:
-													throw new CompileError("bad operand types for binary operator " + (((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp != null ? _input
-															.getText(((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp.start, ((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp.stop) : null) + " ");
+													throw new CompileError("bad operand types for binary operator " + (((ExprContext) _localctx).secondLevelBinaryArithmeticOp != null ? _input
+															.getText(((ExprContext) _localctx).secondLevelBinaryArithmeticOp.start, ((ExprContext) _localctx).secondLevelBinaryArithmeticOp.stop) : null) + " ");
 											}
 											break;
 										case string:
-											switch (((ADDSUBAltContext) _localctx).b.t)
+											switch (((ExprContext) _localctx).b.t.getTypeEnum())
 											{
 												case Bool:
-													((ADDSUBAltContext) _localctx).t = TypeEnum.string;
+													((ExprContext) _localctx).t = Type.String();
 													break;
 												case Int:
-													((ADDSUBAltContext) _localctx).t = TypeEnum.string;
+													((ExprContext) _localctx).t = Type.String();
 													break;
 												default:
-													throw new CompileError("bad operand types for binary operator " + (((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp != null ? _input
-															.getText(((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp.start, ((ADDSUBAltContext) _localctx).secondLevelBinaryArithmeticOp.stop) : null) + " ");
+													throw new CompileError("bad operand types for binary operator " + (((ExprContext) _localctx).secondLevelBinaryArithmeticOp != null ? _input
+															.getText(((ExprContext) _localctx).secondLevelBinaryArithmeticOp.start, ((ExprContext) _localctx).secondLevelBinaryArithmeticOp.stop) : null) + " ");
 											}
 									}
 
@@ -1656,81 +1666,89 @@ public class Lulu2Parser extends Parser
 								break;
 								case 3:
 								{
-									_localctx = new COMPAREAltContext(new ExprContext(_parentctx, _parentState));
-									((COMPAREAltContext) _localctx).a = _prevctx;
+									_localctx = new ExprContext(_parentctx, _parentState);
+									_localctx.a = _prevctx;
+									_localctx.a = _prevctx;
 									pushNewRecursionContext(_localctx, _startState, RULE_expr);
-									setState(305);
+									setState(310);
 									if (!(precpred(_ctx, 13)))
 										throw new FailedPredicateException(this, "precpred(_ctx, 13)");
-									setState(306);
-									((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp = firstLevelBinaryRelationalOp();
-									setState(307);
-									((COMPAREAltContext) _localctx).b = ((COMPAREAltContext) _localctx).expr = expr(14);
+									setState(311);
+									((ExprContext) _localctx).firstLevelBinaryRelationalOp = firstLevelBinaryRelationalOp();
+									setState(312);
+									((ExprContext) _localctx).b = ((ExprContext) _localctx).expr = expr(14);
 
-									if (((COMPAREAltContext) _localctx).a.t == ((COMPAREAltContext) _localctx).b.t)
-										((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
-									else switch (((COMPAREAltContext) _localctx).a.t)
+									if (!(((ExprContext) _localctx).a.t instanceof Type.PrimitiveType) || !(((ExprContext) _localctx).b.t instanceof Type.PrimitiveType))
+									{
+										throw new CompileError("bad operand types for binary operator " + (((ExprContext) _localctx).firstLevelBinaryRelationalOp != null ? _input
+												.getText(((ExprContext) _localctx).firstLevelBinaryRelationalOp.start, ((ExprContext) _localctx).firstLevelBinaryRelationalOp.stop) : null) + " ");
+									}
+									if (((ExprContext) _localctx).a.t == ((ExprContext) _localctx).b.t)
+									{
+										((ExprContext) _localctx).t = Type.Bool();
+									}
+									else switch (((ExprContext) _localctx).a.t.getTypeEnum())
 									{
 										case Int:
-											switch (((COMPAREAltContext) _localctx).b.t)
+											switch (((ExprContext) _localctx).b.t.getTypeEnum())
 											{
 												case Float:
-													((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
+													((ExprContext) _localctx).t = Type.Bool();
 													break;
 												case Bool:
-													((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
+													((ExprContext) _localctx).t = Type.Bool();
 													break;
 												case string:
-													((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
+													((ExprContext) _localctx).t = Type.Bool();
 													break;
 												default:
-													throw new CompileError("bad operand types for binary operator " + (((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp != null ? _input
-															.getText(((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp.start, ((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp.stop) : null) + " ");
+													throw new CompileError("bad operand types for binary operator " + (((ExprContext) _localctx).firstLevelBinaryRelationalOp != null ? _input
+															.getText(((ExprContext) _localctx).firstLevelBinaryRelationalOp.start, ((ExprContext) _localctx).firstLevelBinaryRelationalOp.stop) : null) + " ");
 											}
 											break;
 										case Float:
-											switch (((COMPAREAltContext) _localctx).b.t)
+											switch (((ExprContext) _localctx).b.t.getTypeEnum())
 											{
 												case Bool:
-													((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
+													((ExprContext) _localctx).t = Type.Bool();
 													break;
 												case Int:
-													((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
+													((ExprContext) _localctx).t = Type.Bool();
 													break;
 												default:
-													throw new CompileError("bad operand types for binary operator " + (((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp != null ? _input
-															.getText(((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp.start, ((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp.stop) : null) + " ");
+													throw new CompileError("bad operand types for binary operator " + (((ExprContext) _localctx).firstLevelBinaryRelationalOp != null ? _input
+															.getText(((ExprContext) _localctx).firstLevelBinaryRelationalOp.start, ((ExprContext) _localctx).firstLevelBinaryRelationalOp.stop) : null) + " ");
 											}
 											break;
 										case Bool:
-											switch (((COMPAREAltContext) _localctx).b.t)
+											switch (((ExprContext) _localctx).b.t.getTypeEnum())
 											{
 												case Float:
-													((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
+													((ExprContext) _localctx).t = Type.Bool();
 													break;
 												case Int:
-													((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
+													((ExprContext) _localctx).t = Type.Bool();
 													break;
 												case string:
-													((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
+													((ExprContext) _localctx).t = Type.Bool();
 													break;
 												default:
-													throw new CompileError("bad operand types for binary operator " + (((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp != null ? _input
-															.getText(((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp.start, ((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp.stop) : null) + " ");
+													throw new CompileError("bad operand types for binary operator " + (((ExprContext) _localctx).firstLevelBinaryRelationalOp != null ? _input
+															.getText(((ExprContext) _localctx).firstLevelBinaryRelationalOp.start, ((ExprContext) _localctx).firstLevelBinaryRelationalOp.stop) : null) + " ");
 											}
 											break;
 										case string:
-											switch (((COMPAREAltContext) _localctx).b.t)
+											switch (((ExprContext) _localctx).b.t.getTypeEnum())
 											{
 												case Bool:
-													((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
+													((ExprContext) _localctx).t = Type.Bool();
 													break;
 												case Int:
-													((COMPAREAltContext) _localctx).t = TypeEnum.Bool;
+													((ExprContext) _localctx).t = Type.Bool();
 													break;
 												default:
-													throw new CompileError("bad operand types for binary operator " + (((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp != null ? _input
-															.getText(((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp.start, ((COMPAREAltContext) _localctx).firstLevelBinaryRelationalOp.stop) : null) + " ");
+													throw new CompileError("bad operand types for binary operator " + (((ExprContext) _localctx).firstLevelBinaryRelationalOp != null ? _input
+															.getText(((ExprContext) _localctx).firstLevelBinaryRelationalOp.start, ((ExprContext) _localctx).firstLevelBinaryRelationalOp.stop) : null) + " ");
 											}
 											break;
 									}
@@ -1739,81 +1757,89 @@ public class Lulu2Parser extends Parser
 								break;
 								case 4:
 								{
-									_localctx = new EQUALITYAltContext(new ExprContext(_parentctx, _parentState));
-									((EQUALITYAltContext) _localctx).a = _prevctx;
+									_localctx = new ExprContext(_parentctx, _parentState);
+									_localctx.a = _prevctx;
+									_localctx.a = _prevctx;
 									pushNewRecursionContext(_localctx, _startState, RULE_expr);
-									setState(310);
+									setState(315);
 									if (!(precpred(_ctx, 12)))
 										throw new FailedPredicateException(this, "precpred(_ctx, 12)");
-									setState(311);
-									((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp = secondLevelBinaryRelationalOp();
-									setState(312);
-									((EQUALITYAltContext) _localctx).b = ((EQUALITYAltContext) _localctx).expr = expr(13);
+									setState(316);
+									((ExprContext) _localctx).secondLevelBinaryRelationalOp = secondLevelBinaryRelationalOp();
+									setState(317);
+									((ExprContext) _localctx).b = ((ExprContext) _localctx).expr = expr(13);
 
-									if (((EQUALITYAltContext) _localctx).a.t == ((EQUALITYAltContext) _localctx).b.t)
-										((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
-									else switch (((EQUALITYAltContext) _localctx).a.t)
+									if (!(((ExprContext) _localctx).a.t instanceof Type.PrimitiveType) || !(((ExprContext) _localctx).b.t instanceof Type.PrimitiveType))
+									{
+										throw new CompileError("bad operand types for binary operator " + (((ExprContext) _localctx).secondLevelBinaryRelationalOp != null ? _input
+												.getText(((ExprContext) _localctx).secondLevelBinaryRelationalOp.start, ((ExprContext) _localctx).secondLevelBinaryRelationalOp.stop) : null) + " ");
+									}
+									if (((ExprContext) _localctx).a.t == ((ExprContext) _localctx).b.t)
+									{
+										((ExprContext) _localctx).t = Type.Bool();
+									}
+									else switch (((ExprContext) _localctx).a.t.getTypeEnum())
 									{
 										case Int:
-											switch (((EQUALITYAltContext) _localctx).b.t)
+											switch (((ExprContext) _localctx).b.t.getTypeEnum())
 											{
 												case Float:
-													((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
+													((ExprContext) _localctx).t = Type.Bool();
 													break;
 												case Bool:
-													((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
+													((ExprContext) _localctx).t = Type.Bool();
 													break;
 												case string:
-													((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
+													((ExprContext) _localctx).t = Type.Bool();
 													break;
 												default:
-													throw new CompileError("bad operand types for binary operator " + (((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp != null ? _input
-															.getText(((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp.start, ((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp.stop) : null) + " ");
+													throw new CompileError("bad operand types for binary operator " + (((ExprContext) _localctx).secondLevelBinaryRelationalOp != null ? _input
+															.getText(((ExprContext) _localctx).secondLevelBinaryRelationalOp.start, ((ExprContext) _localctx).secondLevelBinaryRelationalOp.stop) : null) + " ");
 											}
 											break;
 										case Float:
-											switch (((EQUALITYAltContext) _localctx).b.t)
+											switch (((ExprContext) _localctx).b.t.getTypeEnum())
 											{
 												case Bool:
-													((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
+													((ExprContext) _localctx).t = Type.Bool();
 													break;
 												case Int:
-													((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
+													((ExprContext) _localctx).t = Type.Bool();
 													break;
 												default:
-													throw new CompileError("bad operand types for binary operator " + (((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp != null ? _input
-															.getText(((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp.start, ((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp.stop) : null) + " ");
+													throw new CompileError("bad operand types for binary operator " + (((ExprContext) _localctx).secondLevelBinaryRelationalOp != null ? _input
+															.getText(((ExprContext) _localctx).secondLevelBinaryRelationalOp.start, ((ExprContext) _localctx).secondLevelBinaryRelationalOp.stop) : null) + " ");
 											}
 											break;
 										case Bool:
-											switch (((EQUALITYAltContext) _localctx).b.t)
+											switch (((ExprContext) _localctx).b.t.getTypeEnum())
 											{
 												case Float:
-													((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
+													((ExprContext) _localctx).t = Type.Bool();
 													break;
 												case Int:
-													((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
+													((ExprContext) _localctx).t = Type.Bool();
 													break;
 												case string:
-													((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
+													((ExprContext) _localctx).t = Type.Bool();
 													break;
 												default:
-													throw new CompileError("bad operand types for binary operator " + (((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp != null ? _input
-															.getText(((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp.start, ((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp.stop) : null) + " ");
+													throw new CompileError("bad operand types for binary operator " + (((ExprContext) _localctx).secondLevelBinaryRelationalOp != null ? _input
+															.getText(((ExprContext) _localctx).secondLevelBinaryRelationalOp.start, ((ExprContext) _localctx).secondLevelBinaryRelationalOp.stop) : null) + " ");
 											}
 											break;
 										case string:
-											switch (((EQUALITYAltContext) _localctx).b.t)
+											switch (((ExprContext) _localctx).b.t.getTypeEnum())
 											{
 												case Bool:
-													((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
+													((ExprContext) _localctx).t = Type.Bool();
 													break;
 												case Int:
-													((EQUALITYAltContext) _localctx).t = TypeEnum.Bool;
+													((ExprContext) _localctx).t = Type.Bool();
 													break;
 												default:
-													throw new CompileError("bad operand types for binary operator " + (((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp != null ? _input
-															.getText(((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp.start, ((EQUALITYAltContext) _localctx).secondLevelBinaryRelationalOp.stop) : null) + " ");
+													throw new CompileError("bad operand types for binary operator " + (((ExprContext) _localctx).secondLevelBinaryRelationalOp != null ? _input
+															.getText(((ExprContext) _localctx).secondLevelBinaryRelationalOp.start, ((ExprContext) _localctx).secondLevelBinaryRelationalOp.stop) : null) + " ");
 											}
 											break;
 									}
@@ -1822,105 +1848,130 @@ public class Lulu2Parser extends Parser
 								break;
 								case 5:
 								{
-									_localctx = new BITWISEANDAltContext(new ExprContext(_parentctx, _parentState));
-									((BITWISEANDAltContext) _localctx).a = _prevctx;
+									_localctx = new ExprContext(_parentctx, _parentState);
+									_localctx.a = _prevctx;
+									_localctx.a = _prevctx;
 									pushNewRecursionContext(_localctx, _startState, RULE_expr);
-									setState(315);
+									setState(320);
 									if (!(precpred(_ctx, 11)))
 										throw new FailedPredicateException(this, "precpred(_ctx, 11)");
-									setState(316);
-									((BITWISEANDAltContext) _localctx).BitwiseAnd = match(BitwiseAnd);
-									setState(317);
-									((BITWISEANDAltContext) _localctx).b = ((BITWISEANDAltContext) _localctx).expr = expr(12);
+									setState(321);
+									((ExprContext) _localctx).BitwiseAnd = match(BitwiseAnd);
+									setState(322);
+									((ExprContext) _localctx).b = ((ExprContext) _localctx).expr = expr(12);
 
-									if ((((BITWISEANDAltContext) _localctx).a.t == TypeEnum.Int || ((BITWISEANDAltContext) _localctx).a.t == TypeEnum.Bool) && (((BITWISEANDAltContext) _localctx).b.t == TypeEnum.Int || ((BITWISEANDAltContext) _localctx).b.t == TypeEnum.Bool))
-										((BITWISEANDAltContext) _localctx).t = TypeEnum.Int;
+									if ((((ExprContext) _localctx).a.t == Type.Int() || ((ExprContext) _localctx).a.t == Type
+											.Bool()) && (((ExprContext) _localctx).b.t == Type.Int() || ((ExprContext) _localctx).b.t == Type
+											.Bool()))
+									{
+										((ExprContext) _localctx).t = Type.Int();
+									}
 									else
-										throw new CompileError("bad operand types for binary operator " + (((BITWISEANDAltContext) _localctx).BitwiseAnd != null ? ((BITWISEANDAltContext) _localctx).BitwiseAnd
+										throw new CompileError("bad operand types for binary operator " + (((ExprContext) _localctx).BitwiseAnd != null ? ((ExprContext) _localctx).BitwiseAnd
 												.getText() : null) + " ");
 
 								}
 								break;
 								case 6:
 								{
-									_localctx = new BITWISELOGICALXORAltContext(new ExprContext(_parentctx, _parentState));
-									((BITWISELOGICALXORAltContext) _localctx).a = _prevctx;
+									_localctx = new ExprContext(_parentctx, _parentState);
+									_localctx.a = _prevctx;
+									_localctx.a = _prevctx;
 									pushNewRecursionContext(_localctx, _startState, RULE_expr);
-									setState(320);
+									setState(325);
 									if (!(precpred(_ctx, 10)))
 										throw new FailedPredicateException(this, "precpred(_ctx, 10)");
-									setState(321);
-									((BITWISELOGICALXORAltContext) _localctx).BitwiseLogicalXor = match(BitwiseLogicalXor);
-									setState(322);
-									((BITWISELOGICALXORAltContext) _localctx).b = ((BITWISELOGICALXORAltContext) _localctx).expr = expr(11);
+									setState(326);
+									((ExprContext) _localctx).BitwiseLogicalXor = match(BitwiseLogicalXor);
+									setState(327);
+									((ExprContext) _localctx).b = ((ExprContext) _localctx).expr = expr(11);
 
-									if ((((BITWISELOGICALXORAltContext) _localctx).a.t == TypeEnum.Int || ((BITWISELOGICALXORAltContext) _localctx).a.t == TypeEnum.Bool) && (((BITWISELOGICALXORAltContext) _localctx).b.t == TypeEnum.Int || ((BITWISELOGICALXORAltContext) _localctx).b.t == TypeEnum.Bool))
-										((BITWISELOGICALXORAltContext) _localctx).t = TypeEnum.Int;
+									if ((((ExprContext) _localctx).a.t == Type.Int() || ((ExprContext) _localctx).a.t == Type
+											.Bool()) && (((ExprContext) _localctx).b.t == Type.Int() || ((ExprContext) _localctx).b.t == Type
+											.Bool()))
+									{
+										((ExprContext) _localctx).t = Type.Int();
+									}
 									else
-										throw new CompileError("bad operand types for binary operator " + (((BITWISELOGICALXORAltContext) _localctx).BitwiseLogicalXor != null ? ((BITWISELOGICALXORAltContext) _localctx).BitwiseLogicalXor
+										throw new CompileError("bad operand types for binary operator " + (((ExprContext) _localctx).BitwiseLogicalXor != null ? ((ExprContext) _localctx).BitwiseLogicalXor
 												.getText() : null) + " ");
 
 								}
 								break;
 								case 7:
 								{
-									_localctx = new BITWISEORAltContext(new ExprContext(_parentctx, _parentState));
-									((BITWISEORAltContext) _localctx).a = _prevctx;
+									_localctx = new ExprContext(_parentctx, _parentState);
+									_localctx.a = _prevctx;
+									_localctx.a = _prevctx;
 									pushNewRecursionContext(_localctx, _startState, RULE_expr);
-									setState(325);
+									setState(330);
 									if (!(precpred(_ctx, 9)))
 										throw new FailedPredicateException(this, "precpred(_ctx, 9)");
-									setState(326);
-									((BITWISEORAltContext) _localctx).BitwiseOr = match(BitwiseOr);
-									setState(327);
-									((BITWISEORAltContext) _localctx).b = ((BITWISEORAltContext) _localctx).expr = expr(10);
+									setState(331);
+									((ExprContext) _localctx).BitwiseOr = match(BitwiseOr);
+									setState(332);
+									((ExprContext) _localctx).b = ((ExprContext) _localctx).expr = expr(10);
 
-									if ((((BITWISEORAltContext) _localctx).a.t == TypeEnum.Int || ((BITWISEORAltContext) _localctx).a.t == TypeEnum.Bool) && (((BITWISEORAltContext) _localctx).b.t == TypeEnum.Int || ((BITWISEORAltContext) _localctx).b.t == TypeEnum.Bool))
-										((BITWISEORAltContext) _localctx).t = TypeEnum.Int;
+									if ((((ExprContext) _localctx).a.t == Type.Int() || ((ExprContext) _localctx).a.t == Type
+											.Bool()) && (((ExprContext) _localctx).b.t == Type.Int() || ((ExprContext) _localctx).b.t == Type
+											.Bool()))
+									{
+										((ExprContext) _localctx).t = Type.Int();
+									}
 									else
-										throw new CompileError("bad operand types for binary operator " + (((BITWISEORAltContext) _localctx).BitwiseOr != null ? ((BITWISEORAltContext) _localctx).BitwiseOr
+										throw new CompileError("bad operand types for binary operator " + (((ExprContext) _localctx).BitwiseOr != null ? ((ExprContext) _localctx).BitwiseOr
 												.getText() : null) + " ");
 
 								}
 								break;
 								case 8:
 								{
-									_localctx = new LOGICALANDAltContext(new ExprContext(_parentctx, _parentState));
-									((LOGICALANDAltContext) _localctx).a = _prevctx;
+									_localctx = new ExprContext(_parentctx, _parentState);
+									_localctx.a = _prevctx;
+									_localctx.a = _prevctx;
 									pushNewRecursionContext(_localctx, _startState, RULE_expr);
-									setState(330);
+									setState(335);
 									if (!(precpred(_ctx, 8)))
 										throw new FailedPredicateException(this, "precpred(_ctx, 8)");
-									setState(331);
-									((LOGICALANDAltContext) _localctx).LogicalAnd = match(LogicalAnd);
-									setState(332);
-									((LOGICALANDAltContext) _localctx).b = ((LOGICALANDAltContext) _localctx).expr = expr(9);
+									setState(336);
+									((ExprContext) _localctx).LogicalAnd = match(LogicalAnd);
+									setState(337);
+									((ExprContext) _localctx).b = ((ExprContext) _localctx).expr = expr(9);
 
-									if ((((LOGICALANDAltContext) _localctx).a.t == TypeEnum.Int || ((LOGICALANDAltContext) _localctx).a.t == TypeEnum.Bool) && (((LOGICALANDAltContext) _localctx).b.t == TypeEnum.Int || ((LOGICALANDAltContext) _localctx).b.t == TypeEnum.Bool))
-										((LOGICALANDAltContext) _localctx).t = TypeEnum.Bool;
+									if ((((ExprContext) _localctx).a.t == Type.Int() || ((ExprContext) _localctx).a.t == Type
+											.Bool()) && (((ExprContext) _localctx).b.t == Type.Int() || ((ExprContext) _localctx).b.t == Type
+											.Bool()))
+									{
+										((ExprContext) _localctx).t = Type.Bool();
+									}
 									else
-										throw new CompileError("bad operand types for binary operator " + (((LOGICALANDAltContext) _localctx).LogicalAnd != null ? ((LOGICALANDAltContext) _localctx).LogicalAnd
+										throw new CompileError("bad operand types for binary operator " + (((ExprContext) _localctx).LogicalAnd != null ? ((ExprContext) _localctx).LogicalAnd
 												.getText() : null) + " ");
 
 								}
 								break;
 								case 9:
 								{
-									_localctx = new LOGICALORAltContext(new ExprContext(_parentctx, _parentState));
-									((LOGICALORAltContext) _localctx).a = _prevctx;
+									_localctx = new ExprContext(_parentctx, _parentState);
+									_localctx.a = _prevctx;
+									_localctx.a = _prevctx;
 									pushNewRecursionContext(_localctx, _startState, RULE_expr);
-									setState(335);
+									setState(340);
 									if (!(precpred(_ctx, 7)))
 										throw new FailedPredicateException(this, "precpred(_ctx, 7)");
-									setState(336);
-									((LOGICALORAltContext) _localctx).LogicalOr = match(LogicalOr);
-									setState(337);
-									((LOGICALORAltContext) _localctx).b = ((LOGICALORAltContext) _localctx).expr = expr(8);
+									setState(341);
+									((ExprContext) _localctx).LogicalOr = match(LogicalOr);
+									setState(342);
+									((ExprContext) _localctx).b = ((ExprContext) _localctx).expr = expr(8);
 
-									if ((((LOGICALORAltContext) _localctx).a.t == TypeEnum.Int || ((LOGICALORAltContext) _localctx).a.t == TypeEnum.Bool) && (((LOGICALORAltContext) _localctx).b.t == TypeEnum.Int || ((LOGICALORAltContext) _localctx).b.t == TypeEnum.Bool))
-										((LOGICALORAltContext) _localctx).t = TypeEnum.Bool;
+									if ((((ExprContext) _localctx).a.t == Type.Int() || ((ExprContext) _localctx).a.t == Type
+											.Bool()) && (((ExprContext) _localctx).b.t == Type.Int() || ((ExprContext) _localctx).b.t == Type
+											.Bool()))
+									{
+										((ExprContext) _localctx).t = Type.Bool();
+									}
 									else
-										throw new CompileError("bad operand types for binary operator " + (((LOGICALORAltContext) _localctx).LogicalOr != null ? ((LOGICALORAltContext) _localctx).LogicalOr
+										throw new CompileError("bad operand types for binary operator " + (((ExprContext) _localctx).LogicalOr != null ? ((ExprContext) _localctx).LogicalOr
 												.getText() : null) + " ");
 
 								}
@@ -1928,7 +1979,7 @@ public class Lulu2Parser extends Parser
 							}
 						}
 					}
-					setState(344);
+					setState(349);
 					_errHandler.sync(this);
 					_alt = getInterpreter().adaptivePredict(_input, 30, _ctx);
 				}
@@ -1953,7 +2004,7 @@ public class Lulu2Parser extends Parser
 		enterRule(_localctx, 40, RULE_funcCall);
 		try
 		{
-			setState(361);
+			setState(366);
 			_errHandler.sync(this);
 			switch (_input.LA(1))
 			{
@@ -1963,20 +2014,20 @@ public class Lulu2Parser extends Parser
 					_localctx = new METHODCALLAltContext(_localctx);
 					enterOuterAlt(_localctx, 1);
 				{
-					setState(348);
+					setState(353);
 					_errHandler.sync(this);
 					switch (getInterpreter().adaptivePredict(_input, 31, _ctx))
 					{
 						case 1:
 						{
-							setState(345);
+							setState(350);
 							var();
-							setState(346);
+							setState(351);
 							match(DOT);
 						}
 						break;
 					}
-					setState(350);
+					setState(355);
 					handleCall();
 				}
 				break;
@@ -1984,13 +2035,13 @@ public class Lulu2Parser extends Parser
 					_localctx = new READAltContext(_localctx);
 					enterOuterAlt(_localctx, 2);
 				{
-					setState(351);
+					setState(356);
 					match(READ);
-					setState(352);
+					setState(357);
 					match(OpenPar);
-					setState(353);
+					setState(358);
 					var();
-					setState(354);
+					setState(359);
 					match(ClosePar);
 				}
 				break;
@@ -1998,13 +2049,13 @@ public class Lulu2Parser extends Parser
 					_localctx = new WRITEAltContext(_localctx);
 					enterOuterAlt(_localctx, 3);
 				{
-					setState(356);
+					setState(361);
 					match(WRITE);
-					setState(357);
+					setState(362);
 					match(OpenPar);
-					setState(358);
+					setState(363);
 					var();
-					setState(359);
+					setState(364);
 					match(ClosePar);
 				}
 				break;
@@ -2034,59 +2085,42 @@ public class Lulu2Parser extends Parser
 		{
 			enterOuterAlt(_localctx, 1);
 			{
-				setState(363);
+				setState(368);
 				match(OpenBrace);
-				setState(366);
-				_errHandler.sync(this);
-				switch (getInterpreter().adaptivePredict(_input, 33, _ctx))
-				{
-					case 1:
-					{
-						setState(364);
-						expr(0);
-					}
-					break;
-					case 2:
-					{
-						setState(365);
-						list();
-					}
-					break;
-				}
-				setState(375);
+				setState(369);
+				((ListContext) _localctx).a = expr(0);
+				setState(374);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la == COMMA)
 				{
 					{
 						{
-							setState(368);
+							setState(370);
 							match(COMMA);
 							setState(371);
-							_errHandler.sync(this);
-							switch (getInterpreter().adaptivePredict(_input, 34, _ctx))
-							{
-								case 1:
-								{
-									setState(369);
-									expr(0);
-								}
-								break;
-								case 2:
-								{
-									setState(370);
-									list();
-								}
-								break;
-							}
+							((ListContext) _localctx).expr = expr(0);
+							((ListContext) _localctx).b.add(((ListContext) _localctx).expr);
 						}
 					}
-					setState(377);
+					setState(376);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(378);
+				setState(377);
 				match(CloseBrace);
+
+				var type = ((ListContext) _localctx).a.t;
+				if (!((ListContext) _localctx).b.stream().map(t -> t.t).allMatch(t -> type == t))
+				{
+					LuluListener.currentNode.throwError(new CompileError("incompatible types"));
+				}
+				else
+				{
+					((ListContext) _localctx).listType = new Array(((ListContext) _localctx).a.t, ((ListContext) _localctx).b
+							.size() + 1);
+				}
+
 			}
 		}
 		catch (RecognitionException re)
@@ -2151,7 +2185,7 @@ public class Lulu2Parser extends Parser
 		{
 			setState(392);
 			_errHandler.sync(this);
-			switch (getInterpreter().adaptivePredict(_input, 37, _ctx))
+			switch (getInterpreter().adaptivePredict(_input, 35, _ctx))
 			{
 				case 1:
 					enterOuterAlt(_localctx, 1);
@@ -2305,7 +2339,7 @@ public class Lulu2Parser extends Parser
 						{
 							setState(422);
 							_errHandler.sync(this);
-							switch (getInterpreter().adaptivePredict(_input, 41, _ctx))
+							switch (getInterpreter().adaptivePredict(_input, 39, _ctx))
 							{
 								case 1:
 								{
@@ -2423,7 +2457,7 @@ public class Lulu2Parser extends Parser
 				{
 					setState(443);
 					match(IntLiteral);
-					((ConstValContext) _localctx).t = TypeEnum.Int;
+					((ConstValContext) _localctx).t = Type.Int();
 				}
 				break;
 				case FloatLiteral:
@@ -2431,7 +2465,7 @@ public class Lulu2Parser extends Parser
 				{
 					setState(445);
 					match(FloatLiteral);
-					((ConstValContext) _localctx).t = TypeEnum.Float;
+					((ConstValContext) _localctx).t = Type.Float();
 				}
 				break;
 				case BoolLiteral:
@@ -2439,7 +2473,7 @@ public class Lulu2Parser extends Parser
 				{
 					setState(447);
 					match(BoolLiteral);
-					((ConstValContext) _localctx).t = TypeEnum.Bool;
+					((ConstValContext) _localctx).t = Type.Bool();
 				}
 				break;
 				case StringLiteral:
@@ -2447,7 +2481,7 @@ public class Lulu2Parser extends Parser
 				{
 					setState(449);
 					match(StringLiteral);
-					((ConstValContext) _localctx).t = TypeEnum.string;
+					((ConstValContext) _localctx).t = Type.String();
 				}
 				break;
 				default:
@@ -2700,7 +2734,7 @@ public class Lulu2Parser extends Parser
 
 	enum TypeEnum
 	{
-		Int, Bool, Float, string, nullable
+		Int, Bool, Float, string, nullable, Array, ArraySignature, function
 	}
 
 	public static class MainContext extends ParserRuleContext
@@ -2735,7 +2769,6 @@ public class Lulu2Parser extends Parser
 		{
 			return RULE_main;
 		}
-
 		@Override
 		public void enterRule(ParseTreeListener listener)
 		{
@@ -2811,7 +2844,6 @@ public class Lulu2Parser extends Parser
 		{
 			return RULE_ftDcl;
 		}
-
 		@Override
 		public void enterRule(ParseTreeListener listener)
 		{
@@ -2892,7 +2924,6 @@ public class Lulu2Parser extends Parser
 		{
 			return RULE_funcDcl;
 		}
-
 		@Override
 		public void enterRule(ParseTreeListener listener)
 		{
@@ -3058,7 +3089,6 @@ public class Lulu2Parser extends Parser
 		{
 			return RULE_argsVar;
 		}
-
 		@Override
 		public void enterRule(ParseTreeListener listener)
 		{
@@ -3099,7 +3129,6 @@ public class Lulu2Parser extends Parser
 		{
 			return RULE_typeDcl;
 		}
-
 		@Override
 		public void enterRule(ParseTreeListener listener)
 		{
@@ -3165,7 +3194,6 @@ public class Lulu2Parser extends Parser
 		{
 			return RULE_varDef;
 		}
-
 		@Override
 		public void enterRule(ParseTreeListener listener)
 		{
@@ -3321,7 +3349,6 @@ public class Lulu2Parser extends Parser
 		{
 			return RULE_typeDef;
 		}
-
 		@Override
 		public void enterRule(ParseTreeListener listener)
 		{
@@ -3367,7 +3394,6 @@ public class Lulu2Parser extends Parser
 		{
 			return RULE_component;
 		}
-
 		@Override
 		public void enterRule(ParseTreeListener listener)
 		{
@@ -3413,7 +3439,6 @@ public class Lulu2Parser extends Parser
 		{
 			return RULE_accessModifier;
 		}
-
 		@Override
 		public void enterRule(ParseTreeListener listener)
 		{
@@ -3494,7 +3519,6 @@ public class Lulu2Parser extends Parser
 		{
 			return RULE_funcDef;
 		}
-
 		@Override
 		public void enterRule(ParseTreeListener listener)
 		{
@@ -3555,7 +3579,6 @@ public class Lulu2Parser extends Parser
 		{
 			return RULE_block;
 		}
-
 		@Override
 		public void enterRule(ParseTreeListener listener)
 		{
@@ -3964,6 +3987,8 @@ public class Lulu2Parser extends Parser
 
 	public static class VarContext extends ParserRuleContext
 	{
+		public Type varType;
+
 		public VarContext(ParserRuleContext parent, int invokingState)
 		{
 			super(parent, invokingState);
@@ -4069,7 +4094,6 @@ public class Lulu2Parser extends Parser
 		{
 			return RULE_ref;
 		}
-
 		@Override
 		public void enterRule(ParseTreeListener listener)
 		{
@@ -4090,45 +4114,33 @@ public class Lulu2Parser extends Parser
 
 	public static class ExprContext extends ParserRuleContext
 	{
-		public TypeEnum t;
+		public Type t;
+		public ExprContext a;
+		public ExprContext expr;
+		public UnaryOpContext unaryOp;
+		public ConstValContext constVal;
+		public HandleCallContext handleCall;
+		public VarContext var;
+		public ListContext list;
+		public FirstLevelBinaryArithmeticOpContext firstLevelBinaryArithmeticOp;
+		public ExprContext b;
+		public SecondLevelBinaryArithmeticOpContext secondLevelBinaryArithmeticOp;
+		public FirstLevelBinaryRelationalOpContext firstLevelBinaryRelationalOp;
+		public SecondLevelBinaryRelationalOpContext secondLevelBinaryRelationalOp;
+		public Token BitwiseAnd;
+		public Token BitwiseLogicalXor;
+		public Token BitwiseOr;
+		public Token LogicalAnd;
+		public Token LogicalOr;
 
 		public ExprContext(ParserRuleContext parent, int invokingState)
 		{
 			super(parent, invokingState);
 		}
 
-		public ExprContext()
+		public TerminalNode OpenPar()
 		{
-		}
-
-		@Override
-		public int getRuleIndex()
-		{
-			return RULE_expr;
-		}
-
-		public void copyFrom(ExprContext ctx)
-		{
-			super.copyFrom(ctx);
-			this.t = ctx.t;
-		}
-	}
-
-	public static class LOGICALANDAltContext extends ExprContext
-	{
-		public ExprContext a;
-		public Token LogicalAnd;
-		public ExprContext b;
-		public ExprContext expr;
-
-		public LOGICALANDAltContext(ExprContext ctx)
-		{
-			copyFrom(ctx);
-		}
-
-		public TerminalNode LogicalAnd()
-		{
-			return getToken(Lulu2Parser.LogicalAnd, 0);
+			return getToken(Lulu2Parser.OpenPar, 0);
 		}
 
 		public List<ExprContext> expr()
@@ -4141,106 +4153,19 @@ public class Lulu2Parser extends Parser
 			return getRuleContext(ExprContext.class, i);
 		}
 
-		@Override
-		public void enterRule(ParseTreeListener listener)
+		public TerminalNode ClosePar()
 		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).enterLOGICALANDAlt(this);
-			}
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener)
-		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).exitLOGICALANDAlt(this);
-			}
-		}
-	}
-
-	public static class BITWISEORAltContext extends ExprContext
-	{
-		public ExprContext a;
-		public Token BitwiseOr;
-		public ExprContext b;
-		public ExprContext expr;
-
-		public BITWISEORAltContext(ExprContext ctx)
-		{
-			copyFrom(ctx);
+			return getToken(Lulu2Parser.ClosePar, 0);
 		}
 
-		public TerminalNode BitwiseOr()
+		public UnaryOpContext unaryOp()
 		{
-			return getToken(Lulu2Parser.BitwiseOr, 0);
-		}
-
-		public List<ExprContext> expr()
-		{
-			return getRuleContexts(ExprContext.class);
-		}
-
-		public ExprContext expr(int i)
-		{
-			return getRuleContext(ExprContext.class, i);
-		}
-
-		@Override
-		public void enterRule(ParseTreeListener listener)
-		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).enterBITWISEORAlt(this);
-			}
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener)
-		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).exitBITWISEORAlt(this);
-			}
-		}
-	}
-
-	public static class CONSTVALAltContext extends ExprContext
-	{
-		public ConstValContext constVal;
-
-		public CONSTVALAltContext(ExprContext ctx)
-		{
-			copyFrom(ctx);
+			return getRuleContext(UnaryOpContext.class, 0);
 		}
 
 		public ConstValContext constVal()
 		{
 			return getRuleContext(ConstValContext.class, 0);
-		}
-
-		@Override
-		public void enterRule(ParseTreeListener listener)
-		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).enterCONSTVALAlt(this);
-			}
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener)
-		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).exitCONSTVALAlt(this);
-			}
-		}
-	}
-
-	public static class ALLOCATIONAltContext extends ExprContext
-	{
-		public ALLOCATIONAltContext(ExprContext ctx)
-		{
-			copyFrom(ctx);
 		}
 
 		public TerminalNode ALLOCATE()
@@ -4253,356 +4178,9 @@ public class Lulu2Parser extends Parser
 			return getRuleContext(HandleCallContext.class, 0);
 		}
 
-		@Override
-		public void enterRule(ParseTreeListener listener)
-		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).enterALLOCATIONAlt(this);
-			}
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener)
-		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).exitALLOCATIONAlt(this);
-			}
-		}
-	}
-
-	public static class PAREXPRAltContext extends ExprContext
-	{
-		public ExprContext expr;
-
-		public PAREXPRAltContext(ExprContext ctx)
-		{
-			copyFrom(ctx);
-		}
-
-		public TerminalNode OpenPar()
-		{
-			return getToken(Lulu2Parser.OpenPar, 0);
-		}
-
-		public ExprContext expr()
-		{
-			return getRuleContext(ExprContext.class, 0);
-		}
-
-		public TerminalNode ClosePar()
-		{
-			return getToken(Lulu2Parser.ClosePar, 0);
-		}
-
-		@Override
-		public void enterRule(ParseTreeListener listener)
-		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).enterPAREXPRAlt(this);
-			}
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener)
-		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).exitPAREXPRAlt(this);
-			}
-		}
-	}
-
-	public static class ADDSUBAltContext extends ExprContext
-	{
-		public ExprContext a;
-		public SecondLevelBinaryArithmeticOpContext secondLevelBinaryArithmeticOp;
-		public ExprContext b;
-		public ExprContext expr;
-
-		public ADDSUBAltContext(ExprContext ctx)
-		{
-			copyFrom(ctx);
-		}
-
-		public SecondLevelBinaryArithmeticOpContext secondLevelBinaryArithmeticOp()
-		{
-			return getRuleContext(SecondLevelBinaryArithmeticOpContext.class, 0);
-		}
-
-		public List<ExprContext> expr()
-		{
-			return getRuleContexts(ExprContext.class);
-		}
-
-		public ExprContext expr(int i)
-		{
-			return getRuleContext(ExprContext.class, i);
-		}
-
-		@Override
-		public void enterRule(ParseTreeListener listener)
-		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).enterADDSUBAlt(this);
-			}
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener)
-		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).exitADDSUBAlt(this);
-			}
-		}
-	}
-
-	public static class LISTAltContext extends ExprContext
-	{
-		public LISTAltContext(ExprContext ctx)
-		{
-			copyFrom(ctx);
-		}
-
-		public ListContext list()
-		{
-			return getRuleContext(ListContext.class, 0);
-		}
-
-		@Override
-		public void enterRule(ParseTreeListener listener)
-		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).enterLISTAlt(this);
-			}
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener)
-		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).exitLISTAlt(this);
-			}
-		}
-	}
-
-	public static class FUNCCALLAltContext extends ExprContext
-	{
-		public FUNCCALLAltContext(ExprContext ctx)
-		{
-			copyFrom(ctx);
-		}
-
 		public FuncCallContext funcCall()
 		{
 			return getRuleContext(FuncCallContext.class, 0);
-		}
-
-		@Override
-		public void enterRule(ParseTreeListener listener)
-		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).enterFUNCCALLAlt(this);
-			}
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener)
-		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).exitFUNCCALLAlt(this);
-			}
-		}
-	}
-
-	public static class MULDIVAltContext extends ExprContext
-	{
-		public ExprContext a;
-		public FirstLevelBinaryArithmeticOpContext firstLevelBinaryArithmeticOp;
-		public ExprContext b;
-		public ExprContext expr;
-
-		public MULDIVAltContext(ExprContext ctx)
-		{
-			copyFrom(ctx);
-		}
-
-		public FirstLevelBinaryArithmeticOpContext firstLevelBinaryArithmeticOp()
-		{
-			return getRuleContext(FirstLevelBinaryArithmeticOpContext.class, 0);
-		}
-
-		public List<ExprContext> expr()
-		{
-			return getRuleContexts(ExprContext.class);
-		}
-
-		public ExprContext expr(int i)
-		{
-			return getRuleContext(ExprContext.class, i);
-		}
-
-		@Override
-		public void enterRule(ParseTreeListener listener)
-		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).enterMULDIVAlt(this);
-			}
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener)
-		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).exitMULDIVAlt(this);
-			}
-		}
-	}
-
-	public static class EQUALITYAltContext extends ExprContext
-	{
-		public ExprContext a;
-		public SecondLevelBinaryRelationalOpContext secondLevelBinaryRelationalOp;
-		public ExprContext b;
-		public ExprContext expr;
-
-		public EQUALITYAltContext(ExprContext ctx)
-		{
-			copyFrom(ctx);
-		}
-
-		public SecondLevelBinaryRelationalOpContext secondLevelBinaryRelationalOp()
-		{
-			return getRuleContext(SecondLevelBinaryRelationalOpContext.class, 0);
-		}
-
-		public List<ExprContext> expr()
-		{
-			return getRuleContexts(ExprContext.class);
-		}
-
-		public ExprContext expr(int i)
-		{
-			return getRuleContext(ExprContext.class, i);
-		}
-
-		@Override
-		public void enterRule(ParseTreeListener listener)
-		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).enterEQUALITYAlt(this);
-			}
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener)
-		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).exitEQUALITYAlt(this);
-			}
-		}
-	}
-
-	public static class COMPAREAltContext extends ExprContext
-	{
-		public ExprContext a;
-		public FirstLevelBinaryRelationalOpContext firstLevelBinaryRelationalOp;
-		public ExprContext b;
-		public ExprContext expr;
-
-		public COMPAREAltContext(ExprContext ctx)
-		{
-			copyFrom(ctx);
-		}
-
-		public FirstLevelBinaryRelationalOpContext firstLevelBinaryRelationalOp()
-		{
-			return getRuleContext(FirstLevelBinaryRelationalOpContext.class, 0);
-		}
-
-		public List<ExprContext> expr()
-		{
-			return getRuleContexts(ExprContext.class);
-		}
-
-		public ExprContext expr(int i)
-		{
-			return getRuleContext(ExprContext.class, i);
-		}
-
-		@Override
-		public void enterRule(ParseTreeListener listener)
-		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).enterCOMPAREAlt(this);
-			}
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener)
-		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).exitCOMPAREAlt(this);
-			}
-		}
-	}
-
-	public static class LOGICALORAltContext extends ExprContext
-	{
-		public ExprContext a;
-		public Token LogicalOr;
-		public ExprContext b;
-		public ExprContext expr;
-
-		public LOGICALORAltContext(ExprContext ctx)
-		{
-			copyFrom(ctx);
-		}
-
-		public TerminalNode LogicalOr()
-		{
-			return getToken(Lulu2Parser.LogicalOr, 0);
-		}
-
-		public List<ExprContext> expr()
-		{
-			return getRuleContexts(ExprContext.class);
-		}
-
-		public ExprContext expr(int i)
-		{
-			return getRuleContext(ExprContext.class, i);
-		}
-
-		@Override
-		public void enterRule(ParseTreeListener listener)
-		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).enterLOGICALORAlt(this);
-			}
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener)
-		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).exitLOGICALORAlt(this);
-			}
-		}
-	}
-
-	public static class VARAltContext extends ExprContext
-	{
-		public VARAltContext(ExprContext ctx)
-		{
-			copyFrom(ctx);
 		}
 
 		public VarContext var()
@@ -4610,29 +4188,9 @@ public class Lulu2Parser extends Parser
 			return getRuleContext(VarContext.class, 0);
 		}
 
-		@Override
-		public void enterRule(ParseTreeListener listener)
+		public ListContext list()
 		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).enterVARAlt(this);
-			}
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener)
-		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).exitVARAlt(this);
-			}
-		}
-	}
-
-	public static class NILAltContext extends ExprContext
-	{
-		public NILAltContext(ExprContext ctx)
-		{
-			copyFrom(ctx);
+			return getRuleContext(ListContext.class, 0);
 		}
 
 		public TerminalNode NIL()
@@ -4640,34 +4198,24 @@ public class Lulu2Parser extends Parser
 			return getToken(Lulu2Parser.NIL, 0);
 		}
 
-		@Override
-		public void enterRule(ParseTreeListener listener)
+		public FirstLevelBinaryArithmeticOpContext firstLevelBinaryArithmeticOp()
 		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).enterNILAlt(this);
-			}
+			return getRuleContext(FirstLevelBinaryArithmeticOpContext.class, 0);
 		}
-		@Override
-		public void exitRule(ParseTreeListener listener)
+
+		public SecondLevelBinaryArithmeticOpContext secondLevelBinaryArithmeticOp()
 		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).exitNILAlt(this);
-			}
+			return getRuleContext(SecondLevelBinaryArithmeticOpContext.class, 0);
 		}
-	}
 
-	public static class BITWISEANDAltContext extends ExprContext
-	{
-		public ExprContext a;
-		public Token BitwiseAnd;
-		public ExprContext b;
-		public ExprContext expr;
-
-		public BITWISEANDAltContext(ExprContext ctx)
+		public FirstLevelBinaryRelationalOpContext firstLevelBinaryRelationalOp()
 		{
-			copyFrom(ctx);
+			return getRuleContext(FirstLevelBinaryRelationalOpContext.class, 0);
+		}
+
+		public SecondLevelBinaryRelationalOpContext secondLevelBinaryRelationalOp()
+		{
+			return getRuleContext(SecondLevelBinaryRelationalOpContext.class, 0);
 		}
 
 		public TerminalNode BitwiseAnd()
@@ -4675,105 +4223,37 @@ public class Lulu2Parser extends Parser
 			return getToken(Lulu2Parser.BitwiseAnd, 0);
 		}
 
-		public List<ExprContext> expr()
-		{
-			return getRuleContexts(ExprContext.class);
-		}
-
-		public ExprContext expr(int i)
-		{
-			return getRuleContext(ExprContext.class, i);
-		}
-
-		@Override
-		public void enterRule(ParseTreeListener listener)
-		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).enterBITWISEANDAlt(this);
-			}
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener)
-		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).exitBITWISEANDAlt(this);
-			}
-		}
-	}
-
-	public static class UNARYOPAltContext extends ExprContext
-	{
-		public UnaryOpContext unaryOp;
-		public ExprContext expr;
-
-		public UNARYOPAltContext(ExprContext ctx)
-		{
-			copyFrom(ctx);
-		}
-
-		public UnaryOpContext unaryOp()
-		{
-			return getRuleContext(UnaryOpContext.class, 0);
-		}
-
-		public ExprContext expr()
-		{
-			return getRuleContext(ExprContext.class, 0);
-		}
-
-		@Override
-		public void enterRule(ParseTreeListener listener)
-		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).enterUNARYOPAlt(this);
-			}
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener)
-		{
-			if (listener instanceof Lulu2Listener)
-			{
-				((Lulu2Listener) listener).exitUNARYOPAlt(this);
-			}
-		}
-	}
-
-	public static class BITWISELOGICALXORAltContext extends ExprContext
-	{
-		public ExprContext a;
-		public Token BitwiseLogicalXor;
-		public ExprContext b;
-		public ExprContext expr;
-
-		public BITWISELOGICALXORAltContext(ExprContext ctx)
-		{
-			copyFrom(ctx);
-		}
-
 		public TerminalNode BitwiseLogicalXor()
 		{
 			return getToken(Lulu2Parser.BitwiseLogicalXor, 0);
 		}
 
-		public List<ExprContext> expr()
+		public TerminalNode BitwiseOr()
 		{
-			return getRuleContexts(ExprContext.class);
+			return getToken(Lulu2Parser.BitwiseOr, 0);
 		}
 
-		public ExprContext expr(int i)
+		public TerminalNode LogicalAnd()
 		{
-			return getRuleContext(ExprContext.class, i);
+			return getToken(Lulu2Parser.LogicalAnd, 0);
 		}
 
+		public TerminalNode LogicalOr()
+		{
+			return getToken(Lulu2Parser.LogicalOr, 0);
+		}
+
+		@Override
+		public int getRuleIndex()
+		{
+			return RULE_expr;
+		}
 		@Override
 		public void enterRule(ParseTreeListener listener)
 		{
 			if (listener instanceof Lulu2Listener)
 			{
-				((Lulu2Listener) listener).enterBITWISELOGICALXORAlt(this);
+				((Lulu2Listener) listener).enterExpr(this);
 			}
 		}
 		@Override
@@ -4781,7 +4261,7 @@ public class Lulu2Parser extends Parser
 		{
 			if (listener instanceof Lulu2Listener)
 			{
-				((Lulu2Listener) listener).exitBITWISELOGICALXORAlt(this);
+				((Lulu2Listener) listener).exitExpr(this);
 			}
 		}
 	}
@@ -4941,6 +4421,11 @@ public class Lulu2Parser extends Parser
 
 	public static class ListContext extends ParserRuleContext
 	{
+		public Type listType;
+		public ExprContext a;
+		public ExprContext expr;
+		public List<ExprContext> b = new ArrayList<ExprContext>();
+
 		public ListContext(ParserRuleContext parent, int invokingState)
 		{
 			super(parent, invokingState);
@@ -4964,16 +4449,6 @@ public class Lulu2Parser extends Parser
 		public ExprContext expr(int i)
 		{
 			return getRuleContext(ExprContext.class, i);
-		}
-
-		public List<ListContext> list()
-		{
-			return getRuleContexts(ListContext.class);
-		}
-
-		public ListContext list(int i)
-		{
-			return getRuleContext(ListContext.class, i);
 		}
 
 		public List<TerminalNode> COMMA()
@@ -5086,7 +4561,6 @@ public class Lulu2Parser extends Parser
 		{
 			return RULE_params;
 		}
-
 		@Override
 		public void enterRule(ParseTreeListener listener)
 		{
@@ -5433,7 +4907,6 @@ public class Lulu2Parser extends Parser
 		{
 			return RULE_type;
 		}
-
 		@Override
 		public void enterRule(ParseTreeListener listener)
 		{
@@ -5454,7 +4927,7 @@ public class Lulu2Parser extends Parser
 
 	public static class ConstValContext extends ParserRuleContext
 	{
-		public TypeEnum t;
+		public Type t;
 
 		public ConstValContext(ParserRuleContext parent, int invokingState)
 		{
@@ -5486,7 +4959,6 @@ public class Lulu2Parser extends Parser
 		{
 			return RULE_constVal;
 		}
-
 		@Override
 		public void enterRule(ParseTreeListener listener)
 		{
@@ -5532,7 +5004,6 @@ public class Lulu2Parser extends Parser
 		{
 			return RULE_unaryOp;
 		}
-
 		@Override
 		public void enterRule(ParseTreeListener listener)
 		{
@@ -5668,7 +5139,6 @@ public class Lulu2Parser extends Parser
 		{
 			return RULE_firstLevelBinaryRelationalOp;
 		}
-
 		@Override
 		public void enterRule(ParseTreeListener listener)
 		{
@@ -5709,7 +5179,6 @@ public class Lulu2Parser extends Parser
 		{
 			return RULE_secondLevelBinaryRelationalOp;
 		}
-
 		@Override
 		public void enterRule(ParseTreeListener listener)
 		{

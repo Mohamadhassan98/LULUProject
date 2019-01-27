@@ -13,17 +13,17 @@ class Tree
     private static final ResourceBundle resourceBundle = ResourceBundle.getBundle("LULUStrings");
     private final Node root = new Node(new GlobalScope());
 
-    public GlobalScope getGlobalScope()
+    GlobalScope getGlobalScope()
     {
         return (GlobalScope) root.getScope();
     }
 
-    public Node getRoot()
+    Node getRoot()
     {
         return root;
     }
 
-    public void addChild(Node node, ScopeType type, String name)
+    void addChild(Node node, ScopeType type, String name)
     {
         node.addChild(type, name);
     }
@@ -46,12 +46,12 @@ class Tree
             scopeType = type;
         }
 
-        public LinkedList<Symbol> getSymbols()
+        LinkedList<Symbol> getSymbols()
         {
             return symbols;
         }
 
-        public ScopeType getScopeType()
+        ScopeType getScopeType()
         {
             return scopeType;
         }
@@ -81,6 +81,11 @@ class Tree
             symbols.add(isPrimitive ? new PrimitiveSymbol(name, type, offset, isConst) : new UserDefinedSymbol(name, type, offset, isConst));
             offset++;
             addSize(isPrimitive ? type.getSize() : size);
+        }
+
+        public void addSymbol(Symbol symbol)
+        {
+            symbols.add(symbol);
         }
     }
 
@@ -117,17 +122,17 @@ class Tree
             super(resourceBundle.getString("declare"), ScopeType.DeclareScope);
         }
 
-        public LinkedList<Type> getTypes()
+        LinkedList<Type> getTypes()
         {
             return types;
         }
 
-        public void addType(UserDefinedType type)
+        void addType(UserDefinedType type)
         {
             types.add(type);
         }
 
-        public void addFunctionSignature(FunctionSignature fS)
+        void addFunctionSignature(FunctionSignature fS)
         {
             if (functionSignatures.contains(fS))
             {
@@ -144,7 +149,7 @@ class Tree
             functionSignatures.add(fS);
         }
 
-        public LinkedList<FunctionSignature> getFunctionSignatures()
+        LinkedList<FunctionSignature> getFunctionSignatures()
         {
             return functionSignatures;
         }
@@ -181,7 +186,7 @@ class Tree
             super(resourceBundle.getString("global"), ScopeType.GeneralScope);
         }
 
-        public LinkedList<Type> getTypes()
+        LinkedList<Type> getTypes()
         {
             return types;
         }
@@ -201,6 +206,7 @@ class Tree
     public class Node
     {
         private final LinkedList<Node> children = new LinkedList<>();
+        private final LinkedList<CompileError> errors = new LinkedList<>();
         private final Node Parent;
         private final Scope scope;
 
@@ -215,6 +221,15 @@ class Tree
             this(data, null);
         }
 
+        void throwError(CompileError e)
+        {
+            errors.add(e);
+        }
+
+        LinkedList<CompileError> getErrors()
+        {
+            return errors;
+        }
         void addChild(ScopeType type, String name)
         {
             switch (scope.getScopeType())
@@ -276,7 +291,7 @@ class Tree
             return Parent;
         }
 
-        public Node getChild(int index)
+        Node getChild(int index)
         {
             return children.get(index);
         }

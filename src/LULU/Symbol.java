@@ -110,7 +110,7 @@ class FunctionSignature
 {
     private final List<Symbol> inputParameters = new LinkedList<>(), returnParameters = new LinkedList<>();
 
-    public String getName()
+    String getName()
     {
         return name;
     }
@@ -122,52 +122,28 @@ class FunctionSignature
         this.name = name;
     }
 
-    public List<Symbol> getInputParameters()
+    List<Symbol> getInputParameters()
     {
         return inputParameters;
     }
 
-    public List<Symbol> getReturnParameters()
+    List<Symbol> getReturnParameters()
     {
         return returnParameters;
     }
 
-    public void addInputParam(String name, Type type)
+    void addInputParam(String name, Type type)
     {
-//        if (type.isPrimitive())
-//        {
-//            inputParameters.add(new PrimitiveSymbol(name, type, 0, false));
-//        }
-//        else
-//        {
-//            inputParameters.add(new UserDefinedSymbol(name, type, 0, false));
-//        }
         inputParameters.add(Symbol.addNew(name, type, 0, false));
     }
 
     public void addInputParam(int index, Type type)
     {
-//        if (type.isPrimitive())
-//        {
-//            inputParameters.add(new PrimitiveSymbol("*" + index, type, 0, false));
-//        }
-//        else
-//        {
-//            inputParameters.add(new UserDefinedSymbol("*" + index, type, 0, false));
-//        }
         inputParameters.add(Symbol.addNew("*" + index, type, 0, false));
     }
 
     public void addReturnParam(int index, Type type)
     {
-//        if (type.isPrimitive())
-//        {
-//            returnParameters.add(new PrimitiveSymbol("*" + index, type, 0, false));
-//        }
-//        else
-//        {
-//            returnParameters.add(new UserDefinedSymbol("*" + index, type, 0, false));
-//        }
         returnParameters.add(Symbol.addNew("#" + index, type, 0, false));
     }
 

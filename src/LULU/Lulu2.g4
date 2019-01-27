@@ -7,12 +7,8 @@ grammar Lulu2;
 {
     enum TypeEnum
     {
-        Int, Bool, Float, string, nullable
+        Int, Bool, Float, string, nullable, Array, ArraySignature, function
     }
-
-    private Type getTypeById(String id)
-    {
-
 }
 //----------------------------------------Lexer----------------------------------------\\
 //--------------------Comment--------------------\\
@@ -108,10 +104,7 @@ ftDcl : DECLARE OpenCurlyBrace (funcDcl | typeDcl | varDef)+ CloseCurlyBrace;
 funcDcl : (OpenPar args ClosePar ASSIGN)? ID OpenPar (args | argsVar)? ClosePar SEMICOLON;
 typeBrace : type (OpenBrace CloseBrace)*;
 args : typeBrace (COMMA typeBrace)*; //Why Not?
-//    : type(OpenBrace CloseBrace)*
-//    | args COMMA type (OpenBrace CloseBrace)*;
 argsVar : typeBrace ID (COMMA typeBrace ID)*;
-//    : type (OpenBrace CloseBrace)* ID | argsVar COMMA type (OpenBrace CloseBrace)* ID;
 typeDcl : ID SEMICOLON;
 varDef : CONST? type varVal (COMMA varVal)* SEMICOLON;
 varVal : ref (ASSIGN expr)?;
@@ -132,288 +125,318 @@ stmt
     | DESTRUCT (OpenBrace CloseBrace)* ID SEMICOLON    #DESTRUCTAlt
     ;
 assign : (var | OpenPar var (COMMA var)* ClosePar) ASSIGN expr;
-var : ((THIS | SUPER) DOT)? ref (DOT ref)*;
+var returns [Type varType] : ((THIS | SUPER) DOT)? ref (DOT ref)*;
 ref : ID (OpenBrace expr CloseBrace)*;
-expr  returns [TypeEnum t]
+expr  returns [Type t]
     : OpenPar expr ClosePar
     {
         $t = $expr.t;
     }
-                                                       #PAREXPRAlt
+                                                       //#PAREXPRAlt
     | unaryOp expr
     //TODO("This is not complete.")
     {
-        if($expr.t != TypeEnum.Int || $expr.t != TypeEnum.Bool) throw new CompileError("bad operand types for unary operator " + $unaryOp.text + " ");
-        else $t = TypeEnum.Int;
+        if($expr.t != Type.Int() || $expr.t != Type.Bool()) throw new CompileError("bad operand types for unary operator " + $unaryOp.text + " ");
+        else $t = Type.Int();
     }
-                                                       #UNARYOPAlt
+                                                       //#UNARYOPAlt
     | a=expr firstLevelBinaryArithmeticOp b=expr
     {
+        if(!($a.t instanceof Type.PrimitiveType) || !($b.t instanceof Type.PrimitiveType)) throw new CompileError("bad operand types for binary operator " + $firstLevelBinaryArithmeticOp.text + " ");
         if($a.t == $b.t) $t = $a.t;
         else
-            switch($a.t)
+            switch($a.t.getTypeEnum())
             {
                 case Int:
-                    switch($b.t)
+                    switch($b.t.getTypeEnum())
                     {
-                        case Float: $t = TypeEnum.Float;
+                        case Float: $t = Type.Float();
                             break;
-                        case Bool: $t = TypeEnum.Int;
+                        case Bool: $t = Type.Int();
                             break;
-                        case string: $t = TypeEnum.string;
+                        case string: $t = Type.String();
                             break;
                         default: throw new CompileError("bad operand types for binary operator " + $firstLevelBinaryArithmeticOp.text + " ");
                     }
                     break;
                 case Float:
-                    switch($b.t)
+                    switch($b.t.getTypeEnum())
                     {
-                        case Bool: $t = TypeEnum.Float;
+                        case Bool: $t = Type.Float();
                             break;
-                        case Int: $t = TypeEnum.Float;
+                        case Int: $t = Type.Float();
                             break;
                         default: throw new CompileError("bad operand types for binary operator " + $firstLevelBinaryArithmeticOp.text + " ");
                     }
                     break;
                 case Bool:
-                    switch($b.t)
+                    switch($b.t.getTypeEnum())
                     {
-                        case Float: $t = TypeEnum.Float;
+                        case Float: $t = Type.Float();
                             break;
-                        case Int: $t = TypeEnum.Int;
+                        case Int: $t = Type.Int();
                             break;
-                        case string: $t = TypeEnum.string;
+                        case string: $t = Type.String();
                             break;
                         default: throw new CompileError("bad operand types for binary operator " + $firstLevelBinaryArithmeticOp.text + " ");
                     }
                     break;
                 case string:
-                    switch($b.t)
+                    switch($b.t.getTypeEnum())
                     {
-                        case Bool: $t = TypeEnum.string;
+                        case Bool: $t = Type.String();
                             break;
-                        case Int :$t = TypeEnum.string;
+                        case Int :$t = Type.String();
                             break;
                         default: throw new CompileError("bad operand types for binary operator " + $firstLevelBinaryArithmeticOp.text + " ");
                     }
                     break;
             }
     }
-                                                       #MULDIVAlt
+                                                       //#MULDIVAlt
     | a=expr secondLevelBinaryArithmeticOp b=expr
     {
+        if(!($a.t instanceof Type.PrimitiveType) || !($b.t instanceof Type.PrimitiveType)) throw new CompileError("bad operand types for binary operator " + $secondLevelBinaryArithmeticOp.text + " ");
         if($a.t == $b.t) $t = $a.t;
         else
-            switch($a.t)
+            switch($a.t.getTypeEnum())
             {
                 case Int:
-                    switch($b.t)
+                    switch($b.t.getTypeEnum())
                     {
-                        case Float: $t = TypeEnum.Float;
+                        case Float: $t = Type.Float();
                             break;
-                        case Bool: $t = TypeEnum.Int;
+                        case Bool: $t = Type.Int();
                             break;
-                        case string: $t = TypeEnum.string;
+                        case string: $t = Type.String();
                             break;
                         default: throw new CompileError("bad operand types for binary operator " + $secondLevelBinaryArithmeticOp.text + " ");
                     }
                     break;
                 case Float:
-                    switch($b.t)
+                    switch($b.t.getTypeEnum())
                     {
-                        case Bool: $t = TypeEnum.Float;
+                        case Bool: $t = Type.Float();
                             break;
-                        case Int: $t = TypeEnum.Float;
+                        case Int: $t = Type.Float();
                             break;
                         default: throw new CompileError("bad operand types for binary operator " + $secondLevelBinaryArithmeticOp.text + " ");
                     }
                     break;
                 case Bool:
-                    switch($b.t)
+                    switch($b.t.getTypeEnum())
                     {
-                       case Float: $t = TypeEnum.Float;
+                       case Float: $t = Type.Float();
                            break;
-                       case Int: $t = TypeEnum.Int;
+                       case Int: $t = Type.Int();
                            break;
-                       case string: $t = TypeEnum.string;
+                       case string: $t = Type.String();
                            break;
                        default: throw new CompileError("bad operand types for binary operator " + $secondLevelBinaryArithmeticOp.text + " ");
                     }
                     break;
                 case string:
-                    switch($b.t)
+                    switch($b.t.getTypeEnum())
                     {
-                        case Bool: $t = TypeEnum.string;
+                        case Bool: $t = Type.String();
                             break;
-                        case Int :$t = TypeEnum.string;
+                        case Int :$t = Type.String();
                             break;
                        default: throw new CompileError("bad operand types for binary operator " + $secondLevelBinaryArithmeticOp.text + " ");
                     }
             }
     }
-                                                       #ADDSUBAlt
+                                                       //#ADDSUBAlt
     | a=expr firstLevelBinaryRelationalOp b=expr
     {
-        if($a.t == $b.t) $t = TypeEnum.Bool;
+        if(!($a.t instanceof Type.PrimitiveType) || !($b.t instanceof Type.PrimitiveType)) throw new CompileError("bad operand types for binary operator " + $firstLevelBinaryRelationalOp.text + " ");
+        if($a.t == $b.t) $t = Type.Bool();
         else
-            switch($a.t)
+            switch($a.t.getTypeEnum())
             {
                 case Int:
-                    switch($b.t)
+                    switch($b.t.getTypeEnum())
                     {
-                        case Float: $t = TypeEnum.Bool;
+                        case Float: $t = Type.Bool();
                             break;
-                        case Bool: $t = TypeEnum.Bool;
+                        case Bool: $t = Type.Bool();
                             break;
-                        case string: $t = TypeEnum.Bool;
+                        case string: $t = Type.Bool();
                             break;
                         default: throw new CompileError("bad operand types for binary operator " + $firstLevelBinaryRelationalOp.text + " ");
                     }
                     break;
                 case Float:
-                    switch($b.t)
+                    switch($b.t.getTypeEnum())
                     {
-                        case Bool: $t = TypeEnum.Bool;
+                        case Bool: $t = Type.Bool();
                             break;
-                        case Int: $t = TypeEnum.Bool;
+                        case Int: $t = Type.Bool();
                             break;
                         default: throw new CompileError("bad operand types for binary operator " + $firstLevelBinaryRelationalOp.text + " ");
                     }
                     break;
                 case Bool:
-                    switch($b.t)
+                    switch($b.t.getTypeEnum())
                     {
-                        case Float: $t = TypeEnum.Bool;
+                        case Float: $t = Type.Bool();
                             break;
-                        case Int: $t = TypeEnum.Bool;
+                        case Int: $t = Type.Bool();
                             break;
-                        case string: $t = TypeEnum.Bool;
+                        case string: $t = Type.Bool();
                             break;
                         default: throw new CompileError("bad operand types for binary operator " + $firstLevelBinaryRelationalOp.text + " ");
                     }
                     break;
                 case string:
-                    switch($b.t)
+                    switch($b.t.getTypeEnum())
                     {
-                        case Bool: $t = TypeEnum.Bool;
+                        case Bool: $t = Type.Bool();
                             break;
-                        case Int :$t = TypeEnum.Bool;
+                        case Int :$t = Type.Bool();
                             break;
                         default: throw new CompileError("bad operand types for binary operator " + $firstLevelBinaryRelationalOp.text + " ");
                     }
                     break;
             }
     }
-                                                       #COMPAREAlt
+                                                       //#COMPAREAlt
     | a=expr secondLevelBinaryRelationalOp b=expr
     {
-        if($a.t == $b.t) $t = TypeEnum.Bool;
+        if(!($a.t instanceof Type.PrimitiveType) || !($b.t instanceof Type.PrimitiveType)) throw new CompileError("bad operand types for binary operator " + $secondLevelBinaryRelationalOp.text + " ");
+        if($a.t == $b.t) $t = Type.Bool();
         else
-            switch($a.t)
+            switch($a.t.getTypeEnum())
             {
                 case Int:
-                    switch($b.t)
+                    switch($b.t.getTypeEnum())
                     {
-                        case Float: $t = TypeEnum.Bool;
+                        case Float: $t = Type.Bool();
                             break;
-                        case Bool: $t = TypeEnum.Bool;
+                        case Bool: $t = Type.Bool();
                             break;
-                        case string: $t = TypeEnum.Bool;
+                        case string: $t = Type.Bool();
                             break;
                         default: throw new CompileError("bad operand types for binary operator " + $secondLevelBinaryRelationalOp.text + " ");
                       }
                     break;
                 case Float:
-                    switch($b.t)
+                    switch($b.t.getTypeEnum())
                     {
-                        case Bool: $t = TypeEnum.Bool;
+                        case Bool: $t = Type.Bool();
                             break;
-                        case Int: $t = TypeEnum.Bool;
+                        case Int: $t = Type.Bool();
                             break;
                         default: throw new CompileError("bad operand types for binary operator " + $secondLevelBinaryRelationalOp.text + " ");
                     }
                     break;
                 case Bool:
-                    switch($b.t)
+                    switch($b.t.getTypeEnum())
                     {
-                        case Float: $t = TypeEnum.Bool;
+                        case Float: $t = Type.Bool();
                             break;
-                        case Int: $t = TypeEnum.Bool;
+                        case Int: $t = Type.Bool();
                             break;
-                        case string: $t = TypeEnum.Bool;
+                        case string: $t = Type.Bool();
                             break;
                         default: throw new CompileError("bad operand types for binary operator " + $secondLevelBinaryRelationalOp.text + " ");
                     }
                     break;
                 case string:
-                    switch($b.t)
+                    switch($b.t.getTypeEnum())
                     {
-                        case Bool: $t = TypeEnum.Bool;
+                        case Bool: $t = Type.Bool();
                             break;
-                        case Int :$t = TypeEnum.Bool;
+                        case Int :$t = Type.Bool();
                             break;
                         default: throw new CompileError("bad operand types for binary operator " + $secondLevelBinaryRelationalOp.text + " ");
                     }
                     break;
             }
     }
-                                                       #EQUALITYAlt
+                                                       //#EQUALITYAlt
     | a=expr BitwiseAnd b=expr
     {
-        if(($a.t==TypeEnum.Int || $a.t==TypeEnum.Bool) && ($b.t==TypeEnum.Int || $b.t==TypeEnum.Bool)) $t = TypeEnum.Int;
+        if(($a.t==Type.Int() || $a.t==Type.Bool()) && ($b.t==Type.Int() || $b.t==Type.Bool())) $t = Type.Int();
         else throw new CompileError("bad operand types for binary operator " + $BitwiseAnd.text + " ");
     }
-                                                       #BITWISEANDAlt
+                                                       //#BITWISEANDAlt
     | a=expr BitwiseLogicalXor b=expr
-    //TODO("Ask professor")
     {
-        if(($a.t==TypeEnum.Int || $a.t==TypeEnum.Bool) && ($b.t==TypeEnum.Int || $b.t==TypeEnum.Bool)) $t = TypeEnum.Int;
+        if(($a.t==Type.Int() || $a.t==Type.Bool()) && ($b.t==Type.Int() || $b.t==Type.Bool())) $t = Type.Int();
         else throw new CompileError("bad operand types for binary operator " + $BitwiseLogicalXor.text + " ");
     }
-                                                       #BITWISELOGICALXORAlt
+                                                       //#BITWISELOGICALXORAlt
     | a=expr BitwiseOr b=expr
     {
-        if(($a.t==TypeEnum.Int || $a.t==TypeEnum.Bool) && ($b.t==TypeEnum.Int || $b.t==TypeEnum.Bool)) $t = TypeEnum.Int;
+        if(($a.t==Type.Int() || $a.t==Type.Bool()) && ($b.t==Type.Int() || $b.t==Type.Bool())) $t = Type.Int();
         else throw new CompileError("bad operand types for binary operator " + $BitwiseOr.text + " ");
     }
-                                                       #BITWISEORAlt
+                                                       //#BITWISEORAlt
     | a=expr LogicalAnd b=expr
     {
-        if(($a.t==TypeEnum.Int || $a.t==TypeEnum.Bool) && ($b.t==TypeEnum.Int || $b.t==TypeEnum.Bool)) $t = TypeEnum.Bool;
+        if(($a.t==Type.Int() || $a.t==Type.Bool()) && ($b.t==Type.Int() || $b.t==Type.Bool())) $t = Type.Bool();
         else throw new CompileError("bad operand types for binary operator " + $LogicalAnd.text + " ");
     }
-                                                       #LOGICALANDAlt
+                                                       //#LOGICALANDAlt
     | a=expr LogicalOr b=expr
     {
-        if(($a.t==TypeEnum.Int || $a.t==TypeEnum.Bool) && ($b.t==TypeEnum.Int || $b.t==TypeEnum.Bool)) $t = TypeEnum.Bool;
+        if(($a.t==Type.Int() || $a.t==Type.Bool()) && ($b.t==Type.Int() || $b.t==Type.Bool())) $t = Type.Bool();
         else throw new CompileError("bad operand types for binary operator " + $LogicalOr.text + " ");
     }
-                                                       #LOGICALORAlt
+                                                       //#LOGICALORAlt
     | constVal
     {
         $t = $constVal.t;
     }
-                                                       #CONSTVALAlt
+                                                       //#CONSTVALAlt
     | ALLOCATE handleCall
     {
-        $t = TypeEnum.nullable;
+        var text = $handleCall.text;
+        var id = text.split("[(]")[0];
+        var type = LuluListener.getType(id);
+        if(type == null) throw new CompileError("type not defined");
+        $t = type;
     }
-                                                       #ALLOCATIONAlt
+                                                       //#ALLOCATIONAlt
     | funcCall
     {
-        $t = TypeEnum.nullable;
+        $t = null;
     }
-                                                       #FUNCCALLAlt
-    | var                                              #VARAlt
-    | list                                             #LISTAlt
-    | NIL                                              #NILAlt
+                                                       //#FUNCCALLAlt
+    | var
+    {
+        $t = $var.varType;
+    }
+                                                       //#VARAlt
+    | list
+    {
+        $t = $list.listType;
+    }
+                                                       //#LISTAlt
+    | NIL
+    {
+        $t = null;
+    }
+                                                       //#NILAlt
     ;
 funcCall
     : (var DOT)? handleCall                            #METHODCALLAlt
     | READ OpenPar var ClosePar                        #READAlt
     | WRITE OpenPar var ClosePar                       #WRITEAlt
     ;
-list : OpenBrace (expr | list) (COMMA (expr | list))* CloseBrace;
+list returns [Type listType]
+    : OpenBrace a=expr (COMMA b+=expr)* CloseBrace
+    {
+        var type = $a.t;
+        if(!$b.stream().map(t -> t.t).allMatch(t -> type == t))
+        {
+            LuluListener.currentNode.throwError(new CompileError("incompatible types"));
+        }
+        else
+            $listType = new Array($a.t, $b.size() + 1);
+    }
+    ;
 handleCall : ID OpenPar params? ClosePar;
 params : expr | expr COMMA params;
 condStmt
@@ -428,11 +451,11 @@ loopStmt
     | WHILE expr block                                 #WHILEAlt
     ;
 type : INT | BOOL | FLOAT | STRING | ID;
-constVal returns [TypeEnum t]
-    : IntLiteral {$t = TypeEnum.Int;}
-    | FloatLiteral {$t = TypeEnum.Float;}
-    | BoolLiteral {$t = TypeEnum.Bool;}
-    | StringLiteral {$t = TypeEnum.string;}
+constVal returns [Type t]
+    : IntLiteral {$t = Type.Int();}
+    | FloatLiteral {$t = Type.Float();}
+    | BoolLiteral {$t = Type.Bool();}
+    | StringLiteral {$t = Type.String();}
     ;
 unaryOp : SUBTRACTION | LogicalNot | BitwiseNegation; //TODO("if two rules have equal precedence, then prefering one two others is wrong or not?")
 firstLevelBinaryArithmeticOp : MULTIPLICATION | DIVISION | MODULUS;
